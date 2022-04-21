@@ -19,16 +19,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
-<url>
-    <loc>https://jasperdelandsheere.github.io/menu3/index.html</loc>
-    <lastmod>2022-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://jasperdelandsheere.github.io/menu2/index.html</loc>
-    <lastmod>2022-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
 </urlset>
