@@ -6,11 +6,11 @@ rss = "A short description of the page which would serve as **blurb** in a `RSS`
 +++
 @def tags = ["syntax", "code"]
 
-# Working with Julia
+# Kernel Mean Embedding
 
 \toc
 
-## Live evaluation of code blocks
+## Toy example 1: Inference
 
 If you would like to show code as well as what the code outputs, you only need to specify where the script corresponding to the code block will be saved.
 
