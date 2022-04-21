@@ -1,7 +1,7 @@
-@def title = "Franklin Example"
+@def title = "Jasper De Landsheere"
 @def tags = ["syntax", "code"]
 
-# Hallooooooooo
+# Jasper De Landsheere
 
 \tableofcontents <!-- you can use \toc as well -->
 
