@@ -5,7 +5,7 @@
 
 \tableofcontents <!-- you can use \toc as well -->
 
-This section is meant as a refresher if you're new to Franklin.
+Nog eens iets testen.
 Have a look at both how the website renders and the corresponding markdown (`index.md`).
 Modify at will to get a feeling for how things work! Matis is slim!!!
 
