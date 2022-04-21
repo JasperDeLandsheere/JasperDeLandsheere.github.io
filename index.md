@@ -3,8 +3,6 @@
 
 # Jasper De Landsheere
 
-\tableofcontents <!-- you can use \toc as well -->
-
 **HALLO** and _emph_ and [een link je maken](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 
