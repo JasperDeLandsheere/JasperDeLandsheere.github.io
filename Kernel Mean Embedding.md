@@ -51,7 +51,7 @@ As seen above in the example, to evaluate equation 2 we need to work in 2 steps:
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
-Now let's discuss an important requirement needed in order for the kernel trick to do its magic: $k$ has to be positive definite. What does this mean? First we have to define the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j}), the collection of all pairwise inner products within the set of data vectors $x$. 
+Now let's discuss an important requirement needed in order for the kernel trick to do its magic: $k$ has to be positive definite. What does this mean? First we have to define the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j})$, the collection of all pairwise inner products within the set of data vectors $x$. 
 
 
 ## Kernel Mean Embedding of Marginal Distributions
