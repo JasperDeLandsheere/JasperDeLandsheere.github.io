@@ -14,15 +14,14 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ## Kernel Methods
 
-Consider some linearly separatable data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a similarity measure between the elements of $\mathcal X$.
+Consider some linearly separatable data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
 
-$k:\mathcal X\times\mathcal X \to \R$ as $k(x, x'):=\scal{k_{x}, k_{x'}}{\mathcal H}$. This is known as the reproducing kernel of $\mathcal H$; we will also write $k{x} = k(\cdot, x)$
-
-Let's consider this arbitrary classification problem.
+Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
 ![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
-Here come the kernel methods into play.  
+Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure to a non-linear one. Consider the non-linear transformation:
+
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
