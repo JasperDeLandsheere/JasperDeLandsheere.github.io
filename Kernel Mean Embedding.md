@@ -2,13 +2,17 @@
 title = "Kernel Mean Embedding"
 hascode = true
 date = Date(2022, 04, 21)
-rss = "A short description of the page which would serve as **blurb** in a `RSS` feed; you can use basic markdown here but the whole description string must be a single line (not a multiline string). Like this one for instance. Keep in mind that styling is minimal in RSS so for instance don't expect maths or fancy styling to work; images should be ok though: ![](https://upload.wikimedia.org/wikipedia/en/3/32/Rick_and_Morty_opening_credits.jpeg)"
+rss = "In this post, we show how Kernel Mean Embedding works through some toy examples."
 +++
 @def tags = ["syntax", "code"]
 
-# Kernel Mean Embedding
+# KERNEL MEAN EMBEDDING
+
+# 1. Introduction
 
 \toc
+# 2. Kernel methods
+
 
 ## Toy example 1: Inference
 ## Toy example 2: Kernel PCA
