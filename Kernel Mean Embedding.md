@@ -7,11 +7,11 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 @def tags = ["syntax", "code"]
 
 # KERNEL MEAN EMBEDDING
+## 1. Introduction
 
-# 1. Introduction
-
+### Table of Contents
 \toc
-# 2. Kernel methods
+## 2. Kernel methods
 
 
 ## Toy example 1: Inference
