@@ -7,14 +7,22 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 @def tags = ["syntax", "code"]
 
 # KERNEL MEAN EMBEDDING
-## 1. Introduction
+Introduction
 
-### Table of Contents
+## Table of Contents
 \toc
-## 2. Kernel methods
 
+## Kernel methods
+learning w/ kernels, RKHS
 
-## Toy example 1: Inference
-## Toy example 2: Kernel PCA
-## Toy example 1: Regression
+## Kernel Mean Embedding of Marginal Distributions
+
+### Toy example 1: Inference
+
+## Kernel Mean Embedding of Conditional Distributions
+
+### Toy example 1: Regression
+
+### Toy example 2: Kernel PCA
+
 
