@@ -32,7 +32,7 @@ $$
 k(x,x') = \scal{\phi(x), \phi(x)'}_{\mathcal{F}},
 $$
 
-where $scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$.
+where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$.
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
