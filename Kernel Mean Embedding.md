@@ -14,7 +14,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ## Kernel Methods
 
-Consider some linearly separatable data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
+Consider some data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
@@ -34,7 +34,7 @@ $$
 
 where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$. The above mentioned algorithms can then be used in this new space, by swapping out $\scal{x, x'}$ with $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. So, the algorithm itself does not change, rather the space in which it operates! 
 
-To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2, {x_{2}}^2,\sqrt{2}x_{1}x_{2})$
+To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. 
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
