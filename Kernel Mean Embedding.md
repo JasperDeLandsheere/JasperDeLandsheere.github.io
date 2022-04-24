@@ -14,7 +14,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ## Kernel Methods
 
-Consider that data $x,x'$ 
+Consider that data $k:\mathcal X\times\mathcal X \to \R$ as $k(x, x'):=\scal{k_{x}, k_{x'}}{\mathcal H}$. This is known as the reproducing kernel of $\mathcal H$; we will also write $k{x} = k(\cdot, x)$
 
 Let's consider this arbitrary classification problem.
 
