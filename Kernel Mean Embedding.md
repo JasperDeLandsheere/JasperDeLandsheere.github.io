@@ -20,8 +20,12 @@ Let's consider this arbitrary classification problem, in which two data circles 
 
 ![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
-Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure to a non-linear one. Consider the non-linear transformation:
+Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure with a non-linear one. Consider the non-linear transformation:
 
+$$
+\phi:\mathcal X\to \mathcal F
+x \mapsto \phi (x)
+$$
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
