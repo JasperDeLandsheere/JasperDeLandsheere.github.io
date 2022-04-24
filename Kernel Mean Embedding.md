@@ -29,10 +29,12 @@ $$
 
 from $\mathcal X$ to the high-dimensional feature space $\mathcal F$. In this new feature space the inner product can be evaluated:
 $$
-k(x,x') = \scal{\phi(x), \phi(x)'}_{\mathcal{F}},
+k(x,x') = \scal{\phi(x), \phi(x')}_{\mathcal{F}},
 $$
 
-where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$.
+where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$. The above mentioned algorithms can then be used in this new space, by swapping out $\scal{x, x'}$ with $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. So, the algorithm itself does not change, rather the space in which it operates! 
+
+To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2, {x_{2}}^2,\sqrt{2}x_{1}x_{2})$
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
