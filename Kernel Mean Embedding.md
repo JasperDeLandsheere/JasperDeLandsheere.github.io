@@ -53,6 +53,10 @@ As seen above in the example, to evaluate equation 2 we need to work in 2 steps:
 
 Now let's discuss an important requirement needed in order for the kernel trick to do its magic: $k$ has to be positive definite. What does this mean? First we have to define the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j})$, the collection of all pairwise inner products within the set of data vectors $x$. 
 
+A symmetric function $k$ is positive definite on $\mathcal X$ if the Gram matrix is positive definite, that is,
+$$
+\sum{i=1}^n\sum{j=1}^j c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
+$$
 
 ## Kernel Mean Embedding of Marginal Distributions
 
