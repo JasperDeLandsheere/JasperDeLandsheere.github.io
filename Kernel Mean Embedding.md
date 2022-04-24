@@ -14,7 +14,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ## Kernel Methods
 
-Consider some linearly separatable data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X, with \mathcal X a non empty set, through their inner product \scal{x, x'}.
+Consider some linearly separatable data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X, with \mathcal X a non empty set, through their inner product \scal{x, x'}.$
 
 $k:\mathcal X\times\mathcal X \to \R$ as $k(x, x'):=\scal{k_{x}, k_{x'}}{\mathcal H}$. This is known as the reproducing kernel of $\mathcal H$; we will also write $k{x} = k(\cdot, x)$
 
