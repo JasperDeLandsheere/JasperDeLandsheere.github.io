@@ -23,9 +23,7 @@ Let's consider this arbitrary classification problem, in which two data circles 
 Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure with a non-linear one. Consider the non-linear transformation:
 
 $$
-\phi:\mathcal X\to \mathcal F
-$$*
-$$
+\phi:\mathcal X\to \mathcal F \\
 x \mapsto \phi (x)
 $$
 
