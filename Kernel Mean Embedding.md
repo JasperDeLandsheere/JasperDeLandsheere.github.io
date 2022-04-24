@@ -24,6 +24,8 @@ Here the kernel methods come into play! Kernel methods replace the inner product
 
 $$
 \phi:\mathcal X\to \mathcal F
+$$*
+$$
 x \mapsto \phi (x)
 $$
 
