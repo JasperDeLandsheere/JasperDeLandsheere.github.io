@@ -58,6 +58,7 @@ $$
 \sum{i=1}^n\sum{j=1}^j c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
 $$
 
+
 ## Kernel Mean Embedding of Marginal Distributions
 
 MMD, universal/characteristic kernel, recovering information
