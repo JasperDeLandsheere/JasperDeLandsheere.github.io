@@ -7,15 +7,15 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 @def tags = ["syntax", "code"]
 
 # KERNEL MEAN EMBEDDING
-Introduction
+Welcome to my first ever blog post! No better way to start off with an attempt to explain Kernel Mean Embedding (KME). This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will hopefully become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! Finally, the Pluto notebooks can be found on my github and my sources are referenced at the bottom of this page. 
 
-## Table of Contents
 \toc
 
-## Kernel methods
-learning w/ kernels, RKHS
+## Kernel Methods
+kernel trick, RKHS, ...
 
 ## Kernel Mean Embedding of Marginal Distributions
+MMD, universal/characteristic kernel, recovering information
 
 ### Toy example 1: Inference
 
@@ -25,4 +25,4 @@ learning w/ kernels, RKHS
 
 ### Toy example 2: Kernel PCA
 
-
+## References
