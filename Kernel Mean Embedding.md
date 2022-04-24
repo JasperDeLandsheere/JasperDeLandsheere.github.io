@@ -34,7 +34,7 @@ $$
 
 where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$. The above mentioned algorithms can then be used in this new space, by swapping out $\scal{x, x'}$ with $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. So, the algorithm itself does not change, rather the space in which it operates! 
 
-To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. In this new higher dimensional feature spsace we can find a linear model that defines a decision function which separates the two circles easily. We can calculate the kernel function, for this example:
+To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. In this new higher dimensional feature space we can find a linear model that defines a decision function which separates the two circles easily. We can calculate the kernel function, for this example:
 
 $$
 \scal{\phi(x), \phi(x')}_{\mathbb{R_{3}}} = {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2\\
@@ -46,7 +46,7 @@ So the core idea of kernel methods is taking data which lives in an input space 
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
-tmlkjfmdsljfqmldsjfmlqsjfdmlqskjdfmlsqkdjfjdsq
+Generally, to evaluate equation 2 we need to work in 2 steps: explicitly constructing the feature maps $\phi(x)$ and then evaluating the inner product $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. This can become a problem when $\phi(x)$ defines a transformation to a high-dimensional featue space. **The kernel trick** offers a solution to this by evaluating $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without explicitly constructing the feature maps.
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
