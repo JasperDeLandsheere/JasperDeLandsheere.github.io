@@ -13,13 +13,11 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 \toc
 
 ## Kernel Methods
-![Data in Input Space](/_assets/Data%20in%20Input%20Space.png "Data in Input Space") ![Data in Feature Space](/_assets/Data%20in%20Feature%20Space.png "Data in Feature Space")
+![Data in Input Space](C:/Users/jaspe/Jasper De Landsheere/_assets/Data in Feature Space.png "Data in Input Space") ![Data in Feature Space](/_assets/Data%20in%20Feature%20Space.png "Data in Feature Space")
 
-\fig{Data in Input Space}
 
 kernel trick, RKHS, ...
 
-![Dat](/_assets/rndimg.jpg "Dat")
 
 ## Kernel Mean Embedding of Marginal Distributions
 
