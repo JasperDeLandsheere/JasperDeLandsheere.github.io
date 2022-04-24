@@ -29,6 +29,11 @@ $$
 x \mapsto \phi (x)
 $$
 
+from $\mathcal X$ to the high-dimensional feature space $\mathcal F$. In this new feature space the inner product can be evaluated:
+$$
+k(x,x') = \scal{\phi(x), \phi(x)'} \mathcal{F},
+$$
+
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
 
