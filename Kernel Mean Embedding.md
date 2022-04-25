@@ -68,7 +68,7 @@ $$
     k:\mathcal X \to \mathcal H \subset {\mathbb R}^{\mathcal X}\\
     x \mapsto k(x,\cdot)
 $$
-Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal$ to $\mathbb R$. 
+Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal X$ to $\mathbb R$, we call $k$ the canonical feature map.
 
 Second, a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,x) \in \mathcal H$ for all $x \in \mathcal X$ and the reproducing property
 $$
