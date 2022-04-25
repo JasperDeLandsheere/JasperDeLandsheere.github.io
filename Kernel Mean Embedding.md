@@ -114,7 +114,13 @@ $$
 
 with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all input is the same, and for the latter that all input is completely unique. This RBF kernel is a stationary kernel, which means that it can be described as a function of the difference of its inputs. The RBF kernel is also a universal kernel which means it can represent any smooth function with a high degree of accuracy , assuming chosen the right bandwith parameter. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal.
 
-MMD, universal/characteristic kernel, recovering information
+In practive however the access to the true distribution of $\mathbb P$ is often lacking, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. We can estimate $µ_{\mathbb P}$ by
+
+$$
+    µ_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
+$$
+
+MMD,, recovering information
 
 ### Toy example 1: Inference
 
