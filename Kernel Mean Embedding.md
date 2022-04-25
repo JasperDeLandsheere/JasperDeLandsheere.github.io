@@ -95,14 +95,15 @@ Visual representation of this mean embedding:
 Now how much information can this mean representation capture about the distribution $\mathbb P$? This depends on the used kernel! This can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. 
 
 - $k(x,x')=\scal{x,x'}$ : the first moment of $\mathbb P$
-- $k(x,x')=(\scal{x,x'}+1)^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
+- $k(x,x')={(\scal{x,x'}+1)}^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
 - $k(x,x')$ is universal/characteristic: all information of $\mathbb P$
 
 A kernel $k$ is characteristic if the map
 $$
 \mathbb P \mapsto µ_{\mathbb P}
 $$
-is injective, i.e., $\|µ_{\mathbb P} - µ_{\mathbb Q} \|_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$
+is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$
+
 MMD, universal/characteristic kernel, recovering information
 
 ### Toy example 1: Inference
