@@ -128,6 +128,20 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 using Plots, KernelFunctions, LinearAlgebra, StatsBase, Distributions
 using Random:seed!
 ```
+```julia:./code/inference/noisy
+function noisy_circle(n, R, noise)
+    t = 2π * rand(n)
+	X = R .* [cos.(t) sin.(t)] .+ noise .* randn(n, 2)
+    return X
+```
+```julia:./code/inference/plotnoisy
+	seed!(78)
+	X = noisy_circle(100, 20, 1)
+	scatter(X[:,1], X[:,2])
+    savefig(joinpath(@OUTPUT, "fignoisy.svg")) # hide
+```
+
+\fig{fignoisy}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
