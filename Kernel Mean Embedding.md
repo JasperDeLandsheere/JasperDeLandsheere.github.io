@@ -141,7 +141,7 @@ function noisy_circle(n, R, noise)
 	scatter(X[:,1], X[:,2])
     savefig(joinpath(@OUTPUT, "noisyfig.svg"))
 ```
-\fig{noisyfig}
+\show{plotnoisy}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
