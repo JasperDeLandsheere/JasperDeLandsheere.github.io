@@ -106,7 +106,11 @@ $$
 
 is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$. This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems (each element in the feature space corresponds to one unique distribution in the original space)!
 
-An example of a characteristic kernel, **also the kernel used in all toy examples**, is the Gaussian kernel or RBF kernel.
+An example of a characteristic kernel, **also the kernel used in all toy examples**, is the Gaussian kernel, which is part of the class of kernels called radial basis functions (RBFs):
+
+$$
+    k^{RBF}(x,x') = exp(-\frac{\|x-x'\|^{2}}{2{\sigma}^{2}})
+$$
 
 
 MMD, universal/characteristic kernel, recovering information
