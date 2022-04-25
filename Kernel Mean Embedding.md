@@ -74,12 +74,16 @@ Second, a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a 
 $$
     f(x) = \scal{f,k(\cdot,x)}_{\mathcal H}
 $$
-holds for all $f \in \mathcal H$ and all $x \in \mathcal X$.
+holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. Important for us: $k(x,x')=\scal{k(x,\cdot),k(x',\cdot)}_{\mathcal H}$.
 
 Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
 
 ## Kernel Mean Embedding of Marginal Distributions
+
+So how can we extend this mapping to marginal distributions? We simply take the mapping $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since
+
+![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
 MMD, universal/characteristic kernel, recovering information
 
