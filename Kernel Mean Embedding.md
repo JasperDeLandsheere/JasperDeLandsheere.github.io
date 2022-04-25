@@ -45,7 +45,7 @@ So our new similarity measure is the square of the inner product in $\mathcal X$
 
 So the core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where linear models can be used.
 
-
+![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
 As seen above in the example, to evaluate equation 2 we need to work in 2 steps: explicitly constructing the feature maps $\phi(x)$ and then evaluating the inner product $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. This can become a problem when $\phi(x)$ defines a transformation to a high-dimensional featue space. **The kernel trick** offers a solution to this by evaluating $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without explicitly constructing the feature maps. For the example: we can just consider $k(x,x') = {\scal{x, x'}}^2$. Illustration of the kernel trick:
 
