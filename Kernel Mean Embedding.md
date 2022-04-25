@@ -92,7 +92,10 @@ Visual representation of this mean embedding:
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
-
+Now how much information can this mean representation capture about the distribution $\mathbb P$? This depends on the used kernel! This can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. 
+- $k(x,x')=\scal{x,x'}$ : the first moment of $\mathbb P$
+- $k(x,x')=(\scal{x,x'}+1)^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
+- $k(x,x')$ is universal/characteristic: all information of $\mathbb P$s
 
 MMD, universal/characteristic kernel, recovering information
 
