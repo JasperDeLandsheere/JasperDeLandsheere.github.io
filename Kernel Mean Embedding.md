@@ -81,9 +81,18 @@ Aronszajn (1950): *“There is a one-to-one correspondance between the reproduci
 
 ## Kernel Mean Embedding of Marginal Distributions
 
-So how can we extend this mapping to marginal distributions? We simply take the mapping $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since
+So how can we extend this mapping to marginal distributions? We simply take the mapping $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
+
+$$
+µ: \mathcal P \to \mathcal H\\
+\mathbb P \mapsto \int k(\cdot,x)\, \mathrm{d\mathbb P}x
+$$
+
+Visual representation of this mean embedding:
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
+
+
 
 MMD, universal/characteristic kernel, recovering information
 
