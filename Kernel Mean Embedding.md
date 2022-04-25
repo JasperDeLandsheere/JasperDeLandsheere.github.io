@@ -18,7 +18,7 @@ Consider some data which can be evaluated by the classical machine learning algo
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
-![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
+
 
 Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure with a non-linear one. Consider the non-linear transformation:
 
@@ -45,11 +45,11 @@ So our new similarity measure is the square of the inner product in $\mathcal X$
 
 So the core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where linear models can be used.
 
-![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
+
 
 As seen above in the example, to evaluate equation 2 we need to work in 2 steps: explicitly constructing the feature maps $\phi(x)$ and then evaluating the inner product $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. This can become a problem when $\phi(x)$ defines a transformation to a high-dimensional featue space. **The kernel trick** offers a solution to this by evaluating $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without explicitly constructing the feature maps. For the example: we can just consider $k(x,x') = {\scal{x, x'}}^2$. Illustration of the kernel trick:
 
-![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
+
 
 Now let's discuss an important requirement needed in order for the kernel trick to do its magic: $k$ has to be positive definite. What does this mean? First we have to define the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j})$, the collection of all pairwise inner products within the set of data vectors $x$. 
 
@@ -90,7 +90,7 @@ $$
 
 Visual representation of this mean embedding:
 
-![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
+
 
 Now how much information can this mean representation capture about the distribution $\mathbb P$? This depends on the used kernel! This can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. 
 
