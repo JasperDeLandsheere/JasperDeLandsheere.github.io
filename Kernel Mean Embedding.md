@@ -88,7 +88,7 @@ $$
 \mathbb P \mapsto \int k(\cdot,x)\, \mathrm{d\mathbb P}x
 $$
 
-Visual representation of this mean embedding:
+Visual representation of this mean embedding test:
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
@@ -102,7 +102,8 @@ A kernel $k$ is characteristic if the map
 $$
 \mathbb P \mapsto µ_{\mathbb P}
 $$
-is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$
+is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$. This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems (each element in the feature space corresponds to one unique distribution in the original space)!
+
 
 MMD, universal/characteristic kernel, recovering information
 
