@@ -6,7 +6,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 +++
 @def tags = ["syntax", "code"]
 
-# KERNEL MEAN EMBEDDING
+# KERNEL MEAN EMBEDDING 
 
 *Welcome to my first-ever blog post! No better way to start off than with an attempt to explain Kernel Mean Embedding. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page.*
 
@@ -135,13 +135,13 @@ function noisy_circle(n, R, noise)
     return X
 ```
 ```julia:./code/inference/plotnoisy
+    using Plots
 	seed!(78)
 	X = noisy_circle(100, 20, 1)
-	fignoisy = scatter(X[:,1], X[:,2])
-    savefig(joinpath(@OUTPUT, "fignoisy.svg")) # hide
+	scatter(X[:,1], X[:,2])
+    savefig(joinpath(@OUTPUT, "noisyfig.svg"))
 ```
-
-\fig{fignoisy}
+\fig{noisyfig}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
