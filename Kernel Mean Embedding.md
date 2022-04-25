@@ -55,7 +55,7 @@ Now let's discuss an important requirement needed in order for the kernel trick 
 
 A symmetric function $k$ is positive definite on $\mathcal X$ if the Gram matrix is positive definite, that is,
 $$
-\displaystyle\sum{i=1}^{n}\displaystyle\sum{j=1}^{j} c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
+\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
 $$
 
 Equation 4 holds for any $n \in \mathbb N$, all finite sequences of points $x_{1},...,x_{n}$ in $\mathcal X$ and all choices of $n$ real-valued coefficients $c_{1},...,c_{n} \in \mathbb R$. It's the positive definiteness of the kernel function that guarantees the existence of a dot product space $\mathcal F$ and a feature map $\phi:\mathcal X\to \mathcal F$ such that $k(x,x') = \scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without the need for the explicit construction of $\phi$.
@@ -119,6 +119,8 @@ In practive however the access to the true distribution of $\mathbb P$ is often 
 $$
     \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
 $$
+
+with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add probability mass distribution thingy?**
 
 MMD,, recovering information
 
