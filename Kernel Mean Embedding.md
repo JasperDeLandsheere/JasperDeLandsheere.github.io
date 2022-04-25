@@ -112,6 +112,7 @@ $$
     k^{RBF}(x,x') = exp(-\frac{\|x-x'\|^{2}}{2{\sigma}^{2}})
 $$
 
+with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all input is the same, and for the latter that all input is completely unique. This RBF kernel is a stationary kernel, which means that it can be described as a function of the difference of its inputs. The RBF kernel is also a universal kernel which means it can represent any smooth function with a high degree of accuracy , assuming chosen the right bandwith parameter. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal.
 
 MMD, universal/characteristic kernel, recovering information
 
