@@ -60,7 +60,15 @@ $$
 
 Equation 4 holds for any $n \in \mathbb N$, all finite sequences of points $x_{1},...,x_{n}$ in $\mathcal X$ and all choices of $n$ real-valued coefficients $c_{1},...,c_{n} \in \mathbb R$. It's the positive definiteness of the kernel function that guarantees the existence of a dot product space $\mathcal F$ and a feature map $\phi:\mathcal X\to \mathcal F$ such that $k(x,x') = \scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without the need for the explicit construction of $\phi$.
 
-Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called an RKHS $\mathcal H$, which is why the p.d. kernel is also called a reproducing kernel. 
+Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a Reproducing Kernel Hilbert Space RKHS $\mathcal H$, which is why the p.d. kernel is also called a reproducing kernel. 
+
+Two important properties define an RKHS: (1) for any $x \in \mathcall X$, the function $k(x,\cdot):y\mapsto k(x,y)$ is an element of $\mathcall H$. So, when $k$ is used, the feature space $\mathcall F$ is the associated RKHS $\mathcall H$;
+$$
+    k:\mathcall X \to \mathcall H \subset {\mathbb R}^{\mathcall X}\\
+    x \maptso k(x,\cdot)
+$$
+Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
+
 
 ## Kernel Mean Embedding of Marginal Distributions
 
