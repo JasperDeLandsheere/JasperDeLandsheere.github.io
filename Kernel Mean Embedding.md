@@ -58,6 +58,7 @@ $$
 \sum{i=1}^n\sum{j=1}^j c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
 $$
 
+Equation 4 holds for any $n \in \mathbb N$, all finite sequences of points $x_{1},...,x_{n}$ in $\mathcal X$ and all choices of $n$ real-valued coefficients $c_{1},...,c_{n} \in \mathbb R$. 
 
 ## Kernel Mean Embedding of Marginal Distributions
 
