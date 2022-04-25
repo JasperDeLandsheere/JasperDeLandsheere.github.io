@@ -120,12 +120,14 @@ $$
     \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
 $$
 
-with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add probability mass distribution thingy?**
+with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add probability mass distribution thingy? It can be estimated consistently**
 
-MMD,, recovering information
+### Toy example 1: Inference (using Maximum mean discrepancy)
 
-### Toy example 1: Inference
-
+```julia
+a = 2
+@show a
+```
 
 ## Kernel Mean Embedding of Conditional Distributions
 
