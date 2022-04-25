@@ -96,7 +96,7 @@ Now how much information can this mean representation capture about the distribu
 
 - $k(x,x')=\scal{x,x'}$ : the first moment of $\mathbb P$
 - $k(x,x')=(\scal{x,x'}+1)^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
-- $k(x,x')$ is universal/characteristic: all information of $\mathbb P$s
+- $k(x,x')$ is universal/characteristic: all information of $\mathbb P$
 
 A kernel $k$ is characteristic if the map
 $$
