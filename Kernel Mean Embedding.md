@@ -18,7 +18,7 @@ Consider some data which can be evaluated by the classical machine learning algo
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
-
+![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
 Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure with a non-linear one. Consider the non-linear transformation:
 
