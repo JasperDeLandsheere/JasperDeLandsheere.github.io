@@ -65,8 +65,9 @@ Another important property of a positive definite kernel is that it induces a sp
 Two important properties define an RKHS: 1. for any $x \in \mathcal X$, the function $k(x,\cdot):y\mapsto k(x,y)$ is an element of $\mathcal H$. So, when $k$ is used, the feature space $\mathcal F$ is the associated RKHS $\mathcal H$;
 $$
     k:\mathcal X \to \mathcal H \subset {\mathbb R}^{\mathcal X}\\
-    x \maptso k(x,\cdot)
+    x \mapsto k(x,\cdot)
 $$
+Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal$ to $\mathbb R$.
 
 Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
