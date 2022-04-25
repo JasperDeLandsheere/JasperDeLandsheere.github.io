@@ -93,20 +93,6 @@ Visual representation of this mean embedding:
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
 
-
-A kernel $k$ is characteristic if the map
-
-$$
-\mathbb P \mapsto µ_{\mathbb P}
-$$
-
-is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$. This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems (each element in the feature space corresponds to one unique distribution in the original space)!
-
-An example of a characteristic kernel, **also the kernel used in all toy examples**, is the Gaussian kernel or RBF kernel.
-
-
-MMD, universal/characteristic kernel, recovering information
-
 ### Toy example 1: Inference
 
 
