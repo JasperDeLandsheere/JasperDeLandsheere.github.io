@@ -62,12 +62,19 @@ Equation 4 holds for any $n \in \mathbb N$, all finite sequences of points $x_{1
 
 Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a Reproducing Kernel Hilbert Space RKHS $\mathcal H$, which is why the p.d. kernel is also called a reproducing kernel. 
 
-Two important properties define an RKHS: 1. for any $x \in \mathcal X$, the function $k(x,\cdot):y\mapsto k(x,y)$ is an element of $\mathcal H$. So, when $k$ is used, the feature space $\mathcal F$ is the associated RKHS $\mathcal H$;
+Two important properties define an RKHS: 
+First, for any $x \in \mathcal X$, the function $k(x,\cdot):y\mapsto k(x,y)$ is an element of $\mathcal H$. So, when $k$ is used, the feature space $\mathcal F$ is the associated RKHS $\mathcal H$;
 $$
     k:\mathcal X \to \mathcal H \subset {\mathbb R}^{\mathcal X}\\
     x \mapsto k(x,\cdot)
 $$
-Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal$ to $\mathbb R$.
+Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal$ to $\mathbb R$. 
+
+Second, a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,x) \in \mathcal H$ for all $x \in \mathcal X$ and the reproducing property
+$$
+    f(x) = \scal{f,k(\cdot,x)}_{\mathcal H}
+$$
+holds for all $f \in \mathcal H$ and all $x \in \mathcal X$.
 
 Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
