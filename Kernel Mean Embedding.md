@@ -124,10 +124,12 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 
-```julia
-a = 2
-@show a
+```julia:./code/ex1
+x = 5
+println("hello")
+x^2
 ```
+\show{ex1}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
