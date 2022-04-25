@@ -117,7 +117,7 @@ with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel
 In practive however the access to the true distribution of $\mathbb P$ is often lacking, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. We can estimate $µ_{\mathbb P}$ by
 
 $$
-    µ_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
+    \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
 $$
 
 MMD,, recovering information
