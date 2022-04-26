@@ -177,6 +177,10 @@ Generating our model fit with the found radius which has the matching smallest M
 
 ## Kernel Mean Embedding of Conditional Distributions
 
+Just like we performed KME on marginal distributions, we can perform KME on conditional distributions, capturing even more complex data! 
+
+Let's say we have two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, with respective RKHSs $\mathcal H$ and $\mathcal G$.
+
 
 ### Toy example 1: Regression
 
