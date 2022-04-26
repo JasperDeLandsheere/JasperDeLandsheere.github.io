@@ -127,8 +127,22 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
 ```
-
-
+```julia
+	R2 = LinRange(15, 25, n)
+	mmds = Array{Float64}(undef, 0, 1)
+	K1 = kernelmatrix(k, RowVecs(X))
+	for i in 1:n
+		A = circle(100, R2[i])
+		K2 = kernelmatrix(k, RowVecs(A))
+		K3 = kernelmatrix(k, RowVecs(X), RowVecs(A))
+		mmd = mean(K1) - 2 * mean(K3) + mean(K2)
+		mmds = [mmds; mmd]
+```
+```julia
+    index = argmin(mmds)
+	minimum(mmds)
+    R2[index]
+```
 ![Input Data](/assets/Noisy%20Circle.png) 
 ![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
