@@ -148,7 +148,7 @@ end
 	scatter(X[:,1], X[:,2])
     savefig(joinpath(@OUTPUT, "noisyfig.svg"))
 ```
-\fig{noisyfig}
+\fig{"noisyfig.svg"}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
