@@ -129,7 +129,11 @@ $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
 $$
 
-This distance represents the distance between distributions in the input space! So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. 
+This distance represents the distance between distributions in the input space! So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. For the empirical MMD, given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$:
+
+$$
+    MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m-1}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
+$$
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
