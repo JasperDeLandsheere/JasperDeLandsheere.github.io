@@ -127,6 +127,11 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 ```julia:./code/inference/using
 import Pkg
 Pkg.add("Plots")
+Pkg.add("KernelFunctions")
+Pkg.add("LinearAlgebra")
+Pkg.add("StatsBase")
+Pkg.add("Distributions")
+Pkg.add("Random")
 using Plots, KernelFunctions, LinearAlgebra, StatsBase, Distributions
 using Random:seed!
 ```
