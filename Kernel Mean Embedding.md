@@ -179,9 +179,10 @@ Generating our model fit with the found radius which has the matching smallest M
 
 Just like we performed KME on marginal distributions, we can perform KME on conditional distributions, capturing even more complex data! 
 
-Let's say we have two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, with respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=x)$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \mathcal \in G$, they satisfy:
+Let's say we have two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, with respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=x)$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, they satisfy:
 $$
-    \mathcal U_{Y|x} = $\mathbb E_{Y|X}\[\phi(Y)|X=x\] = \mathcal U_{Y|X}k(x,\cdot)
+    \mathcal U_{Y|x} = \mathbb E_{Y|X}\[\phi(Y)|X=x\] = \mathcal U_{Y|X}k(x,\cdot)
+     \mathbb E_{Y|X}\[g(Y)|X=x\] = \scal{g,\mathcal U_{Y|x}}_{\mathcal G}, 
 $$
 
 
