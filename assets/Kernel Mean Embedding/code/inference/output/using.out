@@ -1,3 +1,0 @@
-ArgumentError: Package KernelFunctions not found in current path:
-- Run `import Pkg; Pkg.add("KernelFunctions")` to install the KernelFunctions package.
-
