@@ -123,6 +123,12 @@ $$
 with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add probability mass distribution thingy? It can be estimated consistently**
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
+Now, let's discuss the maximum mean discrepancy with the help of a toy example. First, what is the maximum mean discrepancy or MMD? The MMD corresponds to the RKHS distance between mean embeddings:
+$$
+ MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {{\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H}}^{2} = \|µ_{\mathbb P}\|_{\mathcal H} -2\scal{µ_{\mathbb P}, µ_{\mathbb Q}}_{\mathcal H} + \|µ_{\mathbb P}\|_{\mathcal Q}
+$$
+
+This distance represents the distance between distributions! So in other words, we can use the MMD as a metric t
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
