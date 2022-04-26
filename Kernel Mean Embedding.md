@@ -132,12 +132,23 @@ $$
 This distance represents the distance between distributions in the input space! So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. For the empirical MMD, given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$:
 
 $$
-    MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m-1}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
+    MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
 $$
+
+Let's generate some data points which lay in a circle with an unknown radius and add some noise:
+
+![Input Data](/assets/Noisy%20Circle.png) 
+
+Let's consider an arbitrary problem: we want to fit an ideal model to this data, 100 equally spaced points which lay on a certain radius which represents the input data, how could we do this? We can use the MMD!
+
+First, we define our kernel, the Gaussian kernel (an RBF kernel). In this example we are using the KernelFunctions.lj package, which uses ScaleTransfrom, which is the inverse of the lengthscale.
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
 ```
+
+Then we generate 100 model circles with different radii ranging from 15 to 25. We compute the Gram matrix over the input data, notice the "RowVecs(X)", this means we take both the x and y coordinate as input, this becomes a value which is then compared with the other input values. For each model circle, we generate the Gram matrix over the model data and the Gram matrix over the model data and input data together. After this we have everything we need to compute the MMD such as in equation 12.
+
 ```julia
 	R2 = LinRange(15, 25, n)
 	mmds = Array{Float64}(undef, 0, 1)
@@ -149,13 +160,19 @@ k = SqExponentialKernel() ∘ ScaleTransform(0.1)
 		mmd = mean(K1) - 2 * mean(K3) + mean(K2)
 		mmds = [mmds; mmd]
 ```
+Plotting out our results for the MMD versus the radius of each model circle.
+
+![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
+
+Taking the minimum of the MMD and the corresponding Radius.
+
 ```julia
     index = argmin(mmds)
 	minimum(mmds)
     R2[index]
 ```
-![Input Data](/assets/Noisy%20Circle.png) 
-![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
+Generating our model fit with the found radius which has the matching smallest MMD!
+
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
 
 ## Kernel Mean Embedding of Conditional Distributions
