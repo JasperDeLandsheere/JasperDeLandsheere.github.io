@@ -124,6 +124,11 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 
+```julia
+k = SqExponentialKernel() ∘ ScaleTransform(0.1)
+```
+
+
 ![Input Data](/assets/Noisy%20Circle.png) 
 ![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
