@@ -125,6 +125,9 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 Now, let's discuss the maximum mean discrepancy with the help of a toy example. First, what is the maximum mean discrepancy or MMD? The MMD corresponds to the RKHS distance between mean embeddings:
 
+$$
+ {MMD}^{2}(\mathbb P, \mathbb Q, \mathcal H) = {{\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}}^{2} 
+$$
 
 This distance represents the distance between distributions in the input space! So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. 
 
