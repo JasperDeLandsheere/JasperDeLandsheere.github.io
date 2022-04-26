@@ -8,7 +8,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 # KERNEL MEAN EMBEDDING 
 
-*Welcome to my first-ever blog post! No better way to start off than with an attempt to explain Kernel Mean Embedding. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page.*
+*Welcome to my first-ever blog post! No better way to start off than with an attempt to explain Kernel Mean Embedding. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. This post is an adapted part of my thesis (language style, some parts left out, ...). These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page.*
 
 \toc
 
@@ -125,6 +125,8 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 
 ```julia:./code/inference/using
+import Pkg
+Pkg.add("Plots")
 using Plots, KernelFunctions, LinearAlgebra, StatsBase, Distributions
 using Random:seed!
 ```
@@ -133,15 +135,15 @@ function noisy_circle(n, R, noise)
     t = 2π * rand(n)
 	X = R .* [cos.(t) sin.(t)] .+ noise .* randn(n, 2)
     return X
+end
 ```
 ```julia:./code/inference/plotnoisy
-    using Plots
 	seed!(78)
 	X = noisy_circle(100, 20, 1)
 	scatter(X[:,1], X[:,2])
     savefig(joinpath(@OUTPUT, "noisyfig.svg"))
 ```
-\show{plotnoisy}
+\fig{noisyfig}
 
 ## Kernel Mean Embedding of Conditional Distributions
 
