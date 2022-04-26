@@ -180,10 +180,13 @@ Generating our model fit with the found radius which has the matching smallest M
 Just like we performed KME on marginal distributions, we can perform KME on conditional distributions, capturing even more complex data! 
 
 Let's say we have two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, with respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=x)$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, they satisfy:
+
 $$
     \mathcal U_{Y|x} = \mathbb E_{Y|X}[\phi(Y)|X=x] = \mathcal U_{Y|X}k(x,\cdot)\\
      \mathbb E_{Y|X}[g(Y)|X=x] = \scal{g,\mathcal U_{Y|x}}_{\mathcal G}, \forall g \in \mathcal G.
 $$
+
+$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$ and $\mathcal U_{Y|x}$ is an element in that RKHS $\mathcal G$. In equation 13 it is important to note that the conditional mean embedding of $\mathbb P(Y|X=x)$ is the conditional expectation of the feature map of $Y$ given that $X = x$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when apploef to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$.
 
 
 ### Toy example 1: Regression
