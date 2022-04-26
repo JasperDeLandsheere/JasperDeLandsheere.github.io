@@ -124,31 +124,9 @@ with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add pr
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 
-```julia:./code/inference/using
-import Pkg
-Pkg.add("Plots")
-Pkg.add("KernelFunctions")
-Pkg.add("LinearAlgebra")
-Pkg.add("StatsBase")
-Pkg.add("Distributions")
-Pkg.add("Random")
-using Plots, KernelFunctions, LinearAlgebra, StatsBase, Distributions
-using Random:seed!
-```
-```julia:./code/inference/noisy
-function noisy_circle(n, R, noise)
-    t = 2π * rand(n)
-	X = R .* [cos.(t) sin.(t)] .+ noise .* randn(n, 2)
-    return X
-end
-```
-```julia:./code/inference/plotnoisy
-	seed!(78)
-	X = noisy_circle(100, 20, 1)
-	scatter(X[:,1], X[:,2])
-    savefig(joinpath(@OUTPUT, "noisyfig.svg"))
-```
-\fig{"noisyfig.svg"}
+![Input Data](/assets/Noisy%20Circle.png) 
+![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
+![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
 
 ## Kernel Mean Embedding of Conditional Distributions
 
