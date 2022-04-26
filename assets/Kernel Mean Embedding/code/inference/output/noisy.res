@@ -1,1 +1,1 @@
-nothing
+noisy_circle (generic function with 1 method)
