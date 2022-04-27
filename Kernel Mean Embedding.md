@@ -14,7 +14,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ## Kernel Methods
 
-Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^MinskyPapert] [^Rosenblatt], support vector machine [^Cortes] and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
+Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^MinskyPapert] [3], support vector machine [^Cortes] and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
@@ -215,4 +215,4 @@ $$
 ## References
 [^Cortes]: Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine learning*, 20(3), 273-297.
 [^MinskyPapert]: Minsky, M., & Papert, S. (1969). Perceptrons.
-[^Rosenblatt]: Rosenblatt, F. (1958). The perceptron: a probabilistic model for information storage and organization in the brain. *Psychological review*, 65(6), 386.
+[3]: Rosenblatt, F. (1958). The perceptron: a probabilistic model for information storage and organization in the brain. *Psychological review*, 65(6), 386.
