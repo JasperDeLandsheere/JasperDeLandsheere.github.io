@@ -190,13 +190,18 @@ $\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$ and $\m
 
 Now, let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and corss-covariance operator from $X$ to $Y$, respectively. Then:
 $$
-    \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}
+    \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
     \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(x,\cdot)
 $$
-### Toy example 1: Regression
+In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use
+$$
+    \mathcal U_{Y|x} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \epsilon \mathcal I)^{-1}.
+$$
+
+### Toy example 2: Regression
 
 
-### Toy example 2: Kernel PCA
+### Toy example 3: Kernel PCA
 
 
 ## References
