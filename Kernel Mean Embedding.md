@@ -193,13 +193,15 @@ $$
     \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
     \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(x,\cdot)
 $$
-In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use
+In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is:
 $$
-    \mathcal U_{Y|x} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \varepsilon \mathcal I)^{-1}.
+    \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \lambda \mathcal I)^{-1},
 $$
-Conditional mean estimator
+Where $\lambda$ is the regularization parameter (> 0) and $\mathcal I$ is the identitiy operator in $\mathcal H$.
 
-### Toy example 2: Regression
+In practice: $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be computed directly. To overcome this, consider the i.i.d. sample $(x_{1},y_{1}),...,(x_{n},y_{n})$ from $\mathbb P(X,Y)$.
+
+### Toy example 2: Regression (Add quick summary)
 
 
 ### Toy example 3: Kernel PCA
