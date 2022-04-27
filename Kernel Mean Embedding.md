@@ -13,21 +13,26 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 \toc
 
 ## Kernel Methods
-Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
+Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. 
 
-![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
-
-
+Naturally, an extension of $\scal{\mathbf{x}, \mathbf{x}'}$ can be made by explicitly applying a non-linear transformation:
 
 $$
-\phi:\mathcal X\to \mathcal F \\
-x \mapsto \phi (x)
+\phi:\mathcal X\to \mathcal F,\\
+x \mapsto \phi (x),
 $$
 
 from $\mathcal X$ to the high-dimensional feature space $\mathcal F$. In this new feature space the inner product can be evaluated:
+
 $$
-k(x,x') = \scal{\phi(x), \phi(x')}_{\mathcal{F}},
+k(x,x') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}},
 $$
+
+
+As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
+
+![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
+
 
 where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$, $\phi$ is the feature map, and $k$ is the kernel function which defines a non-linear similarity measure between $x$ and $x'$. The above mentioned algorithms can then be used in this new space, by swapping out $\scal{x, x'}$ with $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. So, the algorithm itself does not change, rather the space in which it operates! 
 
