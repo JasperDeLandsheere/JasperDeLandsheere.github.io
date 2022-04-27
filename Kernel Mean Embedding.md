@@ -186,9 +186,13 @@ $$
      \mathbb E_{Y|X}[g(Y)|X=x] = \scal{g,\mathcal U_{Y|x}}_{\mathcal G}, \forall g \in \mathcal G.
 $$
 
-$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$ and $\mathcal U_{Y|x}$ is an element in that RKHS $\mathcal G$. In equation 13 it is important to note that the conditional mean embedding of $\mathbb P(Y|X=x)$ is the conditional expectation of the feature map of $Y$ given that $X = x$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when apploef to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$.
+$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$ and $\mathcal U_{Y|x}$ is an element in that RKHS $\mathcal G$. In equation 13 it is important to note that the conditional mean embedding of $\mathbb P(Y|X=x)$ is the conditional expectation of the feature map of $Y$ given that $X = x$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when apploef to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation 14 shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$. 
 
-
+Now, let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and corss-covariance operator from $X$ to $Y$, respectively. Then:
+$$
+    \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}
+    \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(x,\cdot)
+$$
 ### Toy example 1: Regression
 
 
