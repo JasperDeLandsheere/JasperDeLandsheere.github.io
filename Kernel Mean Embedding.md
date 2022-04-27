@@ -8,13 +8,13 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 # KERNEL MEAN EMBEDDING 
 
-<center>*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*</center>
+*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*
 
 \toc
 
 ## Kernel Methods
 
-Consider some data which can be evaluated by the classical machine learning algorithms perceptron, support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
+Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^Minsky&Papert], support vector machine and principal component analysis. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{x, x'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
@@ -213,4 +213,4 @@ $$
 
 
 ## References
-
+-[^Minsky&Papert] Minsky, M., & Papert, S. (1969). Perceptrons.
