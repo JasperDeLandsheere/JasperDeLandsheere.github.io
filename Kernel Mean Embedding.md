@@ -13,8 +13,9 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 \toc
 
 ## Kernel Methods
+Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure.
 
-Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^MinskyPapert] [^Rosenblatt], support vector machine [^Cortes] and principal component analysis [^Pearson]. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
+Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^MinskyPapert] [^Rosenblatt], support vector machine [^Cortes] and principal component analysis [^Pearson] [^Hotelling]. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
 
 Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
 
@@ -217,4 +218,4 @@ $$
 [^Rosenblatt]: Rosenblatt, F. (1958). The perceptron: a probabilistic model for information storage and organization in the brain. *Psychological review*, 65(6), 386.
 [^Cortes]: Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine learning*, 20(3), 273-297.
 [^Pearson]: Pearson, K. (1901). LIII. On lines and planes of closest fit to systems of points in space. *The London, Edinburgh, and Dublin philosophical magazine and journal of science*, 2(11), 559-572.
-
+[^Hotelling]: Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. *Journal of educational psychology*, 24(6), 417.
