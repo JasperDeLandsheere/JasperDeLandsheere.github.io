@@ -195,8 +195,9 @@ $$
 $$
 In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use
 $$
-    \mathcal U_{Y|x} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \epsilon \mathcal I)^{-1}.
+    \mathcal U_{Y|x} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \varepsilon \mathcal I)^{-1}.
 $$
+Conditional mean estimator
 
 ### Toy example 2: Regression
 
