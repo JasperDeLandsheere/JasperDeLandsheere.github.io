@@ -8,7 +8,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 # KERNEL MEAN EMBEDDING 
 
-*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*
+<center>*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*</center>
 
 \toc
 
