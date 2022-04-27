@@ -13,15 +13,11 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 \toc
 
 ## Kernel Methods
-Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
-
-Consider some data which can be evaluated by the classical machine learning algorithms perceptron [^MinskyPapert] [^Rosenblatt], support vector machine [^Cortes] and principal component analysis [^Pearson] [^Hotelling]. These algorithms consider the data, $x,x' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$. Another way to view this inner product is as a linear similarity measure between the elements of $\mathcal X$. But what if the data is more complex and cannot be linearly evaluated?
-
-Let's consider this arbitrary classification problem, in which two data circles cannot be linearly separated. 
+Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
 
 ![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
-Here the kernel methods come into play! Kernel methods replace the inner product $\scal{x, x'}$ as a similarity measure with a non-linear one. Consider the non-linear transformation:
+
 
 $$
 \phi:\mathcal X\to \mathcal F \\
