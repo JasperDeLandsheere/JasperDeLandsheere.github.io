@@ -195,11 +195,15 @@ $$
 $$
 In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is:
 $$
-    \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX}^{-1} + \lambda \mathcal I)^{-1},
+    \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
 $$
 Where $\lambda$ is the regularization parameter (> 0) and $\mathcal I$ is the identitiy operator in $\mathcal H$.
 
-In practice: $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be computed directly. To overcome this, consider the i.i.d. sample $(x_{1},y_{1}),...,(x_{n},y_{n})$ from $\mathbb P(X,Y)$.
+In practice: $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be computed directly. To overcome this, consider the i.i.d. sample $(x_{1},y_{1}),...,(x_{n},y_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(x_{1}),...,\phi(x_{n})]^{T}$ and $\Phi := [\varphi(y_{1}),...,\varphi(y_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps associated with the kernels $k$ and $l$, respectively. The corresponding Gram matrices are defined as $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding is given by
+$$
+    \hat{\mathcal C}_{XY}(\hat{\mathcal} C_{XX} + \lambda \mathcal I)^{-1}k(x,\cdot) = \frac{1}{n}\Phi Y^{T}(\frac{1}{n}YY^{T} + \lambda \mathcal I)^{-1}k(x,\cdot)\\
+    = \Phi(K + n\lambda I_{n})^{-1}k_{x}
+$$
 
 ### Toy example 2: Regression (Add quick summary)
 
