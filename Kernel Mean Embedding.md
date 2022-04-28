@@ -28,7 +28,7 @@ $$
 k(\mathbf{x},\mathbf{x}') := \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}},
 $$
 
-where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$ and $\phi$ is called the feature map. $k$ is the kernel function which defines a non-linear similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. The above mentioned algorithms can then be used in this new space, by swapping out $\scal{x, x'}$ with $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. So, the algorithm itself does not change, rather the space in which it operates! 
+where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$ and $\phi$ is called the feature map. $k$ is the kernel function which defines a non-linear similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. By substituting $\scal{\mathbf{x}, \mathbf{x}'}$ with $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ a non-linear extension of the algorithms that consider data through $\scal{\mathbf{x}, \mathbf{x}'}$, can be made. This means a linear algorithm in $\mathcal F$ corresponds to a non-linear counterpart in the original input space. It is important to note that the algorithm stays the same, only the space in which the algorithm operates, changes. 
 
 As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
 
