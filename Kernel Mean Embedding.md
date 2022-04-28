@@ -34,18 +34,21 @@ As an example, consider the arbitrary classification problem below, in which one
 
 ![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
-To illustrate this, let's perform the following feature mapping of the concentric circles: $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. In this new higher dimensional feature space we can find a linear model that defines a decision function which separates the two circles easily. We can calculate the kernel function, for this example:
+Consider a polynomial feature mapping on the datapoints $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product in $\mathcal{F}$ can be calculated
 
 $$
-\scal{\phi(x), \phi(x')}_{\mathbb{R_{3}}} = {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2\\
+\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathbb{R_{3}}} = {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2\\
 = {(x_{1}x_{1}' + x_{2}x_{2}')}^2\\
 = {\scal{x, x'}_{\mathbb{R_{2}}}}^2.
 $$
-So our new similarity measure is the square of the inner product in $\mathcal X$.
 
-So the core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where linear models can be used.
+So, the new similarity measure is the square of the inner product in $\mathcal X$. When applied on the datapoints, one can obtain the following result.
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
+
+In this new higher dimensional feature space one can find an appropiate learning algorithm that defines a decision function which can separate the two circles easily.
+
+The core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where effective use of learning algorithms can be made.
 
 As seen above in the example, to evaluate equation 2 we need to work in 2 steps: explicitly constructing the feature maps $\phi(x)$ and then evaluating the inner product $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$. This can become a problem when $\phi(x)$ defines a transformation to a high-dimensional featue space. **The kernel trick** offers a solution to this by evaluating $\scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without explicitly constructing the feature maps. For the example: we can just consider $k(x,x') = {\scal{x, x'}}^2$. Illustration of the kernel trick:
 
