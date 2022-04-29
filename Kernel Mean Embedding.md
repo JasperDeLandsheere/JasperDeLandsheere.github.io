@@ -54,10 +54,8 @@ As seen in the above example, to evaluate equation 2 one needs to work in two st
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
-What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map for which $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$.  
-What does this mean? First we have to define the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j})$, the collection of all pairwise inner products within the set of data vectors $x$. 
+What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map for which $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(x_{i},x_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
 
-A symmetric function $k$ is positive definite on $\mathcal X$ if the Gram matrix is positive definite, that is,
 $$
 \displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X 
 $$
