@@ -54,13 +54,13 @@ As seen in the above example, to evaluate equation 2 one needs to work in two st
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
-What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map $\phi : \mathcal X \to \mathcal F$ such that which $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(\mathbf{x}_{i},\mathbf{x}_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
+What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map $\phi : \mathcal X \to \mathcal F$ such that $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ [^Aronszajn] without the explicit construction of $\phi$ [^Schol] [^Cortes]. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(\mathbf{x}_{i},\mathbf{x}_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
 
 $$
 \displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X, 
 $$
 
-for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya]. It's the positive definiteness of the kernel function that guarantees the existence of a dot product space $\mathcal F$ and a feature map $\phi:\mathcal X\to \mathcal F$ such that $k(x,x') = \scal{\phi(x), \phi(x')}_{\mathcal{F}}$ without the need for the explicit construction of $\phi$.
+for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya] [^Mercer].
 
 Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a Reproducing Kernel Hilbert Space RKHS $\mathcal H$, which is why the p.d. kernel is also called a reproducing kernel. 
 
@@ -221,4 +221,7 @@ $$
 [^Pearson]: Pearson, K. (1901). LIII. On lines and planes of closest fit to systems of points in space. *The London, Edinburgh, and Dublin philosophical magazine and journal of science*, 2(11), 559-572.
 [^Hotelling]: Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. *Journal of educational psychology*, 24(6), 417.
 [^Review]: Muandet, K., Fukumizu, K., Sriperumbudur, B., & Schölkopf, B. (2017). Kernel mean embedding of distributions: A review and beyond. Foundations and Trends® in Machine Learning, 10(1-2), 1-141.
+[^Aronszajn]: Aronszajn, N. (1950). Theory of reproducing kernels. *Transactions of the American mathematical society*, 68(3), 337-404.
+[^Schol]: Schölkopf, B., Smola, A. J., & Bach, F. (2002). *Learning with kernels: support vector machines, regularization, optimization, and beyond*. MIT press.
 [^Jaya]: Jayasumana, S., Hartley, R., Salzmann, M., Li, H., & Harandi, M. (2013). Kernel methods on the Riemannian manifold of symmetric positive definite matrices. In *proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 73-80).
+[^Mercer]: Mercer, J. (1909). Xvi. functions of positive and negative type, and their connection the theory of integral equations. *Philosophical transactions of the royal society of London. Series A, containing papers of a mathematical or physical character*, 209(441-458), 415-446.
