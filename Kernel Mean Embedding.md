@@ -77,11 +77,11 @@ $$
     f(\mathbf{x}) = \scal{f,k(\cdot,\mathbf{x})}_{\mathcal H}
 $$
 
-holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'} = k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(x,x')=\scal{k(\mathbf{x},\cdot),k(\mathbf{x}',\cdot)}_{\mathcal H}$.
+holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'} = k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(\mathbf{x},\mathbf{x}')=\scal{k(\mathbf{x},\cdot),k(\mathbf{x}',\cdot)}_{\mathcal H}$.
 
 Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
-For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively.
+For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot].
 
 ## Kernel Mean Embedding of Marginal Distributions
 
@@ -228,3 +228,6 @@ $$
 [^Jaya]: Jayasumana, S., Hartley, R., Salzmann, M., Li, H., & Harandi, M. (2013). Kernel methods on the Riemannian manifold of symmetric positive definite matrices. In *proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 73-80).
 [^Mercer]: Mercer, J. (1909). Xvi. functions of positive and negative type, and their connection the theory of integral equations. *Philosophical transactions of the royal society of London. Series A, containing papers of a mathematical or physical character*, 209(441-458), 415-446.
 [^Bochner]: Bochner, S. (1933). Monotone funktionen, stieltjessche integrale und harmonische analyse. *Mathematische Annalen*, 108(1), 378-410.
+[^Steinwart]: Steinwart, I., & Christmann, A. (2008). *Support vector machines*. Springer Science & Business Media.
+[^Rasmussen]: Rasmussen, C. E. (2003, February). Gaussian processes in machine learning. In *Summer school on machine learning* (pp. 63-71). Springer, Berlin, Heidelberg.
+[^Jacot]: Jacot, A., Gabriel, F., & Hongler, C. (2018). Neural tangent kernel: Convergence and generalization in neural networks. *Advances in neural information processing systems*, 31.
