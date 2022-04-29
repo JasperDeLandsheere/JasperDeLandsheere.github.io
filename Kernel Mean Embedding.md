@@ -57,7 +57,7 @@ As seen in the above example, to evaluate equation 2 one needs to work in two st
 What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map $\phi : \mathcal X \to \mathcal F$ such that $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ [^Aronszajn] without the explicit construction of $\phi$ [^Schol] [^Cortes]. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(\mathbf{x}_{i},\mathbf{x}_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
 
 $$
-\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(x_{i},x_{j}) \geq 0, \forall x_{i} \in \mathcal X, 
+\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(\mathbf{x}_{i},\mathbf{x}_{j}) \geq 0, \forall x_{i} \in \mathcal X, 
 $$
 
 for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya] [^Mercer].
