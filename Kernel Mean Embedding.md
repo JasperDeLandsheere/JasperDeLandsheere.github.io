@@ -77,10 +77,11 @@ $$
     f(\mathbf{x}) = \scal{f,k(\cdot,\mathbf{x})}_{\mathcal H}
 $$
 
-holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'}=k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(x,x')=\scal{k(x,\cdot),k(x',\cdot)}_{\mathcal H}$.
+holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'} = k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(x,x')=\scal{k(\mathbf{x},\cdot),k(\mathbf{x}',\cdot)}_{\mathcal H}$.
 
-``` Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
+Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
+For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read 
 
 ## Kernel Mean Embedding of Marginal Distributions
 
