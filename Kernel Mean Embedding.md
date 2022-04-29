@@ -54,25 +54,24 @@ As seen in the above example, to evaluate equation 2 one needs to work in two st
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
-What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map $\phi : \mathcal X \to \mathcal F$ such that $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ [^Aronszajn] without the explicit construction of $\phi$ [^Schol] [^Cortes]. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(\mathbf{x}_{i},\mathbf{x}_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
+What are the requirements for the kernel trick to do its magic? If $k$ is positive definite there always exists a feature map $\phi : \mathcal X \to \mathcal F$ such that $k(\mathbf{x},\mathbf{x}') = \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ [^Aronszajn] without the explicit construction of $\phi$ [^Cortes] [^Schol]. So, the kernel function is used as a way to calculate an inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}$ in a high-dimensional feature space $\mathcal H$ for some data points $\mathbf{x},\mathbf{x}' \in \mathcal X$. The collection of all these pairwise inner products within the set of data vectors $\mathbf{x}$ is defined as the $n \times n$-Gram or kernel matrix $K_{ij} := k(\mathbf{x}_{i},\mathbf{x}_{j})$. The comparison function $k$ is a positive definite kernel on $\mathcal X$ if it is symmetric, i.e., $k(\mathbf{x}, \mathbf{x}') = k(\mathbf{x}',\mathbf{x})$, and the Gram matrix is positive definite:
 
 $$
-\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j=1}^{j} c_{i}c_{j}k(\mathbf{x}_{i},\mathbf{x}_{j}) \geq 0, \forall x_{i} \in \mathcal X, 
+\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{n=1}^{j} c_{i}c_{j}k(\mathbf{x}_{i},\mathbf{x}_{j}) \geq 0,  
 $$
 
 for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya] [^Mercer].
 
-Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a Reproducing Kernel Hilbert Space RKHS $\mathcal H$, which is why the p.d. kernel is also called a reproducing kernel. 
+Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a reproducing kernel Hilbert space (RKHS) $\mathcal H$, which is why the kernel is also called a reproducing kernel [^Aronszajn]. 
 
-Two important properties define an RKHS: 
-First, for any $x \in \mathcal X$, the function $k(x,\cdot):y\mapsto k(x,y)$ is an element of $\mathcal H$. So, when $k$ is used, the feature space $\mathcal F$ is the associated RKHS $\mathcal H$;
-$$
-    k:\mathcal X \to \mathcal H \subset {\mathbb R}^{\mathcal X}\\
-    x \mapsto k(x,\cdot)
-$$
-Where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal X$ to $\mathbb R$, we call $k$ the canonical feature map.
+An RKHS has two properties important to kernel mean embedding: (i) for any $\mathbf{x} \in \mathcal X$, the function $k(\mathbf{x},\cdot):\mathbf{y} \mapsto k(\mathbf{x},\mathbf{y})$ is an element of $\mathcal H$. So, whenever the kernel $k$ is used, the feature space $\mathcal F$ is the RKHS $\mathcal H$ associated with this kernel. This can be considered as the canonical feature map:
 
-Second, a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,x) \in \mathcal H$ for all $x \in \mathcal X$ and the reproducing property
+$$
+    k:\mathcal X \to \mathcal H \subset {\mathbb R}^{\mathcal X},\\
+    x \mapsto k(\mathbf{x},\cdot),
+$$
+
+where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal X$ to $\mathbb R$; (ii) a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,x) \in \mathcal H$ for all $x \in \mathcal X$ and the reproducing property
 $$
     f(x) = \scal{f,k(\cdot,x)}_{\mathcal H}
 $$
