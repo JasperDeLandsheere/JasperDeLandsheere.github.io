@@ -62,7 +62,7 @@ $$
 
 for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya] [^Mercer].
 
-Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a reproducing kernel Hilbert space (RKHS) $\mathcal H$, which is why the kernel is also called a reproducing kernel [^Aronszajn]. 
+Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a reproducing kernel Hilbert space (RKHS) $\mathcal H$, which is why the kernel is also called a reproducing kernel [^Aronszajn]. It's important to note that the RKHS is a space of functions from $\mathcal X$ to $\mathbb R$. In other words, each data point $\mathbf{x}$ in $\mathcal X$ will be represented by a function $\phi(\mathbf{x})$ in $\mathcal H$.
 
 An RKHS has two properties important to kernel mean embedding: (i) for any $\mathbf{x} \in \mathcal X$, the function $k(\mathbf{x},\cdot):\mathbf{y} \mapsto k(\mathbf{x},\mathbf{y})$ is an element of $\mathcal H$. So, whenever the kernel $k$ is used, the feature space $\mathcal F$ is the RKHS $\mathcal H$ associated with this kernel. This can be considered as the canonical feature map:
 
@@ -71,13 +71,15 @@ $$
     x \mapsto k(\mathbf{x},\cdot),
 $$
 
-where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal X$ to $\mathbb R$; (ii) a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,x) \in \mathcal H$ for all $x \in \mathcal X$ and the reproducing property
-$$
-    f(x) = \scal{f,k(\cdot,x)}_{\mathcal H}
-$$
-holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. Important for us: $k(x,x')=\scal{k(x,\cdot),k(x',\cdot)}_{\mathcal H}$.
+where $\mathbb R^{\mathcal X}$ denotes the vector space of functions from $\mathcal X$ to $\mathbb R$; (ii) a function $k : \mathcal X \times \mathcal X \to \mathbb R$ is called a reproducing kernel of $\mathcal H$ if $k(\cdot,\mathbf{x}) \in \mathcal H$ for all $\mathbf{x} \in \mathcal X$ and the reproducing property
 
-Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
+$$
+    f(\mathbf{x}) = \scal{f,k(\cdot,\mathbf{x})}_{\mathcal H}
+$$
+
+holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'}=k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(x,x')=\scal{k(x,\cdot),k(x',\cdot)}_{\mathcal H}$.
+
+``` Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
 
 ## Kernel Mean Embedding of Marginal Distributions
