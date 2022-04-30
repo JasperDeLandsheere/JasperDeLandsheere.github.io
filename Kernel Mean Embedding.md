@@ -192,14 +192,14 @@ The obtained MMDs can be plotted versus the radius of each corresponding generat
 
 ![MMD Versus Radius](/assets/MMD%20versus%20Radius.png) 
 
-Taking the minimum of the MMD and the corresponding Radius.
+In the code below, a value for the radius of the best model fitted on the input data can be obtained. 
 
 ```julia
-    index = argmin(mmds)
-	minimum(mmds)
-    R2[index]
+index = argmin(mmds) # Find the index of the minimum value in mmds
+minimum(mmds) # The minimum value in mmds
+R2[index] # The corresponding radius of the minimum MMD
 ```
-Generating our model fit with the found radius which has the matching smallest MMD!
+In the graph below, the obtained model is plotted. The distance between the embedding of this model and the embedding of the input data is the smallest out of all generated circles, meaning the model fits the input data the best in the input space.
 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
 
