@@ -174,20 +174,21 @@ First, a Gaussian kernel is defined. In this example the KernelFunctions.lj pack
 k = SqExponentialKernel() ∘ ScaleTransform(0.01)
 ```
 
-
+Second, 100 circles are generated with 100 equally spaced points. Each circle has a different radius ranging from 15 to 25. To compute the MMD between these circles and the input data, several Gram matrices need to be computed. In the code below, K1 is the Gram matrix over the input data. The function "kernelmatrix" takes the coordinates of each data point in the input data and computes the Gram matrix. K2 does the same for the coordinates in each generated circle. K3 computes the Gram matrix
 
 Second, 100 circles with 100 equally spaced points are generated with each a different radius ranging from 15 to 25. We compute the Gram matrix over the input data, notice the "RowVecs(X)", this means we take both the x and y coordinate as input, this becomes a value which is then compared with the other input values. For each model circle, we generate the Gram matrix over the model data and the Gram matrix over the model data and input data together. After this we have everything we need to compute the MMD such as in equation 12.
 
 ```julia
-	R2 = LinRange(15, 25, n) # Generate an array of n radii ranging from 15 to 25
-	mmds = Array{Float64}(undef, 0, 1) # Assign an array for the maximum mean discrepancies
-	K1 = kernelmatrix(k, RowVecs(X)) # Generate the Gram matrix of the input data
-	for i in 1:n
-		A = circle(100, R2[i]) # Generate a model for given radius
-		K2 = kernelmatrix(k, RowVecs(A)) # Generate the Gram matrix of the model data
-		K3 = kernelmatrix(k, RowVecs(X), RowVecs(A)) # Generate the Gram matrix of the input and model data 
-		mmd = mean(K1) - 2 * mean(K3) + mean(K2) a # Calculate the MMD 
-		mmds = [mmds; mmd] # Add the MMD to the array of MMDs
+R2 = LinRange(15, 25, n) # Generate an array of n radii ranging from 15 to 25
+mmds = Array{Float64}(undef, 0, 1) # Assign an array for the maximum mean discrepancies
+K1 = kernelmatrix(k, RowVecs(X)) # Generate the Gram matrix of the input data
+for i in 1:n
+	A = circle(100, R2[i]) # Generate a model for given radius
+	K2 = kernelmatrix(k, RowVecs(A)) # Generate the Gram matrix of the model data
+	K3 = kernelmatrix(k, RowVecs(X), RowVecs(A)) # Generate the Gram matrix of the input and model data 
+	mmd = mean(K1) - 2 * mean(K3) + mean(K2) a # Calculate the MMD 
+	mmds = [mmds; mmd] # Add the MMD to the array of MMDs
+end
 ```
 Plotting out our results for the MMD versus the radius of each model circle.
 
