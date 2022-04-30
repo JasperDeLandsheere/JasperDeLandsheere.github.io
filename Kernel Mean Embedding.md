@@ -103,7 +103,7 @@ $$
     \mathbf{x} \mapsto k(\mathbf{x,\cdot}).
 $$
 
-Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet]:
+Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet] :
 
 $$
 µ: \mathcal M \to \mathcal H\\
