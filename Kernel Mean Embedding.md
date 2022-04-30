@@ -144,10 +144,15 @@ $$
     \hat{µ}_{\mathbb P} := \displaystyle\sum_{i=1}^{n}w_{i}k(\mathbf{x}_{i}, \cdot),
 $$
 
-with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$.
+with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song].
 
-### Toy example 1: Inference (using Maximum mean discrepancy)
-Now, let's discuss the maximum mean discrepancy with the help of a toy example. First, what is the maximum mean discrepancy or MMD? The MMD corresponds to the RKHS distance between mean embeddings:
+In the next section kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
+
+### Toy example 1: Inference (using Maximum mean discrepancy) +advantages
+
+Consider following arbitrary problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with certain radius that represents the input data?
+
+![Input Data](/assets/Noisy%20Circle.png) 
 
 $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
@@ -158,12 +163,6 @@ This distance represents the distance between distributions in the input space! 
 $$
     MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
 $$
-
-Let's generate some data points which lay in a circle with an unknown radius and add some noise:
-
-![Input Data](/assets/Noisy%20Circle.png) 
-
-Let's consider an arbitrary problem: we want to fit an ideal model to this data, 100 equally spaced points which lay on a certain radius which represents the input data, how could we do this? We can use the MMD!
 
 First, we define our kernel, the Gaussian kernel (an RBF kernel). In this example we are using the KernelFunctions.lj package, which uses ScaleTransfrom, which is the inverse of the lengthscale.
 
@@ -267,3 +266,4 @@ $$
 [^Fuku2004]: Fukumizu, K., Bach, F. R., & Jordan, M. I. (2004). Dimensionality reduction for supervised learning with reproducing kernel Hilbert spaces. *Journal of Machine Learning Research*, 5(Jan), 73-99.
 [^Steinwart2001]: Steinwart, I. (2001). On the influence of the kernel on the consistency of support vector machines. *Journal of machine learning research*, 2(Nov), 67-93.
 [^Sriper2012]: Sriperumbudur, B. K., Fukumizu, K., Gretton, A., Schölkopf, B., & Lanckriet, G. R. (2012). On the empirical estimation of integral probability metrics. *Electronic Journal of Statistics*, 6, 1550-1599.
+[^Song]: Song, L., Fukumizu, K., & Gretton, A. (2013). Kernel embeddings of conditional distributions: A unified kernel framework for nonparametric inference in graphical models. *IEEE Signal Processing Magazine*, 30(4), 98-111.
