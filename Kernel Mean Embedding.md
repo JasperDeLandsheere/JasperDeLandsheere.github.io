@@ -150,15 +150,17 @@ In the next section kernel mean embedding is used to define a metric for probabi
 
 ### Toy problem 1: Inference (using Maximum mean discrepancy) +advantages
 
-Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with certain radius that represents the input data?
+Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with a certain radius that represents the input data?
 
 ![Input Data](/assets/Toy%20Problem%20Inference%20Input%20Data.png) 
+
+This problem can be solved using kernel mean embedding, particularly using the maximum mean discrepancy (MMD). The maximum mean discrepancy corresponds to the RKHS distance between mean embeddings:
 
 $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
 $$
 
-This distance represents the distance between distributions in the input space! So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. For the empirical MMD, given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$:
+This distance represents the distance between distributions in the input space. So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. For the empirical MMD, given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$:
 
 $$
     MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
