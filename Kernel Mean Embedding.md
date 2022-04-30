@@ -154,7 +154,7 @@ Consider following arbitrary toy problem: given noisy data points which lay in a
 
 ![Input Data](/assets/Toy%20Problem%20Inference%20Input%20Data.png) 
 
-This problem can be solved using kernel mean embedding, particularly using the maximum mean discrepancy (MMD). The maximum mean discrepancy corresponds to the RKHS distance between mean embeddings [^Borgwardt] [^Gretton] :
+This problem can be solved using kernel mean embedding, particularly using the maximum mean discrepancy (MMD). The maximum mean discrepancy corresponds to the RKHS distance between mean embeddings [^Gretton] [^Borgwardt] :
 
 $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
@@ -166,9 +166,9 @@ $$
     MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(\mathbf{x}_{i},\mathbf{x}_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(\mathbf{x}_{i},\mathbf{y}_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(\mathbf{y}_{i},\mathbf{y}_{j}).
 $$
 
-This distance represents the distance between distributions in the input space. So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space
+This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model fit to the training data of the toy problem.
 
-First, we define our kernel, the Gaussian kernel (an RBF kernel). In this example we are using the KernelFunctions.lj package, which uses ScaleTransfrom, which is the inverse of the lengthscale.
+First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the lengthscale.
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
