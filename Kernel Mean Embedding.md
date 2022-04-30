@@ -89,7 +89,7 @@ $$
     k^{RBF}(\mathbf{x},\mathbf{x}') = exp(-\frac{\|\mathbf{x}-\mathbf{x}'\|^{2}}{2{\sigma}^{2}}),
 $$
 
-with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwith parameter [^Genton] [^Steinwart2002].
+with $\sigma > 0$ the bandwidth parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwith parameter [^Genton] [^Steinwart2002].
 
 For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot], respectively.
 
@@ -166,9 +166,9 @@ $$
     MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(\mathbf{x}_{i},\mathbf{x}_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(\mathbf{x}_{i},\mathbf{y}_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(\mathbf{y}_{i},\mathbf{y}_{j}).
 $$
 
-This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model fit to the training data of the toy problem.
+This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model to fit the training data of the toy problem.
 
-First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the lengthscale.
+First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel).
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
