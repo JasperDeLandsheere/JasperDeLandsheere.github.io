@@ -110,21 +110,21 @@ $$
     \mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
 $$
 
-with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral [^Smola] [^Berlinet].
+with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding:
 
 $$
     \phi(\mathbb P) = µ_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
 $$
 
-Visual representation of this mean embedding:
+The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral [^Smola] [^Berlinet]. A visual representation of this mean embedding:
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
-Now how much information can this mean representation capture about the distribution $\mathbb P$? This depends on the used kernel! This can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. 
+One can wonder how much information about the distribution $\mathbb P$ this mean representation can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
-$k(x,x')=\scal{x,x'}$ : the first moment of $\mathbb P$
-$k(x,x')={(\scal{x,x'}+1)}^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
-$k(x,x')$ is universal/characteristic: all information of $\mathbb P$
+* $k(x,x')=\scal{x,x'}$ : the first moment of $\mathbb P$
+* $k(x,x')={(\scal{x,x'}+1)}^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
+* $k(x,x')$ is universal/characteristic: all information of $\mathbb P$
 
 A kernel $k$ is characteristic if the map
 
