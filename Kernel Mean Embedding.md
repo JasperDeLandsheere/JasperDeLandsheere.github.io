@@ -148,11 +148,11 @@ with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subjec
 
 In the next section kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
 
-### Toy example 1: Inference (using Maximum mean discrepancy) +advantages
+### Toy problem 1: Inference (using Maximum mean discrepancy) +advantages
 
-Consider following arbitrary problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with certain radius that represents the input data?
+Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with certain radius that represents the input data?
 
-![Input Data](/assets/Noisy%20Circle.png) 
+![Input Data](/assets/Toy%20Problem%20Inference%20Input%20Data.png) 
 
 $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
