@@ -95,6 +95,16 @@ For additional information on the properties of (reproducing kernel) Hilbert spa
 
 ## Kernel Mean Embedding of Marginal Distributions
 
+Having reviewed the above section on kernel methods one could wonder the use of extending kernel methods from individual data points to probability distributions. In many real-life learning problems, however, it could be argued that it is more appropriate to represent the training data as probability distributions rather than individual data points. For example, in many situations data is missing or uncertain. As a specific example, gene expression data originating from microarray experiments are known to be very noisy, due to different sources of variabilities [^Yang]. To battle this, each array can be represented as a probability distribution. Another reason for the preference of probability distributions can be  [^Muandet]
+
+Let $k : \mathcal X \times \mathcal X \to \mathbb R$ be a real-valued positive definite kernel associated with the Hilbert space $\mathcal H$, with $\mathcal X$ a non-empty set. The reproducing property lets the kernel evaluation be interpreted as an inner product in $\mathcal H$ induced by a map from $\mathcal X$ into $\mathcal H$
+
+$$
+    \mathbf{x} \mapsto k(\mathbf{x,\cdot}).
+$$
+
+Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. In kernel mean embedding, this lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$:
+
 So how can we extend this mapping to marginal distributions? We simply take the mapping $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
 
 $$
@@ -246,3 +256,5 @@ $$
 [^Steinwart]: Steinwart, I., & Christmann, A. (2008). *Support vector machines*. Springer Science & Business Media.
 [^Rasmussen]: Rasmussen, C. E. (2003, February). Gaussian processes in machine learning. In *Summer school on machine learning* (pp. 63-71). Springer, Berlin, Heidelberg.
 [^Jacot]: Jacot, A., Gabriel, F., & Hongler, C. (2018). Neural tangent kernel: Convergence and generalization in neural networks. *Advances in neural information processing systems*, 31.
+[^Yang]: Yang, Y. H., & Speed, T. (2002). Design issues for cDNA microarray experiments. *Nature Reviews Genetics*, 3(8), 579-588.
+[^Muandet]: Muandet, K., Fukumizu, K., Dinuzzo, F., & Schölkopf, B. (2012). Learning from distributions via support measure machines. *Advances in neural information processing systems*, 25.
