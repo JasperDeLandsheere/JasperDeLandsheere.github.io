@@ -110,7 +110,7 @@ $$
     \mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
 $$
 
-with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$ [^Smola]. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral.
+with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral [^Smola] [^Berlinet].
 
 $$
     \phi(\mathbb P) = µ_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
@@ -263,3 +263,4 @@ $$
 [^Yang]: Yang, Y. H., & Speed, T. (2002). Design issues for cDNA microarray experiments. *Nature Reviews Genetics*, 3(8), 579-588.
 [^Muandet]: Muandet, K., Fukumizu, K., Dinuzzo, F., & Schölkopf, B. (2012). Learning from distributions via support measure machines. *Advances in neural information processing systems*, 25.
 [^Smola]: Smola, A., Gretton, A., Song, L., & Schölkopf, B. (2007, October). A Hilbert space embedding for distributions. In *International Conference on Algorithmic Learning Theory* (pp. 13-31). Springer, Berlin, Heidelberg.
+[^Berlinet]: Berlinet, A., & Thomas-Agnan, C. (2011). *Reproducing kernel Hilbert spaces in probability and statistics*. Springer Science & Business Media.
