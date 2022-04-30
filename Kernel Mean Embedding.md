@@ -126,23 +126,11 @@ One can wonder how much information about the distribution $\mathbb P$ this kern
 * $k(\mathbf{x},\mathbf{x}')={(\scal{\mathbf{x},\mathbf{x}'}+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
 * $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
 
-The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [Scholkopf].
+The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [^Scholkopf].
 
-A kernel $k$ is characteristic if the map
+In the third example, characteristic and universal kernels are mentioned. Chracteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto µ_{\mathbb P}$ is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$. This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems (each element in the feature space corresponds to one unique distribution in the original space). There is no information loss when mapping the distribution into the RKHS.
 
-$$
-\mathbb P \mapsto µ_{\mathbb P}
-$$
-
-is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$. This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems (each element in the feature space corresponds to one unique distribution in the original space)!
-
-An example of a characteristic kernel, **also the kernel used in all toy examples**, is the Gaussian kernel, which is part of the class of kernels called radial basis functions (RBFs):
-
-$$
-    k^{RBF}(x,x') = exp(-\frac{\|x-x'\|^{2}}{2{\sigma}^{2}})
-$$
-
-with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all input is the same, and for the latter that all input is completely unique. This RBF kernel is a stationary kernel, which means that it can be described as a function of the difference of its inputs. The RBF kernel is also a universal kernel which means it can represent any smooth function with a high degree of accuracy , assuming chosen the right bandwith parameter. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal.
+It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal.
 
 In practive however the access to the true distribution of $\mathbb P$ is often lacking, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. We can estimate $µ_{\mathbb P}$ by
 
