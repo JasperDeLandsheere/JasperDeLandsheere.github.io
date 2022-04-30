@@ -106,11 +106,15 @@ $$
 Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet] :
 
 $$
-µ: \mathcal M_X^{1}(\mathcal X) \to \mathcal H\\
-\mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot), \mathrm{d\mathbb P}\mathbf{x},
+    µ: M_X^{1}(\mathcal X) \to \mathcal H\\
+    \mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
 $$
 
-The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
+with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$ [^Smola]. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
+
+$$
+    \phi(\mathbb P) = µ_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
+$$
 
 Visual representation of this mean embedding:
 
@@ -258,3 +262,4 @@ $$
 [^Jacot]: Jacot, A., Gabriel, F., & Hongler, C. (2018). Neural tangent kernel: Convergence and generalization in neural networks. *Advances in neural information processing systems*, 31.
 [^Yang]: Yang, Y. H., & Speed, T. (2002). Design issues for cDNA microarray experiments. *Nature Reviews Genetics*, 3(8), 579-588.
 [^Muandet]: Muandet, K., Fukumizu, K., Dinuzzo, F., & Schölkopf, B. (2012). Learning from distributions via support measure machines. *Advances in neural information processing systems*, 25.
+[^Smola]: Smola, A., Gretton, A., Song, L., & Schölkopf, B. (2007, October). A Hilbert space embedding for distributions. In *International Conference on Algorithmic Learning Theory* (pp. 13-31). Springer, Berlin, Heidelberg.
