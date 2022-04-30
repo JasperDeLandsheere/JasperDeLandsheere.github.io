@@ -168,7 +168,7 @@ $$
 
 This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model to fit the training data of the toy problem.
 
-First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel).
+First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel). 
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.1)
