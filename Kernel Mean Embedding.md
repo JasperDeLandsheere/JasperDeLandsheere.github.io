@@ -138,7 +138,13 @@ $$
     \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
 $$
 
-with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012].
+with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012]. In this thesis, the data is interpreted as a probability mass distribution of $\mathbf X$.
+
+$$
+    \hat{µ}_{\mathbb P} := \displaystyle\sum_{i=1}^{n}w_{i}k(\mathbf{x}_{i}, \cdot),
+$$
+
+with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$.
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 Now, let's discuss the maximum mean discrepancy with the help of a toy example. First, what is the maximum mean discrepancy or MMD? The MMD corresponds to the RKHS distance between mean embeddings:
