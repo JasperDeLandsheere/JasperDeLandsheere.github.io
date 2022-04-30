@@ -205,7 +205,9 @@ In the graph below, the obtained model is plotted. The distance between the embe
 
 ## Kernel Mean Embedding of Conditional Distributions
 
-Just like we performed KME on marginal distributions, we can perform KME on conditional distributions, capturing even more complex data! 
+In this section, the kernel mean embedding of marginal distributions is extended to conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=x)$ for some $\mathbf x \in \mathcal X$, capturing even more complex data [^Song] [^Song2009]. The figure below illustrates conditional mean embedding [^Review]. 
+
+![Schematic Illustration of Conditional Mean Embedding](/assets/conditional.png) 
 
 Let's say we have two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, with respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=x)$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, they satisfy:
 
@@ -273,3 +275,4 @@ $$
 [^Sriper2012]: Sriperumbudur, B. K., Fukumizu, K., Gretton, A., Schölkopf, B., & Lanckriet, G. R. (2012). On the empirical estimation of integral probability metrics. *Electronic Journal of Statistics*, 6, 1550-1599.
 [^Song]: Song, L., Fukumizu, K., & Gretton, A. (2013). Kernel embeddings of conditional distributions: A unified kernel framework for nonparametric inference in graphical models. *IEEE Signal Processing Magazine*, 30(4), 98-111.
 [^Borgwardt]: Borgwardt, K. M., Gretton, A., Rasch, M. J., Kriegel, H. P., Schölkopf, B., & Smola, A. J. (2006). Integrating structured biological data by kernel maximum mean discrepancy. *Bioinformatics*, 22(14), e49-e57.
+[^Song2009]: Song, L., Huang, J., Smola, A., & Fukumizu, K. (2009, June). Hilbert space embeddings of conditional distributions with applications to dynamical systems. In *Proceedings of the 26th Annual International Conference on Machine Learning* (pp. 961-968).
