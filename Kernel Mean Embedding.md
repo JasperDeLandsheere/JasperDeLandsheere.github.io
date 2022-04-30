@@ -89,7 +89,7 @@ $$
     k^{RBF}(\mathbf{x},\mathbf{x}') = exp(-\frac{\|\mathbf{x}-\mathbf{x}'\|^{2}}{2{\sigma}^{2}}),
 $$
 
-with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwith parameter [^Genton].
+with $\sigma > 0$ the bandwith parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwith parameter [^Genton] [^Steinwart2002].
 
 For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot], respectively.
 
@@ -240,6 +240,7 @@ $$
 [^Gartner]: Gärtner, T. (2003). A survey of kernels for structured data. *ACM SIGKDD explorations newsletter*, 5(1), 49-58.
 [^Hofmann]: Hofmann, T., Schölkopf, B., & Smola, A. J. (2008). Kernel methods in machine learning. *The annals of statistics*, 36(3), 1171-1220.
 [^Vert]: Vert, J. P., Tsuda, K., & Schölkopf, B. (2004). A primer on kernel methods. *Kernel methods in computational biology*, 47, 35-70.
+[^Steinwart2002]: Steinwart, I. (2002). Support vector machines are universally consistent. *Journal of Complexity*, 18(3), 768-791.
 [^Mercer]: Mercer, J. (1909). Xvi. functions of positive and negative type, and their connection the theory of integral equations. *Philosophical transactions of the royal society of London. Series A, containing papers of a mathematical or physical character*, 209(441-458), 415-446.
 [^Bochner]: Bochner, S. (1933). Monotone funktionen, stieltjessche integrale und harmonische analyse. *Mathematische Annalen*, 108(1), 378-410.
 [^Steinwart]: Steinwart, I., & Christmann, A. (2008). *Support vector machines*. Springer Science & Business Media.
