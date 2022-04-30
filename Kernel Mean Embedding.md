@@ -154,17 +154,19 @@ Consider following arbitrary toy problem: given noisy data points which lay in a
 
 ![Input Data](/assets/Toy%20Problem%20Inference%20Input%20Data.png) 
 
-This problem can be solved using kernel mean embedding, particularly using the maximum mean discrepancy (MMD). The maximum mean discrepancy corresponds to the RKHS distance between mean embeddings:
+This problem can be solved using kernel mean embedding, particularly using the maximum mean discrepancy (MMD). The maximum mean discrepancy corresponds to the RKHS distance between mean embeddings [^Borgwardt] [^Gretton] :
 
 $$
   MMD^{2}(\mathbb P, \mathbb Q, \mathcal H) = {\|µ_{\mathbb P} - µ_{\mathbb Q}\|}_{\mathcal H}^{2} = {\|µ_{\mathbb P}\|}_{\mathcal H} -2{\scal{µ_{\mathbb P}, µ_{\mathbb Q}}}_{\mathcal H} + {\|µ_{\mathbb Q}\|}_{\mathcal H}.
 $$
 
-This distance represents the distance between distributions in the input space. So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space. For the empirical MMD, given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$:
+Given $\{x_i\}_{i=1}^n \sim \mathbb P$ and $\{y_j\}_{j=1}^n \sim \mathbb Q$, the empirical MMD is
 
 $$
-    MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(x_{i},x_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(x_{i},y_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(y_{i},y_{j})
+    MMD_u^{2}(\mathbb P, \mathbb Q, \mathcal H) = \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(\mathbf{x}_{i},\mathbf{x}_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j = 1}^{m}k(\mathbf{x}_{i},\mathbf{y}_{j})+ \frac{1}{m(m-1)}\displaystyle\sum_{i=1}^{m}\displaystyle\sum_{j\neq i}^{m}k(\mathbf{y}_{i},\mathbf{y}_{j})
 $$
+
+his distance represents the distance between distributions in the input space. So we can use this to find objects in the inpust space which correspond with a specific KME in the feature space
 
 First, we define our kernel, the Gaussian kernel (an RBF kernel). In this example we are using the KernelFunctions.lj package, which uses ScaleTransfrom, which is the inverse of the lengthscale.
 
@@ -269,3 +271,4 @@ $$
 [^Steinwart2001]: Steinwart, I. (2001). On the influence of the kernel on the consistency of support vector machines. *Journal of machine learning research*, 2(Nov), 67-93.
 [^Sriper2012]: Sriperumbudur, B. K., Fukumizu, K., Gretton, A., Schölkopf, B., & Lanckriet, G. R. (2012). On the empirical estimation of integral probability metrics. *Electronic Journal of Statistics*, 6, 1550-1599.
 [^Song]: Song, L., Fukumizu, K., & Gretton, A. (2013). Kernel embeddings of conditional distributions: A unified kernel framework for nonparametric inference in graphical models. *IEEE Signal Processing Magazine*, 30(4), 98-111.
+[^Borgwardt]: Borgwardt, K. M., Gretton, A., Rasch, M. J., Kriegel, H. P., Schölkopf, B., & Smola, A. J. (2006). Integrating structured biological data by kernel maximum mean discrepancy. *Bioinformatics*, 22(14), e49-e57.
