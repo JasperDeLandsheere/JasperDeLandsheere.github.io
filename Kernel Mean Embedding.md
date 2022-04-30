@@ -122,9 +122,12 @@ The element is the expected value in the RKHS and since $\mathbb P$ is a probabi
 
 One can wonder how much information about the distribution $\mathbb P$ this mean representation can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
+
 * $k(\mathbf{x},\mathbf{x}')=\scal{\mathbf{x},\mathbf{x}'}$ : the first moment of $\mathbb P$
-* $k(\mathbf{x},\mathbf{x}')={(\scal{\mathbf{x},\mathbf{x}'}+1)}^{p}$ (polynomial kernels): moments of $\mathbb P$ up to order $p \in \mathbb N$
+* $k(\mathbf{x},\mathbf{x}')={(\scal{\mathbf{x},\mathbf{x}'}+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
 * $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
+
+The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel or order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$.
 
 A kernel $k$ is characteristic if the map
 
