@@ -110,7 +110,7 @@ $$
     \mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
 $$
 
-with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$ [^Smola]. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
+with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$ [^Smola]. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral.
 
 $$
     \phi(\mathbb P) = µ_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
