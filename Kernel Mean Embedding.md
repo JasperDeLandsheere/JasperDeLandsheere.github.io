@@ -138,7 +138,7 @@ $$
     \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
 $$
 
-with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012]. In this thesis, the data is interpreted as a probability mass distribution of $\mathbf X$.
+with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012]. In this thesis, the data is interpreted as a probability mass distribution of $\mathbf X$. For example,  $\hat{\mathbb P} := \frac{1}{n}\sum_{i=1}^{n}{\delta}_{\mathbf{x}_i}$, with ${\delta}_{\mathbf{x}}$ the Dirac measure defined for $\mathbf x \in \mathcal X$, such that:
 
 $$
     \hat{µ}_{\mathbb P} := \displaystyle\sum_{i=1}^{n}w_{i}k(\mathbf{x}_{i}, \cdot),
