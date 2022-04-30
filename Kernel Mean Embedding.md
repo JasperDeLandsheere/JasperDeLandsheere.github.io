@@ -120,14 +120,13 @@ The element is the expected value in the RKHS and since $\mathbb P$ is a probabi
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
-One can wonder how much information about the distribution $\mathbb P$ this mean representation can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
-
+One can wonder how much information about the distribution $\mathbb P$ this kernel mean embedding can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
 * $k(\mathbf{x},\mathbf{x}')=\scal{\mathbf{x},\mathbf{x}'}$ : the first moment of $\mathbb P$
 * $k(\mathbf{x},\mathbf{x}')={(\scal{\mathbf{x},\mathbf{x}'}+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
 * $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
 
-The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel or order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$.
+The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [Scholkopf].
 
 A kernel $k$ is characteristic if the map
 
@@ -267,3 +266,7 @@ $$
 [^Muandet]: Muandet, K., Fukumizu, K., Dinuzzo, F., & Schölkopf, B. (2012). Learning from distributions via support measure machines. *Advances in neural information processing systems*, 25.
 [^Smola]: Smola, A., Gretton, A., Song, L., & Schölkopf, B. (2007, October). A Hilbert space embedding for distributions. In *International Conference on Algorithmic Learning Theory* (pp. 13-31). Springer, Berlin, Heidelberg.
 [^Berlinet]: Berlinet, A., & Thomas-Agnan, C. (2011). *Reproducing kernel Hilbert spaces in probability and statistics*. Springer Science & Business Media.
+[^Fuku]: Fukumizu, K., Gretton, A., Sun, X., & Schölkopf, B. (2007). Kernel measures of conditional dependence. *Advances in neural information processing systems*, 20.
+[^Sriper]: Sriperumbudur, B. K., Gretton, A., Fukumizu, K., Schölkopf, B., & Lanckriet, G. R. (2010). Hilbert space embeddings and metrics on probability measures. *The Journal of Machine Learning Research*, 11, 1517-1561.
+[^Gretton]: Gretton, A., Borgwardt, K. M., Rasch, M. J., Schölkopf, B., & Smola, A. (2012). *A kernel two-sample test*. The Journal of Machine Learning Research, 13(1), 723-773.
+[^Scholkopf]: Schölkopf, B., Muandet, K., Fukumizu, K., Harmeling, S., & Peters, J. (2015). Computing functions of random variables via reproducing kernel Hilbert space representations. *Statistics and Computing*, 25(4), 755-766.
