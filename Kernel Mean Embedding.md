@@ -209,10 +209,10 @@ In this section, the kernel mean embedding of marginal distributions is extended
 
 ![Schematic Illustration of Conditional Mean Embedding](/assets/conditional.png) 
 
-Consider the two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, and respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=\mathbf{x})$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, they satisfy:
+Consider the two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, and the respective RKHSs $\mathcal H$ and $\mathcal G$. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=\mathbf{x})$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, such that:
 
 $$
-    \mathcal U_{Y|\mathbf{x}} = \mathbb E_{Y|X}[\phi(Y)|X=\mathbf{x}] = \mathcal U_{Y|X}k(\mathbf{x},\cdot)\\
+    \mathcal U_{Y|\mathbf{x}} = \mathbb E_{Y|X}[\varphi(Y)|X=\mathbf{x}] = \mathcal U_{Y|X}k(\mathbf{x},\cdot),\\
      \mathbb E_{Y|X}[g(Y)|X=\mathbf{x}] = \scal{g,\mathcal U_{Y|\mathbf{x}}}_{\mathcal G}, \forall g \in \mathcal G.
 $$
 
