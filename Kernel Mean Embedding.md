@@ -106,8 +106,8 @@ $$
 Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet] :
 
 $$
-µ: \mathcal M \to \mathcal H\\
-\mathbb P \mapsto \int k(\cdot,x)\, \mathrm{d\mathbb P}x
+µ: \mathcal M_X^{1}(\mathcal X) \to \mathcal H\\
+\mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot), \mathrm{d\mathbb P}\mathbf{x},
 $$
 
 The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
