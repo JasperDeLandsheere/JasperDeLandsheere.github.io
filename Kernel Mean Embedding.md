@@ -132,13 +132,13 @@ In the third example, characteristic and universal kernels are mentioned. Chract
 
 This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
 
-In practive however the access to the true distribution of $\mathbb P$ is often lacking, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. We can estimate $µ_{\mathbb P}$ by
+It is important to note that in practice, the true distribution of $\mathbb P$ is often unkown, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. $µ_{\mathbb P}$ can be estimated by taking an empirical average:
 
 $$
-    \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(x_{i}, \cdot)
+    \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
 $$
 
-with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. **add probability mass distribution thingy? It can be estimated consistently**
+with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012].
 
 ### Toy example 1: Inference (using Maximum mean discrepancy)
 Now, let's discuss the maximum mean discrepancy with the help of a toy example. First, what is the maximum mean discrepancy or MMD? The MMD corresponds to the RKHS distance between mean embeddings:
@@ -260,3 +260,4 @@ $$
 [^Scholkopf]: Schölkopf, B., Muandet, K., Fukumizu, K., Harmeling, S., & Peters, J. (2015). Computing functions of random variables via reproducing kernel Hilbert space representations. *Statistics and Computing*, 25(4), 755-766.
 [^Fuku2004]: Fukumizu, K., Bach, F. R., & Jordan, M. I. (2004). Dimensionality reduction for supervised learning with reproducing kernel Hilbert spaces. *Journal of Machine Learning Research*, 5(Jan), 73-99.
 [^Steinwart2001]: Steinwart, I. (2001). On the influence of the kernel on the consistency of support vector machines. *Journal of machine learning research*, 2(Nov), 67-93.
+[^Sriper2012]: Sriperumbudur, B. K., Fukumizu, K., Gretton, A., Schölkopf, B., & Lanckriet, G. R. (2012). On the empirical estimation of integral probability metrics. *Electronic Journal of Statistics*, 6, 1550-1599.
