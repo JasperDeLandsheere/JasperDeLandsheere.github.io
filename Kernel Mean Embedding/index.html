@@ -12,11 +12,11 @@ K1 = kernelmatrix(k, RowVecs(X)) <span class=hljs-comment ># Generate the Gram m
 <span class=hljs-keyword >end</span></code></pre>
 <p>The obtained MMDs can be plotted versus the radius of each corresponding generated circle: </p>
 <p><img src="/assets/MMD&#37;20versus&#37;20Radius.png" alt="MMD Versus Radius" /> </p>
-<p>Taking the minimum of the MMD and the corresponding Radius.</p>
-<pre><code class="julia hljs">index = argmin(mmds)
-	minimum(mmds)
-    R2[index]</code></pre>
-<p>Generating our model fit with the found radius which has the matching smallest MMD&#33;</p>
+<p>In the code below, a value for the radius of the best model fitted on the input data can be obtained. </p>
+<pre><code class="julia hljs">index = argmin(mmds) <span class=hljs-comment ># Find the index of the minimum value in mmds</span>
+minimum(mmds) <span class=hljs-comment ># The minimum value in mmds</span>
+R2[index] <span class=hljs-comment ># The corresponding radius of the minimum MMD</span></code></pre>
+<p>In the graph below, the obtained model is plotted. The distance between the embedding of this model and the embedding of the input data is the smallest out of all generated circles, meaning the model fits the input data the best in the input space.</p>
 <p><img src="/assets/Radius&#37;20and&#37;20Fit.png" alt="Fitted Model on Input Data" /> </p>
 <h2 id=kernel_mean_embedding_of_conditional_distributions ><a href="#kernel_mean_embedding_of_conditional_distributions" class=header-anchor >Kernel Mean Embedding of Conditional Distributions</a></h2>
 <p>Just like we performed KME on marginal distributions, we can perform KME on conditional distributions, capturing even more complex data&#33; </p>
