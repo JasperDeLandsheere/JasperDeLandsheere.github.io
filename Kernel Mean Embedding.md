@@ -103,14 +103,14 @@ $$
     \mathbf{x} \mapsto k(\mathbf{x,\cdot}).
 $$
 
-Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. In kernel mean embedding, this lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$:
-
-So how can we extend this mapping to marginal distributions? We simply take the mapping $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
+Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet]:
 
 $$
-µ: \mathcal P \to \mathcal H\\
+µ: \mathcal M \to \mathcal H\\
 \mathbb P \mapsto \int k(\cdot,x)\, \mathrm{d\mathbb P}x
 $$
+
+The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$ in an RKHS matching the positive definite kernel $k$. The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be written as an integral! 
 
 Visual representation of this mean embedding:
 
