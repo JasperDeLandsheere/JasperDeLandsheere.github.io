@@ -222,7 +222,7 @@ Song et al. [^Song] [^Song2009] provide following definition: let $\mathcal C_{X
 
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
-    \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot).
+    \mathcal U_{Y|\mathbf{x}} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot).
 $$
 
 Fukumizu et al. [^Fukumizu] [^Fuku3] state that if $\mathbb E_{Y|X}[g(Y)|X=\cdot] \in \mathcal H$ for any $g \in \mathcal G$, then
@@ -237,10 +237,18 @@ $$
     \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{\mathbb E_{Y|X}[g(Y)|X], k(\mathbf{x}, \cdot)}_{\mathcal H}.
 $$
 
+Combining the above the equations, and taking the conjugate transpose of $\mathcal C_{XX}^{-1}\mathcal C_{XY}$ gives
+
+$$
+    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot)}_{\mathcal g} = \scal{g, \mathcal U_{Y|\mathbf{x}}}_{\mathcal g}.
+$$
+
 In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is [^Song2009] [^Fukumizu]:
+
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
 $$
+
 Where $\lambda$ is the regularization parameter (> 0) and $\mathcal I$ is the identitiy operator in $\mathcal H$.
 
 In practice: $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be computed directly. To overcome this, consider the i.i.d. sample $(x_{1},y_{1}),...,(x_{n},y_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(x_{1}),...,\phi(x_{n})]^{T}$ and $\Phi := [\varphi(y_{1}),...,\varphi(y_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps associated with the kernels $k$ and $l$, respectively. The corresponding Gram matrices are defined as $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding is given by
