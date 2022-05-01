@@ -277,7 +277,13 @@ The conditional mean embedding has a natural interpretation as a solution to a v
 Consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{z}_{1}),...,(\mathbf{x}_{n},\mathbf{z}_{n}) \in \mathcal X \times \mathcal G$, a vector-valued regression problem can be formulated as:
 
 $$
-    \hat{\varepsilon}(f) = \displaystyle\sum_{i=1}^{n} {\|\mathbf{z}_{i} - f(\mathbf{x}_{i})\|}_{\mathcal G}^{2} + \lambda {\|f\|}_{\mathcal {H}_{\Gamma}}^{2}  
+    \hat{\varepsilon}_{\lambda}(f) = \displaystyle\sum_{i=1}^{n} {\|\mathbf{z}_{i} - f(\mathbf{x}_{i})\|}_{\mathcal G}^{2} + \lambda {\|f\|}_{\mathcal {H}_{\Gamma}}^{2},  
+$$
+
+where $\mathcal G$ is a Hilbert space, $\mathcal {H}_{\Gamma}$ an RKHS of vector-valued functions from $\mathcal X$ to $\mathcal G$, and $\hat{\varepsilon}_{\lambda}$ is error of the associated regression problem [^Micch].  Grünewälder et al. [^Grune] states that by  minimizing the optimization in equation 23, $\hat{µ}_{Y|\mathbf{x}}$ can be obtained. So, the natural optimization problem for the conditional mean embedding is to find a function $µ : \mathcal X \to \mathcal G$ that minimizes an objective. This objective can be bounded from above by a surrogate loss function, which can be described by its empirical counterpart [^Grune] :
+
+$$
+    \hat{\varepsilon}_{\mathcal S}[µ] = \displaystyle\sum_{i=1}^{n} {\|l(\mathbf{y}_i,\cdot) - µ(\mathbf{x}_i)\|}_{\mathcal G}^{2} + \lambda {\|µ\|}_{\mathcal {H}_{\Gamma}}^{2},  
 $$
 
 ### Toy example 3: Regression
@@ -320,3 +326,4 @@ $$
 [^Fuku3]: Fukumizu, K., Song, L., & Gretton, A. (2013). Kernel Bayes' rule: Bayesian inference with positive definite kernels. *The Journal of Machine Learning Research*, 14(1), 3753-3783.
 [^Zhang]: Zhang, K., Peters, J., Janzing, D., & Schölkopf, B. (2012). Kernel-based conditional independence test and application in causal discovery. *arXiv preprint arXiv:1202.3775*.
 [^Grune]: Grünewälder, S., Lever, G., Baldassarre, L., Patterson, S., Gretton, A., & Pontil, M. (2012). Conditional mean embeddings as regressors-supplementary. *arXiv preprint arXiv:1205.4656*.
+[^Micch]: Micchelli, C. A., & Pontil, M. (2005). On learning vector-valued functions. *Neural computation*, 17(1), 177-204.
