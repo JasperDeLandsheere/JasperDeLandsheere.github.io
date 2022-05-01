@@ -148,7 +148,7 @@ with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subjec
 
 In the next section kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
 
-### Toy problem 1: Inference (using Maximum mean discrepancy) +advantages
+### Toy problem 1: Inference (using Maximum mean discrepancy)
 
 Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with a certain radius that represents the input data?
 
@@ -201,7 +201,9 @@ R2[index] # The corresponding radius of the minimum MMD
 ```
 In the graph below, the obtained model is plotted. The distance between the embedding of this model and the embedding of the input data is the smallest out of all generated circles, meaning the model fits the input data the best in the input space.
 
-![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png) 
+![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png)
+
+### Toy example : Kernel PCA
 
 ## Kernel Mean Embedding of Conditional Distributions
 
@@ -263,15 +265,16 @@ $$
 So, the conditional mean embedding of $µ_{Y|\mathbf{x}}$ is estimated by [^Song2009]
 
 $$
-    µ_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}. 
+    \hat{µ}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}. 
 $$
 
-Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{\beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently equation 21 can be written as $ µ_{Y|\mathbf{x}} = \Phi \hat{\mathbf{\beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009]. 
+Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently, equation 22 can be written as $\hat{µ}_{Y|\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009]. 
 
-### Toy example 2: Regression
+## Learning on Distributional Data
 
 
-### Toy example 3: Kernel PCA
+
+### Toy example 3: Regression
 
 
 ## References
