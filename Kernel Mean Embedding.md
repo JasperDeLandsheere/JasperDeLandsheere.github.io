@@ -8,7 +8,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 # KERNEL MEAN EMBEDDING 
 
-*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*
+*This post about Kernel Mean Embedding is an excerpt from my thesis on using Kernel Mean Embedding to predict Pharmaceutical granules' size, changed slightly to fit a more broader audience. This post should be accessible to as many people from different sorts of backgrounds as possible. Don't let the theory scare you as this will become much clearer with the toy examples. These examples are written in Julia, which many of you won't be familiar with. However, Julia's code is very easy to interpret! The outline of the theory is based on the review article of Kernel Mean Embedding by Muandet et al. [^Review]. Finally, the Pluto notebooks can be found on my Github and all of my sources are referenced at the bottom of this page. I also hope to upload my thesis' version of this part somewhere in July. Enjoy!*
 
 \toc
 
@@ -251,26 +251,28 @@ $$
 
 where $\lambda > 0$ is the regularization parameter and $\mathcal I$ is the identitiy operator in $\mathcal H$. Fukumizu et al.  [^Fuku3] stated that, under some mild conditions, the empirical estimator is a consistent estimator of $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}]$.
 
-In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps associated with the kernels $k$ and $l$, respectively. The corresponding Gram matrices are defined as $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding is given by
+In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps corresponding to the respective kernels $k$ and $l$. The associated Gram matrices are  $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding becomes
 
 $$
     \hat{\mathcal C}_{XY}(\hat{\mathcal C}_{XX} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot) = \frac{1}{n}\Phi Y^{T}(\frac{1}{n}YY^{T} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\
-    = \Phi(K + n\lambda I_{n})^{-1}k_{\mathbf{x}}
+    = \Phi Y^{T}(YY^{T} + n\lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\
+    = \Phi (Y^{T}Y + n\lambda \mathbf{I}_n)^{-1}Y^{T}k(\mathbf{x},\cdot)\\
+    = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}
 $$
 
-### Toy example 2: Regression (Add quick summary)
+### Toy example 2: Regression
 
 
 ### Toy example 3: Kernel PCA
 
 
 ## References
+[^Review]: Muandet, K., Fukumizu, K., Sriperumbudur, B., & Schölkopf, B. (2017). Kernel mean embedding of distributions: A review and beyond. Foundations and Trends® in Machine Learning, 10(1-2), 1-141.
 [^Pearson]: Pearson, K. (1901). LIII. On lines and planes of closest fit to systems of points in space. *The London, Edinburgh, and Dublin philosophical magazine and journal of science*, 2(11), 559-572.
 [^Hotelling]: Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. *Journal of educational psychology*, 24(6), 417.
 [^MinskyPapert]: Minsky, M., & Papert, S. (1969). Perceptrons.
 [^Rosenblatt]: Rosenblatt, F. (1958). The perceptron: a probabilistic model for information storage and organization in the brain. *Psychological review*, 65(6), 386.
 [^Cortes]: Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine learning*, 20(3), 273-297.
-[^Review]: Muandet, K., Fukumizu, K., Sriperumbudur, B., & Schölkopf, B. (2017). Kernel mean embedding of distributions: A review and beyond. Foundations and Trends® in Machine Learning, 10(1-2), 1-141.
 [^Aronszajn]: Aronszajn, N. (1950). Theory of reproducing kernels. *Transactions of the American mathematical society*, 68(3), 337-404.
 [^Schol]: Schölkopf, B., Smola, A. J., & Bach, F. (2002). *Learning with kernels: support vector machines, regularization, optimization, and beyond*. MIT press.
 [^Jaya]: Jayasumana, S., Hartley, R., Salzmann, M., Li, H., & Harandi, M. (2013). Kernel methods on the Riemannian manifold of symmetric positive definite matrices. In *proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 73-80).
