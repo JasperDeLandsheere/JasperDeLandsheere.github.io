@@ -227,7 +227,7 @@ $$
     \mathcal U_{Y|\mathbf{x}} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot).
 $$
 
-Fukumizu et al. [^Fukumizu] [^Fuku3] state that if $\mathbb E_{Y|X}[g(Y)|X=\cdot] \in \mathcal H$ for any $g \in \mathcal G$, then
+Fukumizu et al. [^Fuku2004] [^Fuku3] state that if $\mathbb E_{Y|X}[g(Y)|X=\cdot] \in \mathcal H$ for any $g \in \mathcal G$, then
 
 $$
     \mathcal C_{XX} \mathbb E_{Y|X}[g(Y)|X=\cdot] = \mathcal C_{XY}g.
@@ -242,10 +242,10 @@ $$
 Combining the above the equations, and taking the conjugate transpose of $\mathcal C_{XX}^{-1}\mathcal C_{XY}$ gives
 
 $$
-    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot)}_{\mathcal{g}} = \scal{g, \mathcal U_{Y|\mathbf{x}}}_{\mathcal{g}}.
+    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot)}_{\mathcal{G}} = \scal{g, \mathcal U_{Y|\mathbf{x}}}_{\mathcal{G}}.
 $$
 
-In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so a regularised version is often used, that is [^Song2009] [^Fukumizu] :
+In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so a regularised version is often used, that is [^Song2009] [^Fuku2004] :
 
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
@@ -272,7 +272,7 @@ Similar as the embedding of marginal distributions in equation 12, the embedding
 
 ## Learning on Distributional Data
 
-The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{g}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. 
+The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{G}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. 
 
 ### Toy example 3: Regression
 
@@ -311,7 +311,6 @@ The conditional mean embedding has a natural interpretation as a solution to a v
 [^Song]: Song, L., Fukumizu, K., & Gretton, A. (2013). Kernel embeddings of conditional distributions: A unified kernel framework for nonparametric inference in graphical models. *IEEE Signal Processing Magazine*, 30(4), 98-111.
 [^Borgwardt]: Borgwardt, K. M., Gretton, A., Rasch, M. J., Kriegel, H. P., Schölkopf, B., & Smola, A. J. (2006). Integrating structured biological data by kernel maximum mean discrepancy. *Bioinformatics*, 22(14), e49-e57.
 [^Song2009]: Song, L., Huang, J., Smola, A., & Fukumizu, K. (2009, June). Hilbert space embeddings of conditional distributions with applications to dynamical systems. In *Proceedings of the 26th Annual International Conference on Machine Learning* (pp. 961-968).
-[^Fukumizu]: Fukumizu, K., Bach, F. R., & Jordan, M. I. (2004). Dimensionality reduction for supervised learning with reproducing kernel Hilbert spaces. *Journal of Machine Learning Research*, 5(Jan), 73-99.
 [^Fuku3]: Fukumizu, K., Song, L., & Gretton, A. (2013). Kernel Bayes' rule: Bayesian inference with positive definite kernels. *The Journal of Machine Learning Research*, 14(1), 3753-3783.
 [^Zhang]: Zhang, K., Peters, J., Janzing, D., & Schölkopf, B. (2012). Kernel-based conditional independence test and application in causal discovery. *arXiv preprint arXiv:1202.3775*.
 [^Grune]: Grünewälder, S., Lever, G., Baldassarre, L., Patterson, S., Gretton, A., & Pontil, M. (2012). Conditional mean embeddings as regressors-supplementary. *arXiv preprint arXiv:1205.4656*.
