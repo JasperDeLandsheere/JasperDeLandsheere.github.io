@@ -216,12 +216,12 @@ $$
      \mathbb E_{Y|X}[g(Y)|X=\mathbf{x}] = \scal{g,\mathcal U_{Y|\mathbf{x}}}_{\mathcal G}, \forall g \in \mathcal G.
 $$
 
-$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$ and $\mathcal U_{Y|\mathbf{x}}$ is an element in that RKHS $\mathcal G$. In equation 13 it is important to note that the conditional mean embedding of $\mathbb P(Y|X=\mathbf{x})$ is the conditional expectation of the feature map of $Y$ given that $X = \mathbf{x}$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when apploef to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation 14 shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$. 
+$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$, and $\mathcal U_{Y|\mathbf{x}}$ is an element in RKHS $\mathcal G$. In the above equation it is stated that the conditional mean embedding of $\mathbb P(Y|X=\mathbf{x})$ is the conditional expectation of the feature map of $Y$ given that $X = \mathbf{x}$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when applied to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation 15 shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$. 
 
-Now, let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and corss-covariance operator from $X$ to $Y$, respectively. Then:
+Song et al. [^Song] [^Song2009] provides following definition: let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and corss-covariance operator from $X$ to $Y$, respectively. Then, the conditional mean embedding $\mathcal U_{Y|X}$ and $\mathcal U_{Y|x}$ are defined as:
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
-    \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(x,\cdot)
+    \mathcal U_{Y|x} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot).
 $$
 In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is:
 $$
@@ -243,11 +243,11 @@ $$
 
 
 ## References
+[^Pearson]: Pearson, K. (1901). LIII. On lines and planes of closest fit to systems of points in space. *The London, Edinburgh, and Dublin philosophical magazine and journal of science*, 2(11), 559-572.
+[^Hotelling]: Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. *Journal of educational psychology*, 24(6), 417.
 [^MinskyPapert]: Minsky, M., & Papert, S. (1969). Perceptrons.
 [^Rosenblatt]: Rosenblatt, F. (1958). The perceptron: a probabilistic model for information storage and organization in the brain. *Psychological review*, 65(6), 386.
 [^Cortes]: Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine learning*, 20(3), 273-297.
-[^Pearson]: Pearson, K. (1901). LIII. On lines and planes of closest fit to systems of points in space. *The London, Edinburgh, and Dublin philosophical magazine and journal of science*, 2(11), 559-572.
-[^Hotelling]: Hotelling, H. (1933). Analysis of a complex of statistical variables into principal components. *Journal of educational psychology*, 24(6), 417.
 [^Review]: Muandet, K., Fukumizu, K., Sriperumbudur, B., & Schölkopf, B. (2017). Kernel mean embedding of distributions: A review and beyond. Foundations and Trends® in Machine Learning, 10(1-2), 1-141.
 [^Aronszajn]: Aronszajn, N. (1950). Theory of reproducing kernels. *Transactions of the American mathematical society*, 68(3), 337-404.
 [^Schol]: Schölkopf, B., Smola, A. J., & Bach, F. (2002). *Learning with kernels: support vector machines, regularization, optimization, and beyond*. MIT press.
