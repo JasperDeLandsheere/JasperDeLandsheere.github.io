@@ -218,7 +218,7 @@ $$
 
 $\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$, and $\mathcal U_{Y|\mathbf{x}}$ is an element in RKHS $\mathcal G$. In the above equation it is stated that the conditional mean embedding of $\mathbb P(Y|X=\mathbf{x})$ is the conditional expectation of the feature map of $Y$ given that $X = \mathbf{x}$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when applied to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation 15 shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$. 
 
-Song et al. [^Song] [^Song2009] provide following definition: let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and corss-covariance operator from $X$ to $Y$, respectively. Then, the conditional mean embedding $\mathcal U_{Y|X}$ and $\mathcal U_{Y|x}$ are defined as:
+Song et al. [^Song] [^Song2009] provide following definition: let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and cross-covariance operator from $X$ to $Y$, respectively. Then, the conditional mean embedding $\mathcal U_{Y|X}$ and $\mathcal U_{Y|x}$ are defined as:
 
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
@@ -243,7 +243,7 @@ $$
     \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot)}_{\mathcal g} = \scal{g, \mathcal U_{Y|\mathbf{x}}}_{\mathcal g}.
 $$
 
-In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is [^Song2009] [^Fukumizu]:
+In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so we often use a regularised version, that is [^Song2009] [^Fukumizu] :
 
 $$
     \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
