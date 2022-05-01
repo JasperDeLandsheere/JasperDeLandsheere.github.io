@@ -308,7 +308,7 @@ To interpretate the obtained results, the underlying distributions needs to be r
 Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parametrized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
 
 $$
-
+    \hat{\mathbf{\theta}} = \argmin_{\theta \in }
 $$
 
 ### Toy example 3: Regression
