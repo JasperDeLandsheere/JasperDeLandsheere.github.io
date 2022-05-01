@@ -272,7 +272,13 @@ Similar as the embedding of marginal distributions in equation 12, the embedding
 
 ## Learning on Distributional Data
 
-The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{G}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. 
+The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{G}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. Moreover, the empirical estimator $\hat{µ}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, suggests that the conditional mean embedding is the solution to an underlying regression problem.
+
+Consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{z}_{1}),...,(\mathbf{x}_{n},\mathbf{z}_{n}) \in \mathcal X \times \mathcal G$, a vector-valued regression problem can be formulated as
+
+$$
+
+$$
 
 ### Toy example 3: Regression
 
