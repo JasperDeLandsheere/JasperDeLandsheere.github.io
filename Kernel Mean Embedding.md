@@ -289,7 +289,7 @@ $$
 The added regularization term provides a well-posed problem and prevents overfitting. Interpretating the conditional mean embedding as a solution to a vector-valued regression problem gives the advantage of being able to use cross-validation or model selection, due to the well-defined loss function. Since $\mathcal G$ is assumed to be finite-dimensional, the conditional mean embedding is the ridge regression of the feature vectors. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, in a ridge regression context the hat matrix $\mathbf{H}_{\lambda}$ is:
 
 $$
-    \mathbf{H}_{\lambda}\mathbf{k}}_{\mathbf{x}} = \hat{\mathbf{k}}_{\mathbf{x}} = \phi \hat{\mathbf{ \beta}_{\lambda}}\\
+    \mathbf{H}_{\lambda}\mathbf{k}_{\mathbf{x}} = \hat{\mathbf{k}}_{\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}}\\
     \mathbf{H}_{\lambda} = \mathbf{K}(\mathbf{K} + \lambda \mathbf{I})^{-1}.
 $$
 
