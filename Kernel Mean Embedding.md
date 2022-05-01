@@ -128,11 +128,11 @@ One can wonder how much information about the distribution $\mathbb P$ this kern
 
 The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [^Scholkopf]. 
 
-In the third example, characteristic and universal kernels are mentioned. Chracteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto µ_{\mathbb P}$ is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$ [^Fuku2004]. The Gaussian kernel used in this thesis is a characteristic kernel [^Fuku]. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal [^Gretton] [^Steinwart2001].
+In the third example, characteristic and universal kernels are mentioned. Characteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto µ_{\mathbb P}$ is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$ [^Fuku2004]. The Gaussian kernel used in this thesis is a characteristic kernel [^Fuku]. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal [^Gretton] [^Steinwart2001].
 
-This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitibale for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
+This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitable for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
 
-It is important to note that in practice, the true distribution of $\mathbb P$ is often unkown, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is avaible. $µ_{\mathbb P}$ can be estimated by taking an empirical average:
+It is important to note that in practice, the true distribution of $\mathbb P$ is often unknown, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is available. $µ_{\mathbb P}$ can be estimated by taking an empirical average:
 
 $$
     \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
@@ -168,7 +168,7 @@ $$
 
 This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model to fit the training data of the toy problem.
 
-First, a Gaussian kernel is defined. In this example the KernelFunctions.lj package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel). 
+First, a Gaussian kernel is defined. In this example the KernelFunctions.jl package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel). 
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.01)
@@ -203,7 +203,7 @@ In the graph below, the obtained model is plotted. The distance between the embe
 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png)
 
-### Toy example : Kernel PCA
+### Toy example 2: Kernel PCA
 
 ## Kernel Mean Embedding of Conditional Distributions
 
