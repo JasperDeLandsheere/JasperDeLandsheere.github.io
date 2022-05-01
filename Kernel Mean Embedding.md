@@ -299,6 +299,18 @@ $$
     \hat{µ}_{Y|\mathbf{x}}^{LOOCV} = (\mathbf{I} - diag(\mathbf{H}_{\lambda}))^{-1}(\mathbf{H}_{\lambda} - diag(\mathbf{H}_{\lambda}))\Phi,
 $$
 
+with $diag(\cdot)$ the diagonal matrix. It's important to note that using the above equation, all LOOCV conditional embeddings can be calculated at once using matrix multiplications. 
+
+To interpretate the obtained results, the underlying distributions needs to be recovered from the embeddings, which is the topic of the next section.
+
+## Recovering Distributions from RKHS Embeddings
+
+Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parametrized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
+
+$$
+
+$$
+
 ### Toy example 3: Regression
 
 
@@ -341,3 +353,5 @@ $$
 [^Grune]: Grünewälder, S., Lever, G., Baldassarre, L., Patterson, S., Gretton, A., & Pontil, M. (2012). Conditional mean embeddings as regressors-supplementary. *arXiv preprint arXiv:1205.4656*.
 [^Micch]: Micchelli, C. A., & Pontil, M. (2005). On learning vector-valued functions. *Neural computation*, 17(1), 177-204.
 [^Spline]: Wahba, G. (1990). *Spline models for observational data*. Society for industrial and applied mathematics.
+[^Kwok]: Kwok, J. Y., & Tsang, I. H. (2004). The pre-image problem in kernel methods. *IEEE transactions on neural networks*, 15(6), 1517-1525.
+[^Kana]: Kanagawa, M., & Fukumizu, K. (2014, April). Recovering distributions from Gaussian RKHS embeddings. In *Artificial Intelligence and Statistics* (pp. 457-465). PMLR.
