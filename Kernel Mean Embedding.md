@@ -308,9 +308,13 @@ To interpretate the obtained results, the underlying distributions needs to be r
 Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parametrized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
 
 $$
-    \hat{\mathbf{\theta}} = \argmin_{\theta \in \Theta}{\|\hat{µ_{Y}} - µ_{\mathbb{P}_{\theta}}\|}_{\mathcal H}^{2}\\
-    = \argmin_{\theta \in \Theta} \scal{\hat{µ_{Y}},\hat{µ_{Y}}} -2\scal{\hat{µ_{Y}}, µ_{\mathbb{P}_{\theta}}} + \scal{µ_{\mathbb{P}_{\theta}}, µ_{\mathbb{P}_{\theta}}},
+    \hat{\mathbf{\theta}} = \argmin_{\theta \in \Theta}{\|\hat{µ}_{Y} - µ_{\mathbb{P}_{\theta}}\|}_{\mathcal H}^{2}\\
+    = \argmin_{\theta \in \Theta} \scal{\hat{µ}_{Y},\hat{µ}_{Y}} -2\scal{\hat{µ}_{Y}, µ_{\mathbb{P}_{\theta}}} + \scal{µ_{\mathbb{P}_{\theta}}, µ_{\mathbb{P}_{\theta}}},
 $$
+
+where $\theta$ is subject to appropriate constraints. As seen earlier, equation 27 describes the MMD. $\scal{\hat{µ}_{Y},\hat{µ}_{Y}}$ is constant and is left out of the minimization. Assume $µ_{\mathbb{P}_{\theta}} = \sum_{i=1}^{n}{\alpha}_i\varphi(\mathbf{y}_i)$ for some $\alpha \in \Delta^{n-1}$, i.e., $\mathbb{P}_{\theta}$ is a histogram.
+
+$\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song].
 
 ### Toy example 3: Regression
 
