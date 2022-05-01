@@ -266,7 +266,7 @@ $$
     µ_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}. 
 $$
 
-Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{\beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently equation 21 can be written as $ µ_{Y|\mathbf{x}} = \Phi \hat{\mathbf{\beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$.
+Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{\beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently equation 21 can be written as $ µ_{Y|\mathbf{x}} = \Phi \hat{\mathbf{\beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009]. 
 
 ### Toy example 2: Regression
 
