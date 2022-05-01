@@ -34,7 +34,7 @@ As an example, consider the arbitrary classification problem below, in which one
 
 ![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
 
-Consider a polynomial feature mapping on the datapoints $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product in $\mathcal{F}$ can be calculated
+Consider a polynomial feature mapping on the data points $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product in $\mathcal{F}$ can be calculated
 
 $$
 \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathbb{R_{3}}} = {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2\\
@@ -42,7 +42,7 @@ $$
 = {\scal{x, x'}_{\mathbb{R_{2}}}}^2.
 $$
 
-So, the new similarity measure is the square of the inner product in $\mathcal X$. When applied on the datapoints, one can obtain the following result.
+So, the new similarity measure is the square of the inner product in $\mathcal X$. When applied on the data points, one can obtain the following result.
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
@@ -79,9 +79,9 @@ $$
 
 holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $f(\mathbf{x'} = k(\mathbf{x}',\cdot))$ for some $\mathbf{x}' \in \mathcal X$, $k(\mathbf{x},\mathbf{x}')=\scal{k(\mathbf{x},\cdot),k(\mathbf{x}',\cdot)}_{\mathcal H}$.
 
-Aronszajn (1950): *“There is a one-to-one correspondance between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
+Aronszajn (1950): *“There is a one-to-one correspondence between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
-The kernel trick not only delivers powerful (non-linear) learning algorithms, but also paves the path for domain experts to invent certain kernels which are suitable for specific applications. The kernel trick does not only apply to Euclidian data, but also to non-Euclidian structured data, functional data, and other domains on which a positive definite kernel may be applied [^Schol] [^Gartner]. Various kernels have been proposed in various application domains [^Genton] and for different types of data, such as strings, graphs and trees [^Schol] [^Gartner] [^Hofmann].
+The kernel trick not only delivers powerful (non-linear) learning algorithms, but also paves the path for domain experts to invent certain kernels which are suitable for specific applications. The kernel trick does not only apply to Euclidean data, but also to non-Euclidean structured data, functional data, and other domains on which a positive definite kernel may be applied [^Schol] [^Gartner]. Various kernels have been proposed in various application domains [^Genton] and for different types of data, such as strings, graphs and trees [^Schol] [^Gartner] [^Hofmann].
 
 The kernel used in this thesis is called the Gaussian kernel, which is a member of the class of kernels called radial basis functions (RBFs):
 
@@ -89,7 +89,7 @@ $$
     k^{RBF}(\mathbf{x},\mathbf{x}') = exp(-\frac{\|\mathbf{x}-\mathbf{x}'\|^{2}}{2{\sigma}^{2}}),
 $$
 
-with $\sigma > 0$ the bandwidth parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an indentity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwith parameter [^Genton] [^Steinwart2002].
+with $\sigma > 0$ the bandwidth parameter. The Gram matrix of the Gaussian kernel becomes a matrix of ones for $\sigma \to \infty$ and an identity matrix for $\sigma \to 0$. Which means for the former that all instances are the same, and for the latter that all instances are completely unique, making it a relevant interpretation as a similarity measure [^Vert]. RBF kernels are stationary kernels, which means that they can be described as functions of the differences of their input. RBF kernels are also universal kernels, which means they can represent any smooth function with a high degree of accuracy, assuming being able to find the right bandwidth parameter [^Genton] [^Steinwart2002].
 
 For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot], respectively.
 
