@@ -168,7 +168,7 @@ $$
 
 This distance between mean embeddings of features represents the distance between distributions in the input space. In other words, the smaller the MMD, the smaller the distance is between distributions in the input space. This can be used to find a model to fit the training data of the toy problem.
 
-First, a Gaussian kernel is defined. In this example the KernelFunctions.jl package is used. The scaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel). 
+First, a Gaussian kernel is defined. In this example the KernelFunctions.jl package is used. The ScaleTransfrom parameter is the inverse of the length scale (i.e. bandwidth parameter of the Gaussian kernel). 
 
 ```julia
 k = SqExponentialKernel() ∘ ScaleTransform(0.01)
@@ -251,7 +251,7 @@ $$
     \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
 $$
 
-where $\lambda > 0$ is the regularization parameter and $\mathcal I$ is the identitiy operator in $\mathcal H$. Fukumizu et al.  [^Fuku3] stated that, under some mild conditions, the empirical estimator is a consistent estimator of $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}]$.
+where $\lambda > 0$ is the regularization parameter and $\mathcal I$ is the identity operator in $\mathcal H$. Fukumizu et al.  [^Fuku3] stated that, under some mild conditions, the empirical estimator is a consistent estimator of $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}]$.
 
 In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps corresponding to the respective kernels $k$ and $l$. The associated Gram matrices are  $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding becomes [^Song2009]
 
@@ -286,7 +286,7 @@ $$
     \hat{\varepsilon}_{\mathcal S}[µ] = \displaystyle\sum_{i=1}^{n} {\|l(\mathbf{y}_i,\cdot) - µ(\mathbf{x}_i)\|}_{\mathcal G}^{2} + \lambda {\|µ\|}_{\mathcal {H}_{\Gamma}}^{2}.  
 $$
 
-The added regularization term provides a well-posed problem and prevents overfitting. Interpretating the conditional mean embedding as a solution to a vector-valued regression problem gives the advantage of being able to use cross-validation or model selection, due to the well-defined loss function. Since $\mathcal G$ is assumed to be finite-dimensional, the conditional mean embedding is the ridge regression of the feature vectors. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, in a ridge regression context the hat matrix $\mathbf{H}_{\lambda}$ is:
+The added regularization term provides a well-posed problem and prevents overfitting. Interpreting the conditional mean embedding as a solution to a vector-valued regression problem gives the advantage of being able to use cross-validation or model selection, due to the well-defined loss function. Since $\mathcal G$ is assumed to be finite-dimensional, the conditional mean embedding is the ridge regression of the feature vectors. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, in a ridge regression context the hat matrix $\mathbf{H}_{\lambda}$ is:
 
 $$
     \mathbf{H}_{\lambda}\mathbf{k}_{\mathbf{x}} = \hat{\mathbf{k}}_{\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}}\\
@@ -301,11 +301,11 @@ $$
 
 with $diag(\cdot)$ the diagonal matrix. It's important to note that using the above equation, all LOOCV conditional embeddings can be calculated at once using matrix multiplications. 
 
-To interpretate the obtained results, the underlying distributions needs to be recovered from the embeddings, which is the topic of the next section.
+To interpret the obtained results, the underlying distributions needs to be recovered from the embeddings, which is the topic of the next section.
 
 ## Recovering Distributions from RKHS Embeddings
 
-Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parametrized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
+Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parameterized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
 
 $$
     \hat{\mathbf{\theta}} = \argmin_{\theta \in \Theta}{\|\hat{µ}_{Y} - µ_{\mathbb{P}_{\theta}}\|}_{\mathcal H}^{2}\\
