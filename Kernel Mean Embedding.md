@@ -241,7 +241,7 @@ This problem can be solved using kernel mean embedding, particularly using the m
   &= {\|\mu_{\mathbb P}\|}_{\mathcal H} -2\langle{\mu_{\mathbb P}, \mu_{\mathbb Q}}\rangle_{\mathcal H} + {\|\mu_{\mathbb Q}\|}_{\mathcal H}.
 \end{split}
 \end{equation}
-Given $\{\mathbf{x}_i\}_{i=1}^n \sim \mathbb P$ and $\{\mathbf{y}_j\}_{j=1}^n \sim \mathbb Q$, the empirical MMD is \citep[^Borgwardt] :
+Given $\{\mathbf{x}_i\}_{i=1}^n \sim \mathbb P$ and $\{\mathbf{y}_j\}_{j=1}^n \sim \mathbb Q$, the empirical MMD is [^Borgwardt] :
 \begin{equation}
 \begin{split}
     \widehat{MMD}_u^{2}(\mathbb P, \mathbb Q, \mathcal H) &= \frac{1}{n(n-1)}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j\neq i}^{n}k(\mathbf{x}_{i},\mathbf{x}_{j}) - \frac{2}{nm}\displaystyle\sum_{i=1}^{n}\displaystyle\sum_{j= 1}^{m}k(\mathbf{x}_{i},\mathbf{y}_{j})\\ 
