@@ -101,28 +101,26 @@ For additional information on the properties of (reproducing kernel) Hilbert spa
 
 ### From data points to probability measures
 
-Having reviewed the above section on kernel methods one could wonder the practicality of extending kernel methods from individual data points to probability distributions. In many real-life learning problems, however, it could be argued that it is more appropriate to represent the training data as probability distributions rather than individual data points. For example, in many situations data is missing or uncertain. As a specific example, gene expression data originating from microarray experiments are known to be very noisy, due to different sources of variabilities [^Yang]. To battle this, each array can be represented as a probability distribution. Another reason for the preference of probability distributions can be computational challenges when dealing with large amounts of training data [^Muandet].
+Having reviewed the above section on kernel methods one could wonder the practicality of extending kernel methods from individual data points to probability distributions. In many real-life learning problems, however, it could be argued that it is more appropriate to represent the training data as probability distributions rather than individual data points. 
+
+For example, in many situations data is missing or uncertain. As a specific example, gene expression data originating from microarray experiments are known to be very noisy, due to different sources of variabilities [^Yang]. To battle this, each array can be represented as a probability distribution. Another reason for the preference of probability distributions can be computational challenges when dealing with large amounts of training data [^Muandet].
 
 Let $k : \mathcal X \times \mathcal X \to \mathbb R$ be a real-valued positive definite kernel associated with the Hilbert space $\mathcal H$, with $\mathcal X$ a non-empty set. The reproducing property lets the kernel evaluation be interpreted as an inner product in $\mathcal H$ induced by a map from $\mathcal X$ into $\mathcal H$
-
-$$
+\begin{equation}
     \mathbf{x} \mapsto k(\mathbf{x,\cdot}).
-$$
-
-Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $µ$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet] :
-
-$$
-    µ: M_X^{1}(\mathcal X) \to \mathcal H\\
-    \mathbb P \mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
-$$
-
-with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${µ}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding:
-
-$$
-    \phi(\mathbb P) = µ_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
-$$
-
-The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral [^Smola] [^Berlinet]. A visual representation of this mean embedding:
+\end{equation}
+Basically, $k(\mathbf{x,\cdot})$ is a high-dimensional representer of $\mathbf{x}$ and because of the reproducing property $k(\mathbf{x,\cdot})$ it is also a representer of evaluation of any function in $\mathcal H$ on the data point $\mathbf{x}$. This lets feature map $\phi$ to be extended to the space of probability distributions through the mapping of $\mu$ which defines the representer in $\mathcal H$ of any distribution $\mathbb P$ [^Muandet] :
+\begin{equation}
+\begin{split}
+    \mu: M_+^{1}(\mathcal X) &\to \mathcal H\\
+    \mathbb P &\mapsto \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}),
+\end{split}
+\end{equation}
+with $M_X^{1}(\mathcal X)$ the space of probability measures over a measurable space $\mathcal X$. The distribution $\mathbb P$ is transformed into an element, the mean embedding ${\mu}_{\mathbb P}$, in an RKHS corresponding to the positive definite kernel $k$, hence the name kernel mean embedding:
+\begin{equation} \label{eqP}
+    \phi(\mathbb P) = \mu_{\mathbb P} := \mathbb E_{X\sim \mathbb P}[k(X,\cdot)] = \int_{\mathcal X} k(\mathbf{x},\cdot) \mathrm{d\mathbb P}(\mathbf{x}).
+\end{equation}
+The element is the expected value in the RKHS and since $\mathbb P$ is a probability density distribution, it can be interpreted as an integral [^Smola] [^Berlinet]. In other words, in equation 10 the distribution $\mathbb{P}$ is transformed into an element in the RKHS $\mathcal{H}$ corresponding to the kernel $k$, therefore RKHS methods can be extended to probability measures. A visual representation of this mean embedding is illustrated in the figure below.
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
