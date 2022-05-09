@@ -32,7 +32,7 @@ where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$ a
 
 As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
 
-![Data in Input Space](/assets/Data%20in%20Input%20Space.png) 
+![Data in Input Space](/assets/Data_in_Input_Space.png) 
 
 Consider a polynomial feature mapping on the data points $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product in $\mathcal{F}$ can be calculated
 
