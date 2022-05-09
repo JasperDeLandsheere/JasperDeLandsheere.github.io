@@ -13,6 +13,9 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 \toc
 
 ## Kernel Methods
+
+### Introduction
+
 Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. 
 
 Naturally, an extension of $\scal{\mathbf{x}, \mathbf{x}'}$ can be made by explicitly applying a non-linear transformation:
@@ -50,6 +53,8 @@ In this new higher dimensional feature space one can find an appropiate learning
 
 The core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where effective use of learning algorithms can be made.
 
+### The kernel trick
+
 As seen in the above example, to evaluate equation 2 one needs to work in two steps: i) explicitly constructing the feature maps $\phi(\mathbf{x})$, and ii) evaluating the inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$. This can become a problem when $\phi(\mathbf{x})$ defines a computationally expensive transformation to a high-dimensional featue space. Fortunately, there exists a solution to this by evaluating $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ without explicitly constructing the feature maps. This is a core idea of kernel methods and is often called "the kernel trick" in the machine learning community [^Review]. A visual representation of the kernel trick is illustrated below. For the above mentioned example one can just consider $k(\mathbf{x},\mathbf{x}') = {\scal{\mathbf{x}, \mathbf{x}'}}^2$ rather than calculating the feature maps explicitly.
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
@@ -61,6 +66,8 @@ $$
 $$
 
 for any $n \in \mathbb N$, all finite sequences of points $(x_{1},...,x_{n}) \in \mathcal X^{n}$ and any $n$ real-valued coefficients $(c_{1},...,c_{n}) \in \mathbb R^{n}$ [^Jaya] [^Mercer].
+
+### Recurrent kernel Hilbert space
 
 Another important property of a positive definite kernel is that it induces a space of functions from $\mathcal X$ to $\mathbb R$ called a reproducing kernel Hilbert space (RKHS) $\mathcal H$, which is why the kernel is also called a reproducing kernel [^Aronszajn]. It's important to note that the RKHS is a space of functions from $\mathcal X$ to $\mathbb R$. In other words, each data point $\mathbf{x}$ in $\mathcal X$ will be represented by a function $\phi(\mathbf{x})$ in $\mathcal H$.
 
@@ -81,6 +88,8 @@ holds for all $f \in \mathcal H$ and all $x \in \mathcal X$. In particular: if $
 
 Aronszajn (1950): *“There is a one-to-one correspondence between the reproducing kernel $k$ and the RKHS $\mathcal H$”.*
 
+### Kernel functions
+
 The kernel trick not only delivers powerful (non-linear) learning algorithms, but also paves the path for domain experts to invent certain kernels which are suitable for specific applications. The kernel trick does not only apply to Euclidean data, but also to non-Euclidean structured data, functional data, and other domains on which a positive definite kernel may be applied [^Schol] [^Gartner]. Various kernels have been proposed in various application domains [^Genton] and for different types of data, such as strings, graphs and trees [^Schol] [^Gartner] [^Hofmann].
 
 The kernel used in this thesis is called the Gaussian kernel, which is a member of the class of kernels called radial basis functions (RBFs):
@@ -94,6 +103,8 @@ with $\sigma > 0$ the bandwidth parameter. The Gram matrix of the Gaussian kerne
 For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot], respectively.
 
 ## Kernel Mean Embedding of Marginal Distributions
+
+### From data points to probability measures
 
 Having reviewed the above section on kernel methods one could wonder the practicality of extending kernel methods from individual data points to probability distributions. In many real-life learning problems, however, it could be argued that it is more appropriate to represent the training data as probability distributions rather than individual data points. For example, in many situations data is missing or uncertain. As a specific example, gene expression data originating from microarray experiments are known to be very noisy, due to different sources of variabilities [^Yang]. To battle this, each array can be represented as a probability distribution. Another reason for the preference of probability distributions can be computational challenges when dealing with large amounts of training data [^Muandet].
 
@@ -120,6 +131,8 @@ The element is the expected value in the RKHS and since $\mathbb P$ is a probabi
 
 ![Embedding of marginal distributions](/assets/Embedding%20of%20Marginal%20Distributions.PNG) 
 
+### Kernel mean representation
+
 One can wonder how much information about the distribution $\mathbb P$ this kernel mean embedding can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
 * $k(\mathbf{x},\mathbf{x}')=\scal{\mathbf{x},\mathbf{x}'}$ : the first moment of $\mathbb P$
@@ -131,6 +144,8 @@ The first and second example are called the linear and polynomial kernel, respec
 In the third example, characteristic and universal kernels are mentioned. Characteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto µ_{\mathbb P}$ is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$ [^Fuku2004]. The Gaussian kernel used in this thesis is a characteristic kernel [^Fuku]. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal [^Gretton] [^Steinwart2001].
 
 This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitable for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
+
+### Empirical estimate of mean embeddings
 
 It is important to note that in practice, the true distribution of $\mathbb P$ is often unknown, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is available. $µ_{\mathbb P}$ can be estimated by taking an empirical average:
 
@@ -148,7 +163,9 @@ with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subjec
 
 In the next section kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
 
-### Toy problem 1: Inference (using Maximum mean discrepancy)
+### Toy problem 1: kernel PCA
+
+### Toy problem 2: maximum mean discrepancy
 
 Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with a certain radius that represents the input data?
 
@@ -202,8 +219,6 @@ R2[index] # The corresponding radius of the minimum MMD
 In the graph below, the obtained model is plotted. The distance between the embedding of this model and the embedding of the input data is the smallest out of all generated circles, meaning the model fits the input data the best in the input space.
 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png)
-
-### Toy example 2: Kernel PCA
 
 ## Kernel Mean Embedding of Conditional Distributions
 
@@ -270,7 +285,7 @@ $$
 
 Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently, equation 22 can be written as $\hat{µ}_{Y|\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009]. 
 
-## Learning on Distributional Data
+## Learning on distributional data
 
 The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{G}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. Moreover, the empirical estimator $\hat{µ}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, suggests that the conditional mean embedding is the solution to an underlying regression problem.
 
@@ -303,7 +318,7 @@ with $diag(\cdot)$ the diagonal matrix. It's important to note that using the ab
 
 To interpret the obtained results, the underlying distributions needs to be recovered from the embeddings, which is the topic of the next section.
 
-## Recovering Distributions from RKHS Embeddings
+## Recovering distributions from RKHS embeddings
 
 Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parameterized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
 
@@ -316,7 +331,7 @@ where $\theta$ is subject to appropriate constraints. As seen earlier, equation 
 
 $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song].
 
-### Toy example 3: Regression
+### Toy problem 3: regression
 
 
 ## References
