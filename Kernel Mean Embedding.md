@@ -128,15 +128,17 @@ The element is the expected value in the RKHS and since $\mathbb P$ is a probabi
 
 One can wonder how much information about the distribution $\mathbb P$ this kernel mean embedding can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
-* $k(\mathbf{x},\mathbf{x}')=\scal{\mathbf{x},\mathbf{x}'}$ : the first moment of $\mathbb P$
-* $k(\mathbf{x},\mathbf{x}')={(\scal{\mathbf{x},\mathbf{x}'}+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
-* $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
+\begin{itemize}
+\item $k(\mathbf{x},\mathbf{x}')=\langle\mathbf{x},\mathbf{x}'\rangle$ : the first moment of $\mathbb P$
+\item $k(\mathbf{x},\mathbf{x}')={(\langle\mathbf{x},\mathbf{x}'\rangle+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
+\item $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
+\end{itemize}
 
-The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $µ_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [^Scholkopf]. 
+The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $\mu_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [^Scholkopf]. 
 
-In the third example, characteristic and universal kernels are mentioned. Characteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto µ_{\mathbb P}$ is injective, i.e., ${\|µ_{\mathbb P} - µ_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$ [^Fuku2004]. The Gaussian kernel used in this thesis is a characteristic kernel [^Fuku]. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal [^Gretton] [^Steinwart2001].
+In the third example, characteristic and universal kernels are mentioned. Characteristic kernels are a class of kernel functions for which the kernel mean embedding captures all information about the distribution $\mathbb P$. A kernel $k$ is characteristic if the map $\mathbb P \mapsto \mu_{\mathbb P}$ is injective, i.e., ${\|\mu_{\mathbb P} - \mu_{\mathbb Q} \|}_{\mathcal H} = 0$ if and only if $\mathbb P = \mathbb Q$ [^Fuku2004]. The Gaussian kernel used in this thesis is a characteristic kernel [^Fuku]. It must be noted that all universal kernels are characteristic, but characteristic kernels may not be universal [^Gretton] [^Steinwart2001].
 
-This injectivity of the map $\mathbb P \mapsto µ_{\mathbb P}$ ensures that the RKHS embedding is suitable for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
+This injectivity of the map $\mathbb P \mapsto \mu_{\mathbb P}$ ensures that the RKHS embedding is suitable for regression problems, since each element in the feature space corresponds to one unique distribution in the original space. In other words, no information is lost when mapping the distribution into the RKHS.
 
 ### Empirical estimate of mean embeddings
 
