@@ -16,9 +16,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 ### Introduction
 
-Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\scal{\mathbf{x}, \mathbf{x}'}$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\scal{\mathbf{x}, \mathbf{x}'}$ with some other (non-linear) similarity measure. 
-
-These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\langle\mathbf{x}, \mathbf{x}'\rangle$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\langle \mathbf{x}, \mathbf{x}'\rangle$ with some other (non-linear) similarity measure. 
+Inner products serve as a powerful tool in many established machine learning algorithms, such as principal component analysis (PCA)[^Pearson] [^Hotelling], perceptron [^MinskyPapert] [^Rosenblatt], and support vector machine (SVM) [^Cortes]. These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\langle\mathbf{x}, \mathbf{x}'\rangle$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\langle \mathbf{x}, \mathbf{x}'\rangle$ with some other (non-linear) similarity measure. 
 
 Naturally, an extension of $\langle \mathbf{x}, \mathbf{x}'\rangle$ can be made by explicitly applying a non-linear transformation:
 \begin{equation} \label{eq1}
@@ -33,34 +31,19 @@ k(\mathbf{x},\mathbf{x}') := \langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{
 \end{equation}
 where $\langle\cdot, \cdot \rangle_{\mathcal{F}}$ is the inner product of $\mathcal F$ and $\phi$ is called the feature map. $k$ is the kernel function which defines a non-linear similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. By substituting $\langle\mathbf{x}, \mathbf{x}'\rangle$ with $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$ a non-linear extension of the algorithms that consider data through $\langle\mathbf{x}, \mathbf{x}'\rangle$, can be made. So, a linear algorithm in $\mathcal F$ corresponds to a non-linear counterpart in the original input space. It is important to note that the algorithm stays the same, only the space in which the algorithm operates, changes. 
 
-Naturally, an extension of $\scal{\mathbf{x}, \mathbf{x}'}$ can be made by explicitly applying a non-linear transformation:
-
-$$
-\phi:\mathcal X\to \mathcal F,\\
-x \mapsto \phi (x),
-$$
-
-from $\mathcal X$ to the high-dimensional feature space $\mathcal F$. In this new feature space the inner product can be evaluated:
-
-$$
-k(\mathbf{x},\mathbf{x}') := \scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}},
-$$
-
-where $\scal{\cdot, \cdot}_{\mathcal{F}}$ is the inner product of $\mathcal F$ and $\phi$ is called the feature map. $k$ is the kernel function which defines a non-linear similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. By substituting $\scal{\mathbf{x}, \mathbf{x}'}$ with $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ a non-linear extension of the algorithms that consider data through $\scal{\mathbf{x}, \mathbf{x}'}$, can be made. So, a linear algorithm in $\mathcal F$ corresponds to a non-linear counterpart in the original input space. It is important to note that the algorithm stays the same, only the space in which the algorithm operates, changes. 
-
-As an example, consider the arbitrary classification problem below, in which one wishes to find a decision function that separates the blue points from the green ones. 
+As an example, consider the arbitrary classification problem in the figure below, in which one wishes to find a decision function that separates the blue points from the green ones. 
 
 ![Data in Input Space](/assets/Data_in_Input_Space.png) 
 
-Consider a polynomial feature mapping on the data points $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product in $\mathcal{F}$ can be calculated
-
-$$
-\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathbb{R_{3}}} = {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2\\
-= {(x_{1}x_{1}' + x_{2}x_{2}')}^2\\
-= {\scal{x, x'}_{\mathbb{R_{2}}}}^2.
-$$
-
-So, the new similarity measure is the square of the inner product in $\mathcal X$. When applied on the data points, one can obtain the following result.
+Consider a polynomial feature mapping on the data points $\phi:(x_{1}, x_{2})\mapsto ({x_{1}}^2,\sqrt{2}x_{1}x_{2}, {x_{2}}^2)$. The inner product of $\mathcal{F}$ can be calculated:
+\begin{equation}
+\begin{split}
+\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}} &= {x_{1}}^2{x_{1}'}^2 + 2x_{1}x_{2}x_{1}'x_{2}' + {x_{2}}^2{x_{2}'}^2 \\
+&= {(x_{1}x_{1}' + x_{2}x_{2}')}^2 \\
+&= {\langle \mathbf{x}, \mathbf{x}'\rangle}^2.
+\end{split}
+\end{equation}
+So, the new similarity measure is the square of the inner product in $\mathcal X$. When applied on the data points, one can obtain the following result illustrated in the figure below.
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
