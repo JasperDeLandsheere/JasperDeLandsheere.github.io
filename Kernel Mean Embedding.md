@@ -12,7 +12,7 @@ rss = "In this post, we show how Kernel Mean Embedding works through some toy ex
 
 \toc
 
-## Kernel Methods
+## Kernel methods
 
 ### Introduction
 
@@ -102,7 +102,7 @@ with $\sigma > 0$ the bandwidth parameter. The Gram matrix of the Gaussian kerne
 
 For additional information on the properties of (reproducing kernel) Hilbert spaces and the important theorems of Mercer and Bochner, the reader is advised to read Muandet et al. [^Review], Mercer [^Mercer], and Bochner [^Bochner], respectively. For examples of learning algorithms that use the implicit representation of data points in kernel methods, such as support vector machine (SVM), gaussian process (GP), and neural tangent kernel (NTK), the reader is referred to read Steinwart & Christmann [^Steinwart], Rasmussen [^Rasmussen], and Jacot et al. [^Jacot], respectively.
 
-## Kernel Mean Embedding of Marginal Distributions
+## Kernel mean embedding of marginal distributions
 
 ### From data points to probability measures
 
@@ -220,7 +220,7 @@ In the graph below, the obtained model is plotted. The distance between the embe
 
 ![Fitted Model on Input Data](/assets/Radius%20and%20Fit.png)
 
-## Kernel Mean Embedding of Conditional Distributions
+## Kernel mean embedding of conditional cistributions
 
 In this section, the kernel mean embedding of marginal distributions is extended to conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=\mathbf{x})$ for some $\mathbf x \in \mathcal X$, capturing even more complex data [^Song] [^Song2009]. The figure below illustrates conditional mean embedding [^Review]. 
 
