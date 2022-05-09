@@ -294,45 +294,37 @@ In this section, the kernel mean embedding of marginal distributions is extended
 ![Schematic Illustration of Conditional Mean Embedding](/assets/conditional.png) 
 
 Consider the two positive definite kernels, $k : \mathcal X \times \mathcal X \to \mathbb R$ and $l : \mathcal Y \times \mathcal Y \to \mathbb R$ for the respective domains of $X$ and $Y$, and the respective RKHSs $\mathcal H$ and $\mathcal G$. To fully represent $\mathbb P(Y|X)$, conditioning and conditional expectation need to be performed. Then, the conditional mean embeddings of the conditional distributions $\mathbb P(Y|X)$ and $\mathbb P(Y|X=\mathbf{x})$ can be defined as $\mathcal U_{Y|X}: \mathcal H \to \mathcal G$ and $\mathcal U_{Y|X} \in \mathcal G$, such that:
+\begin{equation}
+\begin{split} \label{eqCMEOp}
+    \mathcal U_{Y|\mathbf{x}} &= \mathbb E_{Y|X}[\varphi(Y)|X=\mathbf{x}] = \mathcal U_{Y|X}k(\mathbf{x},\cdot),\\
+     \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] &= \langle g,\mathcal U_{Y|\mathbf{x}}\rangle_{\mathcal G}, \forall g \in \mathcal G.
+\end{split}
+\end{equation}
+It is important to note that $\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$, while $\mathcal U_{Y|\mathbf{x}}$ is an element in RKHS $\mathcal G$. In the above equation it is stated that the conditional mean embedding of $\mathbb P(Y|X=\mathbf{x})$ is the conditional expectation of the feature map of $Y$ given that $X = \mathbf{x}$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when applied to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation \ref{eqCMEOp} shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$.
 
-$$
-    \mathcal U_{Y|\mathbf{x}} = \mathbb E_{Y|X}[\varphi(Y)|X=\mathbf{x}] = \mathcal U_{Y|X}k(\mathbf{x},\cdot),\\
-     \mathbb E_{Y|X}[g(Y)|X=\mathbf{x}] = \scal{g,\mathcal U_{Y|\mathbf{x}}}_{\mathcal G}, \forall g \in \mathcal G.
-$$
-
-$\mathcal U_{Y|X}$ is an operator from RKHS $\mathcal H$ to $\mathcal G$, and $\mathcal U_{Y|\mathbf{x}}$ is an element in RKHS $\mathcal G$. In the above equation it is stated that the conditional mean embedding of $\mathbb P(Y|X=\mathbf{x})$ is the conditional expectation of the feature map of $Y$ given that $X = \mathbf{x}$. The operator $\mathcal U_{Y|X}$ is the conditioning operation that when applied to $\phi(x) \in \mathcal H$ delivers the conditional mean embedding $\mathcal U_{Y|x}$. Equation 15 shows the reproducing property of $\mathcal U_{Y|x}$: it should be a representer of conditional expectation in $\mathcal G$ with regards to $\mathbb P(Y|X=x)$. 
-
-Song et al. [^Song] [^Song2009] provide following definition: let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and cross-covariance operator from $X$ to $Y$, respectively. Then, the conditional mean embedding $\mathcal U_{Y|X}$ and $\mathcal U_{Y|x}$ are defined as:
-
-$$
-    \mathcal U_{Y|X} := \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
-    \mathcal U_{Y|\mathbf{x}} := \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot).
-$$
-
+Song et al. [^Song] [^Song2009] provide following definition: let $\mathcal C_{XX}: \mathcal H \to \mathcal H$ and $\mathcal C_{XY}: \mathcal H \to \mathcal G$ be the covariance operator on $X$ and cross-covariance operator from $X$ to $Y$, respectively. Then, the conditional mean embeddings $\mathcal U_{Y|X}$ and $\mathcal U_{Y|x}$ are defined as:
+\begin{equation}
+\begin{split} \label{nonreg}
+    \mathcal U_{Y|X} &:= \mathcal C_{XY}\mathcal C_{XX}^{-1}\\
+    \mathcal U_{Y|\mathbf{x}} &:= \mathcal{C}_{XY} \mathcal{C}_{XX}^{-1}k(\mathbf{x},\cdot).
+\end{split}
+\end{equation}
 Fukumizu et al. [^Fuku2004] [^Fuku3] state that if $\mathbb E_{Y|X}[g(Y)|X=\cdot] \in \mathcal H$ for any $g \in \mathcal G$, then
-
-$$
-    \mathcal C_{XX} \mathbb E_{Y|X}[g(Y)|X=\cdot] = \mathcal C_{XY}g.
-$$
-
-Further, for some $\mathbf{x} \in \mathcal X$, the reproducing property states that
-
-$$
-    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{\mathbb E_{Y|X}[g(Y)|X], k(\mathbf{x}, \cdot)}_{\mathcal H}.
-$$
-
-Combining the above the equations, and taking the conjugate transpose of $\mathcal C_{XX}^{-1}\mathcal C_{XY}$ gives
-
-$$
-    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \mathcal C_{XY}\mathcal C_{XX}^{-1}k(\mathbf{x},\cdot)}_{\mathcal{G}} = \scal{g, \mathcal U_{Y|\mathbf{x}}}_{\mathcal{G}}.
-$$
-
-In an infinite RKHS, $\mathcal C_{XX}^{-1}$ does not exist, so a regularised version is often used, that is [^Song2009] [^Fuku2004] :
-
-$$
+\begin{equation} \label{cxyg}
+    C_{XX}\mathbb E_{YX}[g(Y)|X=\cdot]=\mathcal{C}_{XY}g.
+\end{equation}
+Then it follows from the reproducing property of $\mathcal{G}$ that:
+\begin{equation} \label{repro}
+    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \langle \mathbb E_{Y|X}[g(Y)|X],k(\mathbf{x},\cdot)\rangle_{\mathcal{H}}.
+\end{equation}
+When equation 26 and equation 27 are combined and the conjugate transpose of $\mathcal{C}_{XX}^{-1}\mathcal{C}_{XY}$ is taken, the following is obtained:
+\begin{equation}
+    \mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \langle g,\mathcal{C}_{YX}\mathcal{C}_{XX}^{-1}k(\mathbf{x},\cdot)\rangle_{\mathcal{G}} = \langle g,\mathcal U_{Y|\mathbf{x}}\rangle_{\mathcal{G}}.
+\end{equation}
+In an infinite RKHS, $C_{XX}^{-1}$ does not exist. Hence, a regularized version of equation 25 is used:
+\begin{equation}
     \mathcal U_{Y|X} := \mathcal C_{XY}(\mathcal C_{XX} + \lambda \mathcal I)^{-1},
-$$
-
+\end{equation}
 where $\lambda > 0$ is the regularization parameter and $\mathcal I$ is the identity operator in $\mathcal H$. Fukumizu et al.  [^Fuku3] stated that, under some mild conditions, the empirical estimator is a consistent estimator of $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}]$.
 
 In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps corresponding to the respective kernels $k$ and $l$. The associated Gram matrices are  $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding becomes [^Song2009]
