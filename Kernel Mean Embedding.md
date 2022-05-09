@@ -347,33 +347,28 @@ Similar as the embedding of marginal distributions in equation 12, the embedding
 
 ## Learning on distributional data
 
-The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \scal{g, \hat{µ}_{Y|\mathbf{x}}}_{\mathcal{G}}$, i.e., for every $\mathbf x \in \mathcal X$, $\hat{µ}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and by that defines a mapping from $\mathcal X$ to $\mathcal G$. Moreover, the empirical estimator $\hat{µ}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, suggests that the conditional mean embedding is the solution to an underlying regression problem.
+The conditional mean embedding has a natural interpretation as a solution to a vector-valued regression problem, observed first by Zhang et al. [^Zhang] and later by Grünewälder et al. [^Grune]. As discussed earlier, the conditional mean embedding is defined via $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}] = \langle g, \hat{\mu}_{Y|\mathbf{x}}\rangle_{\mathcal{G}}$, for every $\mathbf x \in \mathcal X$, $\hat{\mu}_{Y|\mathbf{x}}$ is a function on $\mathcal Y$ and consequently defines a mapping from $\mathcal X$ to $\mathcal G$. Moreover, the empirical estimator $\hat{\mu}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, suggests that the conditional mean embedding is the solution to an underlying regression problem.
 
 Consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{z}_{1}),...,(\mathbf{x}_{n},\mathbf{z}_{n}) \in \mathcal X \times \mathcal G$, a vector-valued regression problem can be formulated as:
-
-$$
+\begin{equation} \label{mini}
     \hat{\varepsilon}_{\lambda}(f) = \displaystyle\sum_{i=1}^{n} {\|\mathbf{z}_{i} - f(\mathbf{x}_{i})\|}_{\mathcal G}^{2} + \lambda {\|f\|}_{\mathcal {H}_{\Gamma}}^{2},  
-$$
-
-where $\mathcal G$ is a Hilbert space, $\mathcal {H}_{\Gamma}$ an RKHS of vector-valued functions from $\mathcal X$ to $\mathcal G$, and $\hat{\varepsilon}_{\lambda}$ is error of the associated regression problem [^Micch].  Grünewälder et al. [^Grune] states that by  minimizing the optimization in equation 23, $\hat{µ}_{Y|\mathbf{x}}$ can be obtained. So, the natural optimization problem for the conditional mean embedding is to find a function $µ : \mathcal X \to \mathcal G$ that minimizes an objective. This objective can be bounded from above by a surrogate loss function, which can be described by its empirical counterpart [^Grune] :
-
-$$
-    \hat{\varepsilon}_{\mathcal S}[µ] = \displaystyle\sum_{i=1}^{n} {\|l(\mathbf{y}_i,\cdot) - µ(\mathbf{x}_i)\|}_{\mathcal G}^{2} + \lambda {\|µ\|}_{\mathcal {H}_{\Gamma}}^{2}.  
-$$
-
+\end{equation}
+where $\mathcal G$ is a Hilbert space, $\mathcal {H}_{\Gamma}$ an RKHS of vector-valued functions from $\mathcal X$ to $\mathcal G$, and $\hat{\varepsilon}_{\lambda}$ is error of the associated regression problem [^Micch].  Grünewälder et al. [^Grune] states that by  minimizing the optimization in equation 32, $\hat{\mu}_{Y|\mathbf{x}}$ can be obtained. So, the natural optimization problem for the conditional mean embedding is to find a function $\mu : \mathcal X \to \mathcal G$ that minimizes an objective. This objective can be bounded from above by a surrogate loss function, which can be described by its empirical counterpart [^Grune] :
+\begin{equation}
+    \hat{\varepsilon}_{\mathcal S}[\mu] = \displaystyle\sum_{i=1}^{n} {\|l(\mathbf{y}_i,\cdot) - \mu(\mathbf{x}_i)\|}_{\mathcal G}^{2} + \lambda {\|\mu\|}_{\mathcal {H}_{\Gamma}}^{2}.  
+\end{equation}
 The added regularization term provides a well-posed problem and prevents overfitting. Interpreting the conditional mean embedding as a solution to a vector-valued regression problem gives the advantage of being able to use cross-validation or model selection, due to the well-defined loss function. Since $\mathcal G$ is assumed to be finite-dimensional, the conditional mean embedding is the ridge regression of the feature vectors. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}$, in a ridge regression context the hat matrix $\mathbf{H}_{\lambda}$ is:
-
-$$
-    \mathbf{H}_{\lambda}\mathbf{k}_{\mathbf{x}} = \hat{\mathbf{k}}_{\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}}\\
-    \mathbf{H}_{\lambda} = \mathbf{K}(\mathbf{K} + \lambda \mathbf{I})^{-1}.
-$$
-
+\begin{equation} \label{hat}
+\begin{split}
+    \mathbf{H}_{\lambda}\mathbf{k}_{\mathbf{x}} &= \hat{\mathbf{k}}_{\mathbf{x}}\\
+    &= \Phi \hat{\mathbf{\beta}}_{\lambda}\\
+    \mathbf{H}_{\lambda} &= \mathbf{K}(\mathbf{K} + \lambda \mathbf{I})^{-1}.
+\end{split}
+\end{equation}
 Using leave-one-out cross-validation (LOOCV), the estimated conditional embedding is defined as [^Spline] :
-
-$$
-    \hat{µ}_{Y|\mathbf{x}}^{LOOCV} = (\mathbf{I} - diag(\mathbf{H}_{\lambda}))^{-1}(\mathbf{H}_{\lambda} - diag(\mathbf{H}_{\lambda}))\Phi,
-$$
-
+\begin{equation} \label{LOOCV}
+    \hat{\mathbf{\mu}}_{Y|\mathbf{x}}^{LOOCV} = (\mathbf{I} - diag(\mathbf{H}_{\lambda}))^{-1}(\mathbf{H}_{\lambda} - diag(\mathbf{H}_{\lambda}))\Phi,
+\end{equation}
 with $diag(\cdot)$ the diagonal matrix. It's important to note that using the above equation, all LOOCV conditional embeddings can be calculated at once using matrix multiplications. 
 
 To interpret the obtained results, the underlying distributions needs to be recovered from the embeddings, which is the topic of the next section.
