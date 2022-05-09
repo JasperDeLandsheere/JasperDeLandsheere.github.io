@@ -327,22 +327,23 @@ In an infinite RKHS, $C_{XX}^{-1}$ does not exist. Hence, a regularized version 
 \end{equation}
 where $\lambda > 0$ is the regularization parameter and $\mathcal I$ is the identity operator in $\mathcal H$. Fukumizu et al.  [^Fuku3] stated that, under some mild conditions, the empirical estimator is a consistent estimator of $\mathbb E_{Y|\mathbf{x}}[g(Y)|X=\mathbf{x}]$.
 
-In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample $(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps corresponding to the respective kernels $k$ and $l$. The associated Gram matrices are  $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding becomes [^Song2009]
+In practice, the joint distribution $\mathbb P(X,Y)$ is unknown, and $\mathcal C_{XY}$ and $\mathcal C_{XX}$ cannot be calculated directly. To overcome this, consider the i.i.d. sample
+$(\mathbf{x}_{1},\mathbf{y}_{1}),...,(\mathbf{x}_{n},\mathbf{y}_{n})$ from $\mathbb P(X,Y)$. Let $Y := [\phi(\mathbf{x}_{1}),...,\phi(\mathbf{x}_{n})]^{T}$ 
+and $\Phi := [\varphi(\mathbf{y}_{1}),...,\varphi(\mathbf{y}_{n})]^{T}$ where $\phi : \mathcal X \to \mathcal H$ and $\varphi : \mathcal Y \to \mathcal G$ are the feature maps corresponding to the respective kernels $k$ and $l$. The associated Gram matrices are  $K = Y^{T}Y$ and $L = \Phi^{T}\Phi$. With this information, the empirical estimator of the conditional mean embedding becomes [^Song2009] :
+\begin{equation}
+\begin{split}
+    \hat{\mathcal C}_{XY}(\hat{\mathcal C}_{XX} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot) &= \frac{1}{n}\Phi Y^{T}(\frac{1}{n}YY^{T} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\
+    &= \Phi Y^{T}(YY^{T} + n\lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\ 
+    &= \Phi (Y^{T}Y + n\lambda \mathbf{I}_n)^{-1}Y^{T}k(\mathbf{x},\cdot)\\
+    &= \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}.
+\end{split}
+\end{equation}
+So, the conditional mean embedding of $\mu_{Y|\mathbf{x}}$ is estimated by [^Song2009] :
+\begin{equation} \label{notweights}
+    \hat{\mu}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}. 
+\end{equation}
 
-$$
-    \hat{\mathcal C}_{XY}(\hat{\mathcal C}_{XX} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot) = \frac{1}{n}\Phi Y^{T}(\frac{1}{n}YY^{T} + \lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\
-    = \Phi Y^{T}(YY^{T} + n\lambda \mathcal I)^{-1}k(\mathbf{x},\cdot)\\
-    = \Phi (Y^{T}Y + n\lambda \mathbf{I}_n)^{-1}Y^{T}k(\mathbf{x},\cdot)\\
-    = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}
-$$
-
-So, the conditional mean embedding of $µ_{Y|\mathbf{x}}$ is estimated by [^Song2009]
-
-$$
-    \hat{µ}_{Y|\mathbf{x}} = \Phi(\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}}. 
-$$
-
-Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently, equation 22 can be written as $\hat{µ}_{Y|\mathbf{x}} = \Phi \hat{\mathbf{ \beta}_{\lambda}} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}_{\lambda}})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009]. 
+Similar as the embedding of marginal distributions in equation 12, the embedding of conditional distributions can be written in terms of weights. Consider $\hat{\mathbf{ \beta}_{\lambda}} := (\mathbf{K} + n\lambda \mathbf{I}_{n})^{-1}\mathbf{k}_{\mathbf{x}} \in \mathbb R^{n}$. Subsequently, equation 31 can be written as $\hat{\mu}_{Y|\mathbf{x}} = \Phi \hat{\mathbf{\beta}}_{\lambda} = \sum_{i=1}^{n}(\hat{\mathbf{\beta}}_{\lambda})_i\varphi(\mathbf{y}_i)$. It is important to note that in this case the weights $\mathbf{\beta}$ depend on the value of the conditioning variable $X$ instead of being uniform [^Song2009].
 
 ## Learning on distributional data
 
