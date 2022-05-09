@@ -47,13 +47,14 @@ So, the new similarity measure is the square of the inner product in $\mathcal X
 
 ![Data in Feature Space](/assets/Data%20in%20Feature%20Space.png)
 
-In this new higher dimensional feature space one can find an appropiate learning algorithm that defines a decision function which can separate the two circles easily.
+In this new higher dimensional feature space, $\mathbb{R}^3$, one can find an appropriate learning algorithm that defines a decision function which can separate the two circles easily. So, in the original input space the underlying function defining the interactions between all the features of data might not be clear. That's why the data is transformed to higher dimensional feature space where the underlying function might become more clear. In this example, by mapping the data points to a higher dimensional feature space, one can distinguish a cone shape in the transformed data. So, in this new space it is easier to define a function describing the underlying relations between the data points than in the original input space.
 
 The core idea of kernel methods is taking data which lives in an input space where it's not easy to perform machine learning and transform this data to a higher dimensional space where effective use of learning algorithms can be made.
 
 ### The kernel trick
 
-As seen in the above example, to evaluate equation 2 one needs to work in two steps: i) explicitly constructing the feature maps $\phi(\mathbf{x})$, and ii) evaluating the inner product $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$. This can become a problem when $\phi(\mathbf{x})$ defines a computationally expensive transformation to a high-dimensional featue space. Fortunately, there exists a solution to this by evaluating $\scal{\phi(\mathbf{x}), \phi(\mathbf{x}')}_{\mathcal{F}}$ without explicitly constructing the feature maps. This is a core idea of kernel methods and is often called "the kernel trick" in the machine learning community [^Review]. A visual representation of the kernel trick is illustrated below. For the above mentioned example one can just consider $k(\mathbf{x},\mathbf{x}') = {\scal{\mathbf{x}, \mathbf{x}'}}^2$ rather than calculating the feature maps explicitly.
+As seen in the above example, to evaluate equation \ref{eqInner} one needs to work in two steps: i) explicitly construct the feature maps $\phi(\mathbf{x})$, and ii) subsequently evaluate the inner product $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$. This can become a problem when $\phi(\mathbf{x})$ defines a computationally expensive transformation to a high-dimensional feature space.
+Fortunately, there exists a solution to this by evaluating $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$ without explicitly constructing the feature maps. This is a core idea of kernel methods and is often called "the kernel trick" in the machine learning community[^Review]. A visual representation of the kernel trick is illustrated below. For the above mentioned example one can just consider $k(\mathbf{x},\mathbf{x}') = {\scal{\mathbf{x}, \mathbf{x}'}}^2$ rather than calculating the feature maps explicitly.
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
