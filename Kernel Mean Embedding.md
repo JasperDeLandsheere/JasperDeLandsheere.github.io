@@ -53,8 +53,10 @@ The core idea of kernel methods is taking data which lives in an input space whe
 
 ### The kernel trick
 
-As seen in the above example, to evaluate equation \ref{eqInner} one needs to work in two steps: i) explicitly construct the feature maps $\phi(\mathbf{x})$, and ii) subsequently evaluate the inner product $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$. This can become a problem when $\phi(\mathbf{x})$ defines a computationally expensive transformation to a high-dimensional feature space.
-Fortunately, there exists a solution to this by evaluating $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$ without explicitly constructing the feature maps. This is a core idea of kernel methods and is often called "the kernel trick" in the machine learning community[^Review]. A visual representation of the kernel trick is illustrated below. For the above mentioned example one can just consider $k(\mathbf{x},\mathbf{x}') = {\scal{\mathbf{x}, \mathbf{x}'}}^2$ rather than calculating the feature maps explicitly.
+As seen in the above example, to evaluate equation 3 one needs to work in two steps: i) explicitly construct the feature maps $\phi(\mathbf{x})$, and ii) subsequently evaluate the inner product $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$. This can become a problem when $\phi(\mathbf{x})$ defines a computationally expensive transformation to a high-dimensional feature space.
+Fortunately, there exists a solution to this by evaluating $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$ without explicitly constructing the feature maps. This is a core idea of kernel methods and is often called "the kernel trick" in the machine learning community[^Review]. 
+
+A visual representation of the kernel trick is illustrated in the figure below. For the above mentioned example one can just consider $k(\mathbf{x},\mathbf{x}') = {\langle\mathbf{x}, \mathbf{x}'\rangle}^2$, rather than calculating the feature maps explicitly. In other words, to avoid using the coordinates of the vectors in the new feature space, a similarity measure is used in that space, which can be put in an algorithm that only needs the value of this measure.
 
 ![Visual representation of the kernel trick](/assets/Kernel%20Trick%20Visualisation.PNG) 
 
