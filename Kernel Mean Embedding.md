@@ -142,21 +142,15 @@ This injectivity of the map $\mathbb P \mapsto \mu_{\mathbb P}$ ensures that the
 
 ### Empirical estimate of mean embeddings
 
-It is important to note that in practice, the true distribution of $\mathbb P$ is often unknown, and only an i.i.d. sample $x_{1},...,x_{n}$ from $\mathbb P$ is available. $µ_{\mathbb P}$ can be estimated by taking an empirical average:
-
-$$
-    \hat{µ}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
-$$
-
-with $\hat{µ}_{\mathbb P}$ an unbiased estimate of ${µ}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{µ}_{\mathbb P}$ converges to the true mean embedding ${µ}_{\mathbb P}$ [^Sriper2012]. In this thesis, the data is interpreted as a probability mass distribution of $\mathbf X$. For example,  $\hat{\mathbb P} := \frac{1}{n}\sum_{i=1}^{n}{\delta}_{\mathbf{x}_i}$, with ${\delta}_{\mathbf{x}}$ the Dirac measure defined for $\mathbf x \in \mathcal X$, such that:
-
-$$
-    \hat{µ}_{\mathbb P} := \displaystyle\sum_{i=1}^{n}w_{i}k(\mathbf{x}_{i}, \cdot),
-$$
-
-with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song].
-
-In the next section kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
+It is important to note that in practice, the true distribution of $\mathbb P$ is often unknown, and only an i.i.d. sample $\{x_{1},...,x_{n}\}$ from $\mathbb P$ is available. $\mu_{\mathbb P}$ can be estimated by taking an empirical average:
+\begin{equation}
+    \hat{\mu}_{\mathbb P} := \frac{1}{n}\displaystyle\sum_{i=1}^{n}k(\mathbf{x}_{i}, \cdot),
+\end{equation}
+with $\hat{\mu}_{\mathbb P}$ an unbiased estimate of ${\mu}_{\mathbb P}$. The weak law of large numbers indicates that $\hat{\mu}_{\mathbb P}$ converges to the true mean embedding ${\mu}_{\mathbb P}$ [^Sriper2012]. In this thesis, the data is interpreted as a probability mass distribution of $\mathbf X$. For example,  $\hat{\mathbb P} := \frac{1}{n}\sum_{i=1}^{n}{\delta}_{\mathbf{x}_i}$, with ${\delta}_{\mathbf{x}}$ the Dirac measure defined for $\mathbf x \in \mathcal X$, such that:
+\begin{equation} \label{weights}
+    \hat{\mu}_{\mathbb P} := \displaystyle\sum_{i=1}^{n}w_{i}k(\mathbf{x}_{i}, \cdot),
+\end{equation}
+with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song]. So, the mean embedding becomes a weighted sum of feature vectors.
 
 ### Toy problem 1: kernel PCA
 
