@@ -20,6 +20,19 @@ Inner products serve as a powerful tool in many established machine learning alg
 
 These algorithms consider the data, e.g., $\mathbf{x},\mathbf{x}' \in \mathcal X$, with $\mathcal X$ a non empty set, through their inner product $\langle\mathbf{x}, \mathbf{x}'\rangle$, which can be interpreted as a similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. But real-life data is often complex and the class of linear functions induced by the inner products might prove to be insufficient. The aim of kernel methods is to handle complex data which can't be linearly evaluated, by replacing $\langle \mathbf{x}, \mathbf{x}'\rangle$ with some other (non-linear) similarity measure. 
 
+Naturally, an extension of $\langle \mathbf{x}, \mathbf{x}'\rangle$ can be made by explicitly applying a non-linear transformation:
+\begin{equation} \label{eq1}
+    \begin{split}
+    \phi:\mathcal{X} &\to \mathcal{F}, \\
+     x &\mapsto \phi(x), 
+    \end{split}
+\end{equation}
+from $\mathcal X$ to the high-dimensional feature space $\mathcal F$. In this new feature space the inner product can be evaluated:
+\begin{equation} \label{eqInner}
+k(\mathbf{x},\mathbf{x}') := \langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}},
+\end{equation}
+where $\langle\cdot, \cdot \rangle_{\mathcal{F}}$ is the inner product of $\mathcal F$ and $\phi$ is called the feature map. $k$ is the kernel function which defines a non-linear similarity measure between $\mathbf{x}$ and $\mathbf{x}'$. By substituting $\langle\mathbf{x}, \mathbf{x}'\rangle$ with $\langle\phi(\mathbf{x}), \phi(\mathbf{x}')\rangle_{\mathcal{F}}$ a non-linear extension of the algorithms that consider data through $\langle\mathbf{x}, \mathbf{x}'\rangle$, can be made. So, a linear algorithm in $\mathcal F$ corresponds to a non-linear counterpart in the original input space. It is important to note that the algorithm stays the same, only the space in which the algorithm operates, changes. 
+
 Naturally, an extension of $\scal{\mathbf{x}, \mathbf{x}'}$ can be made by explicitly applying a non-linear transformation:
 
 $$
