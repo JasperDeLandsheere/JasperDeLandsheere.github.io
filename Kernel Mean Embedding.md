@@ -128,11 +128,9 @@ The element is the expected value in the RKHS and since $\mathbb P$ is a probabi
 
 One can wonder how much information about the distribution $\mathbb P$ this kernel mean embedding can capture. This depends on the used kernel and can range from only the first moment of $\mathbb P$ to all information of $\mathbb P$. Consider following examples with their corresponding captured information: 
 
-\begin{itemize}
-\item $k(\mathbf{x},\mathbf{x}')=\langle\mathbf{x},\mathbf{x}'\rangle$ : the first moment of $\mathbb P$
-\item $k(\mathbf{x},\mathbf{x}')={(\langle\mathbf{x},\mathbf{x}'\rangle+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
-\item $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
-\end{itemize}
+* $k(\mathbf{x},\mathbf{x}')=\langle\mathbf{x},\mathbf{x}'\rangle$ : the first moment of $\mathbb P$
+* $k(\mathbf{x},\mathbf{x}')={(\langle\mathbf{x},\mathbf{x}'\rangle+1)}^{p}$: moments of $\mathbb P$ up to order $p \in \mathbb N$
+* $k(\mathbf{x},\mathbf{x}')$ is universal/characteristic: all information of $\mathbb P$
 
 The first and second example are called the linear and polynomial kernel, respectively. The linear kernel, which equals the computation of the inner product, lets $\mu_{\mathbb P}$ retain the first moment of $\mathbb P$. For the polynomial kernel of order $p$, the mean map equals up to the $p$-th moment of $\mathbb P$. For some other explicit examples the reader is referred to Smola et al. [^Smola], Fukumizu et al. [^Fuku], Sriperumbudur et al. [^Sriper], Gretton et al. [^Gretton], and Schölkopf et al. [^Scholkopf]. 
 
