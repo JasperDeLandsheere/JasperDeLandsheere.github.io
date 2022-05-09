@@ -152,6 +152,82 @@ with $\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subjec
 
 ### Toy problem 1: kernel PCA
 
+Principal component analysis (PCA) is a classical linear technique for dimensionality reduction, data exploration, feature extraction and data visualization. The general outline of PCA is performing a linear projection of the data onto a lower dimensional subspace such that the variance of the projected data is maximized. Kernel PCA is simply a non-linear extension of PCA by executing these principles in the Hilbert space and making use of the kernel trick.
+
+A brief derivation of kernel PCA is given below, based on the works of [^schol], which the reader is referred to for more detailed information.
+
+Consider the data set $\mathcal{S} = (\mathbf{x}_1 ,\dots, \mathbf{x}_N)$, a covariance matrix $\mathbf{C}$ in the feature space of $\mathcal{S}$ can be constructed:
+\begin{equation} \label{covC}
+    \mathbf{C} = \frac{1}{N}\displaystyle\sum_{i=1}^{N}\phi(\mathbf{x}_n)\phi(\mathbf{x}_n)^{T}.
+\end{equation}
+For simplicity, assume that these feature representations have a zero mean so that $\sum_{n}\phi(\mathbf{x}_n) = 0$, this will be touched upon later in this section. The eigenvector expansion is defined by
+\begin{equation} \label{expansion}
+    \mathbf{C}\mathbf{v}_{i} = \lambda_{i}\mathbf{v}_{i}.
+\end{equation}
+The goal is to perform this expansion without explicitly working in the feature space. Using equation 13, equation 14 can be rewritten as:
+\begin{equation}
+    \frac{1}{N}\displaystyle\sum_{i=1}^{N}\phi(\mathbf{x}_n)\{\phi(\mathbf{x}_n)^{T}\mathbf{v}_{i}\}=\lambda_{i}\mathbf{v}_{i}.
+\end{equation}
+This is an interesting outcome, since it allows for the vector $\mathbf{v}_{i}$ to be written as a linear combination of $\phi(\mathbf{x}_n)$:
+\begin{equation}
+    \mathbf{v}_{i} = \displaystyle\sum_{i=1}^{N}a_{in}\phi(\mathbf{x}_n).
+\end{equation}
+Using this, the eigenvector expansion in equation 14 becomes:
+\begin{equation}
+    \frac{1}{N}\displaystyle\sum_{i=1}^{N}\phi(\mathbf{x}_n)\phi(\mathbf{x}_n)^{T}\displaystyle\sum_{m=1}^{N}a_{im}\phi(\mathbf{x}_n)=\lambda_{i}\displaystyle\sum_{i=1}^{N}a_{in}\phi(\mathbf{x}_n).
+\end{equation}
+This can be entirely expressed in the form of the kernel function $k(\mathbf{x}_i,\mathbf{x}_j) = \phi(\mathbf{x}_i)^{T}\phi(\mathbf{x}_j)$ by multiplying with $\phi(\mathbf{x}_l)^T$, which, in matrix notation, gives:
+\begin{equation}
+    \mathbf{K}^{2}\mathbf{a}_{i}=\lambda_{i}N\mathbf{K}\mathbf{a}_{i},
+\end{equation}
+with $\mathbf{a}_{i}$ an $N$-dimensional column vector with elements $a_{in}$ for $n = 1,\dots,N$. Because of the positive definite property of the kernel matrix, it is invertible:
+\begin{equation}
+    \mathbf{K}\mathbf{a}_{i}=\lambda_{i}N\mathbf{a}_{i}.
+\end{equation}
+After solving the eigenvector problem, the obtained principal component projections can be expressed in terms of the kernel function. The projection of a point $\mathbf{x}$ onto the eigenvector $i$ is given by:
+\begin{equation}
+   y_{i}(\mathbf{x})=\phi(\mathbf{x})^{T}\mathbf{v}_{i} = \displaystyle\sum_{n=1}^{N}a_{in}\phi(\mathbf{x})^{T}\phi(\mathbf{x}_n) = \displaystyle\sum_{n=1}^{N}a_{in}k(\mathbf{x}, \mathbf{x}_{n}).
+\end{equation}
+To get back at the problem of centralized feature vectors, this is can be solved in terms of the kernel function. The centered kernel matrix is defined as:
+\begin{equation} \label{centeredK}
+    \tilde{\mathbf{K}} = \mathbf{K} - 1_N\mathbf{K} -\mathbf{K}1_N + 1_N\mathbf{K}1_N.
+\end{equation}
+With $1_N$ an $N \times N$ matrix of which every element has the value $\frac{1}{N}$. Important to note is that a kernel PCA with a linear kernel is simply a normal PCA.
+
+To illustrate kernel methods over marginal distributions and kernel PCA, consider the following input data in the figure below. The data consists of 12 data point groups, which are positioned in an expanding manner towards the right. In this arbitrary toy problem, the goal is to gather information about the data by using kernel PCA for exploratory data analysis. 
+
+![Toy Data KPCA](/assets/Toy%20Data%20KPCA.png) 
+
+Consider the function kernelPCA, which was implemented from scratch for this toy problem, in the following Julia code. X and Y are the respective matrices of the x and y coordinates of the data points. In each matrix, the rows correspond to one data group, e.g., row one of the X matrix corresponds to the x coordinates of one data group. 
+
+To obtain the centered kernel matrix from equation 21, the kernel used over matrices is defined. A Gaussian kernel is used with a  given scale factor, which is the inverse of the length scale and is linked with the inverse bandwidth parameter of the Gaussian kernel. Then the kernel matrix is generated over the x and y matrices, each row is taken as one element, hence the use of RowVecs(). Now everything is obtained to solve equation 21. Finally, the eigenvector problem is solved. Kernel PCA was used on the input data, using four different values for the scale factor. The results were plotted in the figure below, only the first two principal components are shown.
+```julia
+function kernelPCA(X, Y, scale_factor)
+	# scale_factor = inverse of lengthscale, X = matrix x1 points, Y = matrix x2 points, each row of the points matrices is an input element
+	# Defining the Gaussian kernel
+	k = SqExponentialKernel() $\circ$ ScaleTransform(scale_factor)
+	# Generating the kernel over the x1 and x2 points
+	K = kernelmatrix(k, RowVecs(X), RowVecs(Y))
+	# Calculating the centralized kernel matrix
+	K_centered = K .- mean(K, dims =1) .- mean(K, dims =2) .+ mean(K)
+	# Solving the eigenvector problem
+	eigenval, eigenvect = eigen(K_centered, sortby=$\lambda$ -> -real($\lambda$))
+	eigenvect = real(eigenvect[:, 1:2])
+	eigenval = real(eigenval[1:2])
+	return eigenvect,eigenval,K
+end
+```
+
+![Toy Data results](/assets/Toy%20KPCA%20Resultss.png) 
+
+Each dot represents a data group from the input data and has a matching color. The results of the first three plots (from the upper left to the bottom right) give a clue about some occurring clustering. The data groups seem to cluster in groups up to 3, with each cluster exponentially being further away from the previous one. This could indicate that data groups which are spread out alike are clustered together, and the kernel PCA also gives an idea of the location of the data groups. The kernel PCA with a used scale factor of 0.01 does not give meaningful results.
+
+In the figure below the heatmaps of the kernel matrices over the input data are shown for each scale factor. Note that the two upper plots use a different color scaling. These heatmaps illustrate the use of the scale factor, which corresponds with the inverse the bandwidth parameter of the Gaussian kernel. For example, in the lower right plot, a relatively high scale factor was used, which corresponds to a relatively low bandwidth parameter. Remember from equation 7, that for a low bandwidth parameter, the kernel matrix becomes an identity matrix, essentially meaning every input element in the matrix is unique. Hence, the bad results for this plot. For the upper left plot the reverse is happening, almost all elements are similar. However, there is still some differences in the values of the matrix, which cannot be noticed due to the color scaling, hence the results.
+
+![Toy Data heatmaps](/assets/Toy%20KPCA%20Heatmapss.png) 
+
+In the next toy problem kernel mean embedding is used to define a metric for probability functions, called the maximum mean discrepancy (MMD). This metric is very important for solving problems in statistics and machine learning when handling distributions.
+
 ### Toy problem 2: maximum mean discrepancy
 
 Consider following arbitrary toy problem: given noisy data points which lay in a circular shape, is it possible to find a model fit of 100 equally spaced points which lay on a circle with a certain radius that represents the input data?
