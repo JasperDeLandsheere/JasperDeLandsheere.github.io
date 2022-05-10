@@ -375,16 +375,21 @@ To interpret the obtained results, the underlying distributions needs to be reco
 
 ## Recovering distributions from RKHS embeddings
 
-Recovering information of $\mathbb P$ from the kernel mean embedding $µ_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parameterized by $\mathbf{\theta}$ and its mean embedding in $\mathcal H$, $µ_{\mathbb{P}_{\theta}}$. By solving following minimization problem $\mathbb{P}_{\theta}$ can be found:
+Recovering information of $\mathbb P$ from the kernel mean embedding $\mu_{\mathbb P}$ is known as the distributional pre-image problem [^Kwok] [^Kana]. In this context, objects in the input space which correspond with a specific kernel mean embedding in a feature space, are looked for. So, the goal is to recover useful information of an unknown underlying distribution from its estimated embedding. Consider $\mathbb{P}_{\theta}$ an arbitrary distribution parameterized by $\mathbf{\theta}$ and $\mu_{\mathbb{P}_{\theta}}$ its mean embedding in $\mathcal H$. By solving the following minimization problem, $\mathbb{P}_{\theta}$ can be found:
+\begin{equation}
+\begin{split} \label{mmd}
+    \hat{\mathbf{\theta}} &= \argmin_{\theta \in \Theta}{\|\hat{\mu}_{Y} - \mu_{\mathbb{P}_{\theta}}\|}_{\mathcal H}^{2}\\
+    &= \argmin_{\theta \in \Theta} \langle \hat{\mu}_{Y},\hat{\mu}_{Y}\rangle -2\langle \hat{\mu}_{Y}, \mu_{\mathbb{P}_{\theta}}\rangle + \langle \mu_{\mathbb{P}_{\theta}}, \mu_{\mathbb{P}_{\theta}}\rangle,
+\end{split}
+\end{equation}
+where $\theta$ is subject to appropriate constraints. As seen earlier, equation 36 describes the maximum mean discrepancy (MMD). As a reminder, this is the distance between mean embedding of features, which represents the distances between distributions in the input space. $\langle \hat{\mu}_{Y},\hat{\mu}_{Y}\rangle$ is constant and is left out of the minimization. Assume $\mu_{\mathbb{P}_{\theta}} = \sum_{i=1}^{n}{\alpha}_i\varphi(\mathbf{y}_i)$ for some $\alpha \in \Delta^{n-1}$, i.e., $\mathbb{P}_{\theta}$ is a histogram. Let $\mathbf{L}_{ij}=l(\mathbf{y}_{i}, \mathbf{y}_{j})$, then $\langle \mu_{\mathbb{P}_{\theta}}, \mu_{\mathbb{P}_{\theta}}\rangle = \alpha'(\mathbf{L} + \lambda\mathbf{I})\alpha$. Because of the addition of the regularization term $\lambda$, the optimization can be interpreted as a standard quadratic programming problem. The last component of equation 36 is $\langle \hat{\mu}_{Y}, \mu_{\mathbb{P}_{\theta}}\rangle$, which corresponds to the dot product of $\mathbb{P}_{\theta}$ and the LOOCV estimated conditional embedding of equation 35. This results being able to write equation 36 as:
+\begin{equation} \label{opt}
+    \hat{\mathbf{\alpha}} = \argmin_{\alpha \in \Delta^{n-1}}\mathbf{\alpha}'(\mathbf{L} + \lambda\mathbf{I})\mathbf{\alpha} - 2\mathbf{\alpha}\cdot \hat{\mathbf{\mu}}_{Y|\mathbf{x}}^{LOOCV}.
+\end{equation}
 
-$$
-    \hat{\mathbf{\theta}} = \argmin_{\theta \in \Theta}{\|\hat{µ}_{Y} - µ_{\mathbb{P}_{\theta}}\|}_{\mathcal H}^{2}\\
-    = \argmin_{\theta \in \Theta} \scal{\hat{µ}_{Y},\hat{µ}_{Y}} -2\scal{\hat{µ}_{Y}, µ_{\mathbb{P}_{\theta}}} + \scal{µ_{\mathbb{P}_{\theta}}, µ_{\mathbb{P}_{\theta}}},
-$$
+When using a Gaussian kernel on Euclidean space, Kanagawa and Fukumizu (2014) [^Kana] show that under some mild conditions certain information can be recovered from $\mathbb{P}$. This information mainly consists of the moments of the probability distribution and measures on intervals. The most important thing is that the density of $\mathbb{P}$ can be estimated from the kernel mean embedding, without any parametric assumption on $\mathbb{P}$.
 
-where $\theta$ is subject to appropriate constraints. As seen earlier, equation 27 describes the MMD. $\scal{\hat{µ}_{Y},\hat{µ}_{Y}}$ is constant and is left out of the minimization. Assume $µ_{\mathbb{P}_{\theta}} = \sum_{i=1}^{n}{\alpha}_i\varphi(\mathbf{y}_i)$ for some $\alpha \in \Delta^{n-1}$, i.e., $\mathbb{P}_{\theta}$ is a histogram.
-
-$\mathbf w = [w_i] \in \Delta^{n-1}$, i.e., a histogram with weights subject to the constraint $\sum_{i}^{n}w_i = 1$ and $w_i > 0$ [^Song].
+In the next section, kernel mean embedding of conditional distributions and the recovering of the distributions from the embeddings will be illustrated by a toy example. This example also outlines the general method of the one used in the case study.
 
 ### Toy problem 3: regression
 
