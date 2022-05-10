@@ -393,6 +393,97 @@ In the next section, kernel mean embedding of conditional distributions and the 
 
 ### Toy problem 3: regression
 
+Consider following arbitrary toy problem, illustrated in the figure below: draw a circle consisting out of 50 equally spaced data points and each point is the mean of a normal distribution over Y. Each Y distribution exists out of 100
+normally distributed random points. Given a value for X, is it possible to predict the distributions over Y?
+
+![Toy Data Regression](/assets/Toy%20Data%20Regression.png) 
+
+In this toy problem, the normal distributions are $\mathbb{P}(Y|X)$ and the goal is to predict $\mathbb{P}(Y|X=x)$. The normal distributions are transformed into histograms, with chosen bins. The weights of the add up to one, making the distributions probability distributions. First, the given X values are standardized to give better final results.
+
+```julia
+# x values are standardised
+Z = standardize(ZScoreTransform, model[2:26,1], dims=1)
+```
+
+Just like in the previous examples, a Gaussian kernel is defined with a chosen scale factor so that the best results are obtained. Then the kernel matrix over the X values is generated. For numerical stability reasons (think of the distributional pre-imaging problem), a bias is added to the diagonal of the kernel matrix. For a visual representation of the kernel matrix over the X values, see the figure below.
+
+```julia
+# Defining a Gaussian kernel with scale factor 3
+c = SqExponentialKernel() ∘ ScaleTransform(3)
+# Generating the kernelmatrix over the x values
+C = KernelFunctions.kernelmatrix(c, Z)
+# Defining the bias
+bias_procvars = 0.05
+# Adding the bias
+C += bias_procvars*I
+```
+
+![Toy Regression Heatmap C](/assets/Toy%20Regression%20Heatmap%20C.png) 
+
+Next is the kernel matrix over the grid of Y values, this grid consists of the bin values of the histograms.Note that a Gaussian kernel is used with a different scale factor. For the same reasons as previously stated, a bias is added. For a visual representation of the kernel matrix over the grid, see the figure below.
+
+```julia
+# Defining a Gaussian kernel with scale factor 0.3
+k = SqExponentialKernel() $\circ$ ScaleTransform(0.3)
+# Generating the kernelmatrix over the grid of y values
+K = KernelFunctions.kernelmatrix(k, Y)
+# Defining the bias
+bias_grid = 0.1
+# Adding the bias
+K += bias_grid*I
+```
+
+![Toy Regression Heatmap K](/assets/Toy%20Regression%20Heatmap%20K.png) 
+
+To obtain the kernel matrix over the $\mathbb{P}(Y|X)$ distribution, a matrix multiplication of the normal distributions with the kernel over the grid is made. 
+
+```julia
+# Kernel over the distributions
+Q = A * K
+```
+
+The hat-matrix from equation 34 is calculated and subsequently the LOOCV prediction from equation 35 can be computed.
+
+```julia
+# Chose lambda so that MMD is minimized
+$\lambda$ = 0.001
+# Building a model
+H =  C / (C + $\lambda$*I)
+F = H * Q
+# LOOCV
+F_loo = (I - Diagonal(H)) \ (F - Diagonal(H) * Q)
+```
+
+The MMD can be computed, parameters are chosen in a way to minimize the MMD.
+
+```julia
+# MMD by LOOCV
+mean((Q - F_loo).^2)
+```
+
+Finally, information from the kernel mean embedding can be recovered. This is the solving of the distributional pre-image problem. In other words, the optimization problem in equation 37 is solved.
+
+```julia
+# Recovering information from the mean embedding
+n_distr, n_classes = size(A)
+predicted_weights = Array{Float64}(undef, (n_distr, n_classes))
+for i in 1:n_distr
+	model = JuMP.Model(with_optimizer(Gurobi.Optimizer, OutputFlag=0))
+	@variable(model, $\beta$[1:n_classes] >= 0.0)
+	@constraint(model, sum($\beta$) == 1.0)
+	@objective(model, Min, sum($\beta$' * K * $\beta$) - 2dot($\beta$, F_loo[i, :]))
+	optimize!(model)
+	predicted_weights[i,:] = JuMP.value.($\beta$)
+end
+```
+
+A heatmap of the predicted normal distributions is shown in the figure below. Here, mixed results are noticed. A closer look is taken in the last two figures below, of which the first figure shows $\mathbb{P}(Y|X=20)$ and $\mathbb{P}(Y|X=18.6)$, and the second shows $\mathbb{P}(Y|X=3.7)$ and $\mathbb{P}(Y|X=-3.7)$. These plots and the heatmap indicate that for an x value closer to zero, the results are significantly more accurate than to the edges of the x values of the circle, i.e., -20 and 20. The bad results originate from the use of LOOCV and can be avoided by either using X values which are spaced closer to each other as training data or to generate more data, specifically the amount of distributions.
+
+![Toy Regression Heatmap Pred](/assets/Toy%20Regression%20Heatmap%20Pred.png) 
+
+![Toy Regression Results 1](/assets/Toy%20Regression%20Results%201.png) 
+
+![Toy Regression Results 2](/assets/Toy%20Regression%20Results%202.png) 
 
 ## References
 [^Review]: Muandet, K., Fukumizu, K., Sriperumbudur, B., & Schölkopf, B. (2017). Kernel mean embedding of distributions: A review and beyond. Foundations and Trends® in Machine Learning, 10(1-2), 1-141.
