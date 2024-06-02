@@ -12,16 +12,16 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Jasper De Landsheere"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Jasper De Landsheere"
+description              : "Master student in Data Science"
+url                      : "https://jasperdelandsheere.github.io/"" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -89,7 +89,7 @@ baidu_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "jasperdelandsh"
 facebook:
   username               :
   app_id                 :
@@ -113,36 +113,36 @@ analytics:
 # Site Author
 author:
   name             : "Jasper De Landsheere"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **super aaaaaamazing** person."
-  location         : "Somewhere"
-  email            :
+  avatar           : "./assets/images/P1230219.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Master student in Data Science"
+  location         : "Vienna, Austria"
+  email            : "jasperdelandsheere@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:your.name@email.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+    - label: "X"
+      icon: "fa-brands fa-square-x-twitter"
+      url: "https://x.com/jasperdelandsh"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/JasperDeLandsheere"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
 
 # Site Footer
 footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
+  links: 
+    - label: "X"
+      icon: "fa-brands fa-square-x-twitter"
+      url: "https://x.com/jasperdelandsh"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
