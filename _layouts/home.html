@@ -4,7 +4,69 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<!-- h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3> -->
+
+<h1>Biography</h1>
+
+<p>My name is Jasper De Landsheere and I am a Master's student at the Vienna University of Technology.</p>
+
+<div class="row">
+  <!-- Interests Column -->
+  <div class="column">
+    <h2>Interests</h2>
+    <ul>
+      <li>• Artificial Intelligence </li>
+      <li>• Software engineering</li>
+      <li>• Ice hockey</li>
+    </ul>
+  </div>
+  
+  <!-- Education Column -->
+  <div class="column">
+    <h2>Education</h2>
+    <ul>
+      <li>
+        <i class="fas fa-graduation-cap"></i>
+        <strong>MSc in Data Science</strong><br>
+        Vienna University of Technology
+      </li>
+      <li>
+        <i class="fas fa-graduation-cap"></i>
+        <strong>MSc in Bioscience Engineering Technology</strong><br>
+        Ghent University
+      </li>
+      <li>
+        <i class="fas fa-graduation-cap"></i>
+        <strong>BSc in Bioscience Engineering Technology</strong><br>
+        Ghent University
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .row {
+    display: flex;
+  }
+
+  .column {
+    flex: 1;
+    padding: 0 20px;
+  }
+
+  .column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .column ul li {
+    margin-bottom: 10px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow */
+  }
+</style>
+
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
