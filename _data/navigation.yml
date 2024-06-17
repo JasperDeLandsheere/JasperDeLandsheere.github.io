@@ -1,11 +1,7 @@
 # main links
 main:
-  - title: "Lumos"
-    url: https://lumos-consulting.at/
   - title: "CV"
-    url: https://lumos-consulting.at/
-  - title: "About"
-    url: https://lumos-consulting.at/
+    url: "assets/pdfs/resume.pdf"
   # - title: "Lumos"
   #   url: https://lumos-consulting.at/
   # - title: "About"

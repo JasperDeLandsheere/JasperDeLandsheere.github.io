@@ -6,67 +6,86 @@ layout: archive
 
 <!-- h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3> -->
 
-<h1>Biography</h1>
-
-<p>My name is Jasper De Landsheere and I am a Master's student at the Vienna University of Technology.</p>
-
-<div class="row">
-  <!-- Interests Column -->
-  <div class="column">
-    <h2>Interests</h2>
-    <ul>
-      <li>• Artificial Intelligence </li>
-      <li>• Software engineering</li>
-      <li>• Ice hockey</li>
-    </ul>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">01/24: Working on a first publication!</h2>
+    <p style="font-size: 16px;">I am currently supporting the Theoretical Chemistry group at the TU Wien as a student researcher. I'm working on a GAN to generate molecular structures. Paper under review.</p>
   </div>
-  
-  <!-- Education Column -->
-  <div class="column">
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <i class="fas fa-graduation-cap"></i>
-        <strong>MSc in Data Science</strong><br>
-        Vienna University of Technology
-      </li>
-      <li>
-        <i class="fas fa-graduation-cap"></i>
-        <strong>MSc in Bioscience Engineering Technology</strong><br>
-        Ghent University
-      </li>
-      <li>
-        <i class="fas fa-graduation-cap"></i>
-        <strong>BSc in Bioscience Engineering Technology</strong><br>
-        Ghent University
-      </li>
-    </ul>
+  <div style="margin-left: 10px; flex-shrink: 0;">
+    <img src="assets/images/Screenshot 2024-06-17 at 20.14.57.png" alt="University 1 Logo" width="300" height="300" style="opacity: 1;">
   </div>
 </div>
 
-<style>
-  .row {
-    display: flex;
-  }
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">07/23: Joined Lumos, a junior enterprise focused on data science</h2>
+    <p style="font-size: 16px;">After completing a sneak peek project for one semester, 
+      being an academy member for another semester, I'm currently the head of academy. I'm also working as
+    a data science consultant on a project at Siemens.</p>
+  </div>
+  <div style="margin-left: 10px; flex-shrink: 0;">
+    <img src="assets/images/lumos_data_consulting_logo.jpeg" alt="University 1 Logo" width="50" height="50">
+  </div>
+</div>
 
-  .column {
-    flex: 1;
-    padding: 0 20px;
-  }
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">10/22: Started my Master's in Data Science</h2>
+    <p style="font-size: 16px;">Taking the Machine Learning and Statistics specialization.</p>
+  </div>
+  <div style="margin-left: 10px; flex-shrink: 0;">
+    <img src="assets/images/image.png" alt="University 1 Logo" width="50" height="50">
+  </div>
+</div>
 
-  .column ul {
-    list-style-type: none;
-    padding: 0;
-  }
 
-  .column ul li {
-    margin-bottom: 10px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflowed text */
-    text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow */
-  }
-</style>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">07/22: Data-driven prediction of pharmaceutical granules' size</h2>
+    <p style="font-size: 16px;">
+      I finished my Master's thesis and was awarded an 18/20, which was the highest obtained grade amongst fellow graduates!
+      <br> 
+      <br>
+      The goal was to predict the particle size distribution of pharmaceutical granules given some machine settings and blending ratios.
+      Here is a part of my abstract which covers the technical part pretty nicely:
+      <br>
+      <em>By interpreting the conditional mean embedding of distributions as a kernel ridge regression problem, 
+      the relationships between the distributions and the combined information 
+      of the process settings and blending ratios are learned. After a translation from the 
+      reproducing kernel Hilbert space to the original space, predictions are evaluated and interpreted. 
+      Successful predictions of the particle size distributions given process settings 
+      and blending ratios are obtained. Its speed, ease of handling, compactness, and accurate 
+      validated results make the model an attractive data-driven machine learning framework.</em>
+    </p>
+  </div>
+</div>
 
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">07/22: Finished my Master's in Bioscience Engineering Technology</h2>
+    <p style="font-size: 16px;">Graduated with Magna Cum Laude.</p>
+  </div>
+  <div style="margin-left: 10px; flex-shrink: 0;">
+    <img src="assets/images/Ghent_University_logo_(English).png" alt="University 1 Logo" width="50" height="50">
+  </div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">07/21: Finished my Bachelor's in Bioscience Engineering Technology</h2>
+    <p style="font-size: 16px;">Enjoying my time in Ghent.</p>
+  </div>
+  <div style="margin-left: 10px; flex-shrink: 0;">
+    <img src="assets/images/Ghent_University_logo_(English).png" alt="University 1 Logo" width="50" height="50">
+  </div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+  <div>
+    <h2 style="font-size: 20px;">07/18: Spent one year abroad in Rovaniemi (Finland)</h2>
+    <p style="font-size: 16px;">After graduating from high school, I joined the AFS exchange program. This means I redid my final year of high school abroad. I chose Finland as my destination and I got to live with a wonderful host family in Rovaniemi (at the polar circle!).</p>
+  </div>
+</div>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
